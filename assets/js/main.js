@@ -12,6 +12,84 @@
   teaserStyles.href = './assets/css/teaser.css';
   document.head.appendChild(teaserStyles);
 
+  const statusSection = document.querySelector('#status');
+  if (statusSection) {
+    const teaser = document.createElement('section');
+    teaser.className = 'teaser-section';
+    teaser.setAttribute('aria-label', 'MachiVerse 特報');
+
+    const frame = document.createElement('div');
+    frame.className = 'teaser-frame';
+
+    const grid = document.createElement('div');
+    grid.className = 'teaser-grid';
+    grid.setAttribute('aria-hidden', 'true');
+
+    const flare = document.createElement('div');
+    flare.className = 'teaser-flare';
+    flare.setAttribute('aria-hidden', 'true');
+
+    const copy = document.createElement('div');
+    copy.className = 'teaser-copy';
+
+    const label = document.createElement('p');
+    label.className = 'teaser-label';
+    label.textContent = 'MACHIVERSE / SPECIAL TEASER';
+
+    const title = document.createElement('h2');
+    title.className = 'teaser-title';
+    ['世界が生まれる。', '歴史が積み重なる。', 'そして、現在になる。'].forEach((text) => {
+      const line = document.createElement('span');
+      line.textContent = text;
+      title.appendChild(line);
+    });
+
+    const status = document.createElement('p');
+    status.className = 'teaser-status';
+    status.textContent = 'WORLD SEED INITIALIZED / HISTORY IN PROGRESS';
+
+    const sequence = document.createElement('div');
+    sequence.className = 'teaser-sequence';
+    sequence.setAttribute('aria-hidden', 'true');
+    ['ENVIRONMENT', 'RESIDENT', 'SOCIETY', 'ECONOMY', 'CITY', 'HISTORY'].forEach((text) => {
+      const item = document.createElement('span');
+      item.textContent = text;
+      sequence.appendChild(item);
+    });
+
+    copy.append(label, title, status);
+    frame.append(grid, flare, copy, sequence);
+    teaser.appendChild(frame);
+    statusSection.before(teaser);
+
+    const steps = [...sequence.children];
+    let step = 0;
+    let timer = 0;
+    const setStep = () => {
+      steps.forEach((item, index) => item.classList.toggle('is-active', index === step));
+      step = (step + 1) % steps.length;
+    };
+    const start = () => {
+      teaser.classList.add('is-running');
+      if (reduceMotion || timer) return;
+      setStep();
+      timer = window.setInterval(setStep, 780);
+    };
+    const stop = () => {
+      if (timer) window.clearInterval(timer);
+      timer = 0;
+    };
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      start();
+    } else {
+      const teaserObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => entry.isIntersecting ? start() : stop());
+      }, { threshold: 0.32 });
+      teaserObserver.observe(teaser);
+    }
+  }
+
   let openingSeen = false;
   try { openingSeen = window.sessionStorage.getItem('machiverse-opening-seen') === '1'; } catch { openingSeen = false; }
 
