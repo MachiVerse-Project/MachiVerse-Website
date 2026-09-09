@@ -1,160 +1,298 @@
-/* Mio Nagumo appears as a real-world system developer, not as a page narrator.
-   MachiVerse remains the subject of the site. This layer adds restrained developer identity. */
+/* Mio Nagumo appears as a real-world system developer, not as a fictional
+   controller of MachiVerse. The presentation is intentionally playful while
+   keeping MachiVerse itself as the subject of the page. */
 
 .hero-developer-credit {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 26px;
-  padding-left: 16px;
-  border-left: 2px solid rgba(139, 211, 255, 0.56);
-  color: var(--text-muted);
+  gap: 12px;
+  margin-top: 24px;
+  padding: 7px 16px 7px 8px;
+  border: 1px solid rgba(36, 125, 181, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #5e7488;
+  box-shadow: 0 12px 30px rgba(49, 107, 145, 0.11);
+  backdrop-filter: blur(10px);
+}
+
+.hero-developer-credit::after {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  margin-left: 2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e5f8ff, #fff0f7);
+  color: #228dc6;
+  content: "✦";
+  font-size: .7rem;
 }
 
 .hero-developer-credit > div {
   display: grid;
   grid-template-columns: auto auto;
   align-items: baseline;
-  gap: 2px 10px;
+  gap: 1px 9px;
 }
 
 .hero-developer-label {
   grid-column: 1 / -1;
-  color: rgba(255, 255, 255, 0.44);
-  font-size: 0.62rem;
-  font-weight: 800;
+  color: #6d8799;
+  font-size: 0.6rem;
+  font-weight: 840;
   letter-spacing: 0.14em;
 }
 
 .hero-developer-credit strong {
-  color: var(--text);
-  font-size: 0.96rem;
-  font-weight: 760;
+  color: #17364e;
+  font-size: 0.94rem;
+  font-weight: 800;
 }
 
 .hero-developer-credit small {
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.72rem;
+  color: #8296a5;
+  font-size: 0.7rem;
 }
 
-.hero-developer-portrait {
-  width: 58px;
-  height: 76px;
-  margin: -18px 0 -8px;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-}
-
+.hero-developer-portrait,
 .hero-developer-portrait[hidden] {
-  display: none;
+  display: block !important;
+  width: 54px;
+  height: 58px;
+  flex: 0 0 54px;
+  margin: -10px 0 -7px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, #ddf5ff, #f4ecff),
+    url("../images/characters/nagumo-mio/02_通常立ち・笑顔.png") center 12% / 116% auto no-repeat;
+  box-shadow: 0 7px 18px rgba(47, 104, 143, .15);
 }
 
 .hero-developer-portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  display: none;
 }
 
 .developer-note-section {
   position: relative;
-  padding: 72px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  padding: 88px 0 92px;
+  border-top: 1px solid rgba(32, 118, 172, 0.09);
+  border-bottom: 1px solid rgba(32, 118, 172, 0.09);
   background:
-    radial-gradient(circle at 14% 30%, rgba(95, 195, 255, 0.075), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.008));
+    radial-gradient(circle at 8% 24%, rgba(96, 216, 191, 0.18), transparent 22rem),
+    radial-gradient(circle at 92% 70%, rgba(255, 124, 185, 0.14), transparent 24rem),
+    linear-gradient(180deg, #f4fbff, #eef9ff 58%, #fff8fb);
+}
+
+.developer-note-section::before,
+.developer-note-section::after {
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  content: "";
+  pointer-events: none;
+}
+
+.developer-note-section::before {
+  top: 34px;
+  right: 8%;
+  width: 98px;
+  height: 22px;
+  background: rgba(255, 216, 107, .62);
+  transform: rotate(8deg);
+}
+
+.developer-note-section::after {
+  bottom: 40px;
+  left: 5%;
+  width: 64px;
+  height: 64px;
+  border: 12px solid rgba(154, 140, 255, .13);
+}
+
+.developer-note-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .developer-note-card {
-  display: flex;
-  align-items: flex-end;
-  gap: 44px;
-  padding: 36px 40px;
-  border: 1px solid rgba(139, 211, 255, 0.14);
-  border-radius: 20px;
-  background: rgba(9, 14, 22, 0.68);
-  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.18);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(230px, .34fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 32px;
+  min-height: 390px;
+  padding: 34px 42px 36px 34px;
+  border: 1px solid rgba(34, 120, 176, 0.13);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 28px 72px rgba(48, 108, 147, 0.14);
+}
+
+.developer-note-card::before {
+  position: absolute;
+  top: -11px;
+  right: 46px;
+  width: 94px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(90deg, rgba(99,214,255,.8), rgba(154,140,255,.78));
+  content: "";
+  transform: rotate(3deg);
+}
+
+.developer-note-card::after {
+  position: absolute;
+  right: 34px;
+  bottom: 28px;
+  width: 56px;
+  height: 20px;
+  background-image: radial-gradient(circle, #ff8abb 2.5px, transparent 3px);
+  background-size: 14px 14px;
+  content: "";
+  opacity: .56;
 }
 
 .developer-note-copy {
-  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+  align-self: center;
   max-width: 900px;
+  padding-block: 12px;
 }
 
 .developer-note-copy h2 {
   max-width: 820px;
-  margin: 12px 0 18px;
-  font-size: clamp(1.75rem, 3vw, 2.85rem);
+  margin: 16px 0 18px;
+  color: #17364e;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
   line-height: 1.36;
 }
 
 .developer-note-copy > p:last-child {
   max-width: 790px;
   margin: 0;
-  color: var(--text-muted);
+  color: #5c7487;
 }
 
 .developer-note-name {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0 0;
+  gap: 9px;
+  width: fit-content;
+  margin: 14px 0 0;
+  padding: 6px 10px 6px 12px;
+  border-radius: 999px;
+  background: #eef8ff;
+}
+
+.developer-note-name::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #57d3b8;
+  box-shadow: 0 0 0 4px rgba(87,211,184,.13);
+  content: "";
 }
 
 .developer-note-name strong {
-  color: var(--text);
-  font-size: 1.04rem;
+  color: #17364e;
+  font-size: 1.02rem;
 }
 
 .developer-note-name span {
-  color: var(--text-muted);
-  font-size: 0.77rem;
+  color: #6d8597;
+  font-size: 0.75rem;
 }
 
-.developer-note-portrait {
-  flex: 0 0 min(27vw, 270px);
-  align-self: stretch;
-  min-height: 300px;
-  margin: -16px 0 -36px;
-  overflow: hidden;
-  border-radius: 16px 16px 0 0;
-}
-
+.developer-note-portrait,
 .developer-note-portrait[hidden] {
-  display: none;
+  display: block !important;
+  position: relative;
+  align-self: stretch;
+  min-height: 330px;
+  margin: -14px 0 -36px;
+  overflow: visible;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 48% 52%, rgba(85, 201, 255, .18), transparent 46%),
+    url("../images/characters/nagumo-mio/13_指差し・説明顔.png") center bottom / contain no-repeat;
+}
+
+.developer-note-portrait::before {
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  width: 72%;
+  aspect-ratio: 1;
+  z-index: -1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dff7ff, #eeeaff 58%, #fff0f7);
+  content: "";
+}
+
+.developer-note-portrait::after {
+  position: absolute;
+  top: 42px;
+  left: 14px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #ffd86b;
+  color: #6b5520;
+  box-shadow: 0 8px 18px rgba(85, 123, 146, .15);
+  content: "!";
+  font-size: 1.1rem;
+  font-weight: 900;
+  transform: rotate(-8deg);
 }
 
 .developer-note-portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  display: none;
 }
 
 .status-developer-note {
-  max-width: 650px;
-  margin-top: 26px;
-  padding: 16px 18px;
-  border-left: 2px solid rgba(139, 211, 255, 0.42);
-  background: rgba(255, 255, 255, 0.018);
+  position: relative;
+  max-width: 660px;
+  margin-top: 28px;
+  padding: 18px 20px 18px 24px;
+  border: 1px solid rgba(42, 124, 177, .11);
+  border-left: 0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(52, 108, 144, .09);
+}
+
+.status-developer-note::before {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 0;
+  width: 5px;
+  border-radius: 999px;
+  background: linear-gradient(#4fcaff, #8d80ff, #ff7db9);
+  content: "";
 }
 
 .status-developer-note span {
   display: block;
   margin-bottom: 5px;
-  color: rgba(255, 255, 255, 0.5);
+  color: #2d80ae;
   font-size: 0.7rem;
-  font-weight: 760;
+  font-weight: 820;
   letter-spacing: 0.06em;
 }
 
 .status-developer-note p {
   margin: 0;
-  color: var(--text-muted);
+  color: #5c7487;
   font-size: 0.9rem;
   line-height: 1.75;
 }
@@ -163,35 +301,61 @@ html[lang="ja"] .developer-note-copy h2 {
   letter-spacing: -0.02em;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
+  .developer-note-card {
+    grid-template-columns: minmax(190px, .42fr) minmax(0, 1fr);
+    padding-inline: 24px 30px;
+  }
+
+  .developer-note-portrait,
+  .developer-note-portrait[hidden] {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 680px) {
   .hero-developer-credit {
-    margin-top: 22px;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 20px;
   }
 
   .developer-note-section {
-    padding: 54px 0;
+    padding: 64px 0 70px;
   }
 
   .developer-note-card {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 24px;
-    padding: 28px 24px;
-    border-radius: 16px;
-  }
-
-  .developer-note-portrait {
-    flex-basis: auto;
-    width: min(70vw, 280px);
+    grid-template-columns: 1fr;
+    gap: 8px;
     min-height: 0;
-    margin: -8px auto 0;
+    padding: 24px 22px 28px;
+    border-radius: 26px;
   }
 
-  .developer-note-portrait img {
-    aspect-ratio: 3 / 4;
+  .developer-note-card::before {
+    right: 26px;
+  }
+
+  .developer-note-portrait,
+  .developer-note-portrait[hidden] {
+    width: min(80vw, 320px);
+    min-height: 290px;
+    margin: -18px auto -8px;
+    order: 2;
+  }
+
+  .developer-note-copy {
+    order: 1;
   }
 
   .status-developer-note {
     margin-top: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .developer-note-card,
+  .hero-developer-credit {
+    transform: none;
   }
 }
