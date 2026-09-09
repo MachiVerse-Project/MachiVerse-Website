@@ -6,6 +6,13 @@
   const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
   const observedSections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
 
+  if (document.body?.classList.contains('navigator-site')) {
+    const framingStyles = document.createElement('link');
+    framingStyles.rel = 'stylesheet';
+    framingStyles.href = './assets/css/nagumo-framing.css';
+    document.head.appendChild(framingStyles);
+  }
+
   let openingSeen = false;
   try { openingSeen = window.sessionStorage.getItem('machiverse-opening-seen') === '1'; } catch {}
   const finishOpening = () => {
