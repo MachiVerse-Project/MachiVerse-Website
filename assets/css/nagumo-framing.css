@@ -211,3 +211,161 @@
     transform:scale(1.2);
   }
 }
+
+/*
+ * Shared navigation policy: technical pages use the same header language as the
+ * public site. A page-level current location is the only persistent nav state;
+ * section links may still receive JS scroll state, but that state stays visually
+ * neutral on technical pages so two destinations never look selected at once.
+ * This stylesheet loads after the page-specific developer stylesheet, so these
+ * rules intentionally normalize the earlier technical-header overrides.
+ */
+.navigator-site.developer-page .site-header {
+  top:0;
+  width:min(calc(100% - 28px),1220px);
+  margin:12px auto 0;
+  border:0;
+  border-radius:24px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 8px 30px rgba(32,88,126,.08);
+}
+.navigator-site.developer-page .header-inner {
+  min-height:72px;
+  align-items:center;
+  flex-wrap:nowrap;
+  padding-block:0;
+}
+.navigator-site.developer-page .developer-header-actions {
+  display:flex;
+  flex:0 1 auto;
+  align-items:center;
+  justify-content:flex-end;
+  gap:18px;
+  width:auto;
+}
+.navigator-site.developer-page .site-nav {
+  position:static;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:7px;
+  padding:0;
+}
+.navigator-site.developer-page .site-nav::before,
+.navigator-site.developer-page .site-nav a[aria-current="page"]::before {
+  display:none;
+  content:none;
+}
+.navigator-site.developer-page .site-nav a {
+  padding:8px 12px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:#557286;
+  box-shadow:none;
+  font-size:.8rem;
+  font-weight:800;
+}
+.navigator-site.developer-page .site-nav a:hover,
+.navigator-site.developer-page .site-nav a:focus-visible,
+.navigator-site.developer-page .site-nav a[aria-current="page"] {
+  color:#0c78b1;
+  background:#e7f7ff;
+  box-shadow:none;
+  transform:translateY(-1px);
+}
+.navigator-site.developer-page .site-nav a.is-active:not([aria-current="page"]):not(:hover):not(:focus-visible) {
+  color:#557286;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+}
+.navigator-site.developer-page .site-nav a:last-child {
+  margin-left:0;
+  border-left:0;
+  background:transparent;
+}
+.navigator-site.developer-page .site-nav a:last-child:hover,
+.navigator-site.developer-page .site-nav a:last-child:focus-visible,
+.navigator-site.developer-page .site-nav a:last-child[aria-current="page"] {
+  background:#e7f7ff;
+}
+.navigator-site.developer-page .lang-switch {
+  position:static;
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  width:auto;
+  padding:3px;
+  border:0;
+  border-radius:999px;
+  background:#f1f8fc;
+  box-shadow:none;
+}
+.navigator-site.developer-page .lang-switch::before {
+  display:none;
+  content:none;
+}
+.navigator-site.developer-page .lang-switch a {
+  min-width:40px;
+  padding:5px 9px;
+  border-radius:999px;
+  font-size:.72rem;
+}
+.navigator-site.developer-page .lang-switch a[aria-current="page"] {
+  background:#dff4ff;
+  color:#12679b;
+}
+
+@media (max-width:900px) {
+  .navigator-site.developer-page .site-header {
+    top:8px;
+    width:min(calc(100% - 18px),1220px);
+    margin-top:8px;
+  }
+}
+
+@media (max-width:760px) {
+  .navigator-site.developer-page .header-inner {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center;
+    gap:8px 12px;
+    min-height:0;
+    padding:10px 0 8px;
+  }
+  .navigator-site.developer-page .brand {
+    grid-column:1;
+    grid-row:1;
+    width:auto;
+  }
+  .navigator-site.developer-page .developer-header-actions {
+    display:contents;
+    width:auto;
+  }
+  .navigator-site.developer-page .lang-switch {
+    grid-column:2;
+    grid-row:1;
+    justify-self:end;
+    align-self:auto;
+  }
+  .navigator-site.developer-page .site-nav {
+    grid-column:1 / -1;
+    grid-row:2;
+    width:100%;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:5px;
+    padding:2px 0 4px;
+    scrollbar-width:none;
+  }
+  .navigator-site.developer-page .site-nav a {
+    display:block;
+    min-height:0;
+    flex:0 0 auto;
+    padding:7px 10px;
+    font-size:.74rem;
+    text-align:left;
+  }
+}
