@@ -35,6 +35,9 @@
 .page-switch a { padding:7px 13px; border-radius:999px; color:var(--text-muted); font-size:.8rem; font-weight:750; text-decoration:none; }
 .page-switch a[aria-current="page"] { background:#dff4ff; color:#12679b; }
 
+/* Keep contribution document chips clear of the rounded card edge without lifting Mio. */
+.developer-page .join-card > div { padding-bottom:30px; }
+
 @media (max-width:900px) {
   .developer-hero-grid,.architecture-flow { grid-template-columns:1fr 1fr; }
   .architecture-node:nth-child(2)::after { display:none; }
