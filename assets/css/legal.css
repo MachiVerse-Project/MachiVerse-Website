@@ -32,7 +32,7 @@
   bottom:0;
   width:320px;
   height:304px;
-  background:url("../images/characters/nagumo-mio/web/mio-explain.png") center -10px / auto 520px no-repeat;
+  background:url("../images/characters/nagumo-mio/web/mio-explain.png") center 18px / auto 520px no-repeat;
   content:"";
   pointer-events:none;
   filter:drop-shadow(0 18px 24px rgba(42,84,113,.16));
@@ -83,14 +83,14 @@
 @media (max-width:900px) {
   .legal-hero .container { min-height:290px; padding-right:300px; }
   .legal-hero .container::before { right:8px; width:250px; height:220px; }
-  .legal-hero .container::after { right:0; width:280px; height:280px; background-size:auto 470px; }
+  .legal-hero .container::after { right:0; width:280px; height:280px; background-position:center 14px; background-size:auto 470px; }
 }
 
 @media (max-width:680px) {
   .legal-hero { padding-top:50px; padding-bottom:18px; }
   .legal-hero .container { min-height:0; padding-top:12px; padding-right:0; padding-bottom:236px; }
   .legal-hero .container::before { right:50%; bottom:4px; width:230px; height:188px; transform:translateX(50%); }
-  .legal-hero .container::after { right:50%; bottom:0; width:250px; height:226px; background-position:center -8px; background-size:auto 400px; transform:translateX(50%); }
+  .legal-hero .container::after { right:50%; bottom:0; width:250px; height:226px; background-position:center 12px; background-size:auto 400px; transform:translateX(50%); }
   .legal-document { padding:24px 20px 30px; }
   .legal-card-header { padding:20px; }
   .legal-page .header-inner { align-items:center; flex-direction:row; }
