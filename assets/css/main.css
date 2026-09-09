@@ -75,6 +75,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   display: grid;
   place-items: center;
   overflow: hidden;
+  background: #fff !important;
+  color: #17324a;
   transition: opacity .9s ease, visibility .9s ease;
 }
 /*
@@ -87,11 +89,45 @@ button, a { -webkit-tap-highlight-color: transparent; }
   pointer-events: none;
   transition-delay: 1.2s, 1.2s;
 }
-.opening-flare,.opening-lines { position: absolute; }
+.opening-flare,.opening-lines {
+  position: absolute;
+  display: none !important;
+}
 .opening-lines { inset: 0; }
-.opening-logo { position: relative; width: min(72vw,700px); text-align: center; }
-.opening-logo img { display: block; width: 100%; height: auto; }
-.opening-logo p { margin: 18px 0 0; font-size: .72rem; font-weight: 800; letter-spacing: .2em; }
+.opening-logo {
+  position: relative;
+  width: min(72vw,700px);
+  text-align: center;
+}
+/*
+ * The repository currently carries the light wordmark and the official symbol,
+ * but not the horizontal dark wordmark. On a white opening screen use the
+ * official symbol directly rather than recolouring or fabricating the logo.
+ */
+.opening-logo img {
+  display: block;
+  content: url("../images/brand/logo-symbol.png");
+  width: min(30vw,160px);
+  height: auto;
+  margin: 0 auto;
+}
+.opening-logo p {
+  margin: 18px 0 0;
+  color: #17324a;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+.opening-logo p::before {
+  display: block;
+  margin-bottom: 14px;
+  color: #17324a;
+  content: "MachiVerse";
+  font-size: clamp(1.7rem,4vw,2.8rem);
+  font-weight: 850;
+  letter-spacing: .04em;
+  line-height: 1.1;
+}
 
 .site-header { position: sticky; z-index: 30; }
 .header-inner { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 28px; }
