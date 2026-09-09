@@ -1,5 +1,6 @@
 (() => {
   const root = document.documentElement;
+  const isJapanese = (root.lang || '').toLowerCase().startsWith('ja');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const opening = document.querySelector('.opening');
   const progress = document.querySelector('.scroll-progress');
@@ -14,9 +15,23 @@
 
   const statusSection = document.querySelector('#status');
   if (statusSection) {
+    const teaserCopy = isJapanese ? {
+      aria: 'MachiVerse 特報',
+      label: 'MachiVerse 特報 / SPECIAL TEASER',
+      lines: ['世界が生まれる。', '歴史が積み重なる。', 'そして、現在になる。'],
+      status: '世界の初期状態から、歴史は動き始める。',
+      sequence: ['環境', '住民', '社会', '経済', '都市', '歴史']
+    } : {
+      aria: 'MachiVerse special teaser',
+      label: 'MACHIVERSE / SPECIAL TEASER',
+      lines: ['A world begins.', 'History accumulates.', 'And becomes the present.'],
+      status: 'WORLD SEED INITIALIZED / HISTORY IN PROGRESS',
+      sequence: ['ENVIRONMENT', 'RESIDENT', 'SOCIETY', 'ECONOMY', 'CITY', 'HISTORY']
+    };
+
     const teaser = document.createElement('section');
     teaser.className = 'teaser-section';
-    teaser.setAttribute('aria-label', 'MachiVerse 特報');
+    teaser.setAttribute('aria-label', teaserCopy.aria);
 
     const frame = document.createElement('div');
     frame.className = 'teaser-frame';
@@ -34,11 +49,11 @@
 
     const label = document.createElement('p');
     label.className = 'teaser-label';
-    label.textContent = 'MACHIVERSE / SPECIAL TEASER';
+    label.textContent = teaserCopy.label;
 
     const title = document.createElement('h2');
     title.className = 'teaser-title';
-    ['世界が生まれる。', '歴史が積み重なる。', 'そして、現在になる。'].forEach((text) => {
+    teaserCopy.lines.forEach((text) => {
       const line = document.createElement('span');
       line.textContent = text;
       title.appendChild(line);
@@ -46,12 +61,12 @@
 
     const status = document.createElement('p');
     status.className = 'teaser-status';
-    status.textContent = 'WORLD SEED INITIALIZED / HISTORY IN PROGRESS';
+    status.textContent = teaserCopy.status;
 
     const sequence = document.createElement('div');
     sequence.className = 'teaser-sequence';
     sequence.setAttribute('aria-hidden', 'true');
-    ['ENVIRONMENT', 'RESIDENT', 'SOCIETY', 'ECONOMY', 'CITY', 'HISTORY'].forEach((text) => {
+    teaserCopy.sequence.forEach((text) => {
       const item = document.createElement('span');
       item.textContent = text;
       sequence.appendChild(item);
