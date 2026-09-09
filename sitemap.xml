@@ -6,6 +6,8 @@
     <loc>https://machiverse.app/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
     <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
     <lastmod>2026-09-10</lastmod>
@@ -14,6 +16,28 @@
     <loc>https://machiverse.app/index-en.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/index-zh-tw.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/index-ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
     <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
     <lastmod>2026-09-10</lastmod>
