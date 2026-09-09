@@ -5,18 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MachiVerse | 世界がそうなった理由までシミュレーションする</title>
   <meta name="description" content="MachiVerseは、人・自然・社会・経済・都市・歴史がつながり、現在に至る因果まで扱うことを目指すオープンソースの大規模世界シミュレーションプロジェクトです。">
-  <meta name="theme-color" content="#090b11">
+  <meta name="theme-color" content="#f7fcff">
   <link rel="canonical" href="https://machiverse.app/">
   <link rel="alternate" hreflang="ja" href="https://machiverse.app/">
   <link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html">
   <link rel="alternate" hreflang="x-default" href="https://machiverse.app/">
   <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/cinematic.css">
-  <link rel="stylesheet" href="./assets/css/visual-assets.css">
   <link rel="stylesheet" href="./assets/css/localized.css">
-  <link rel="stylesheet" href="./assets/css/nagumo.css">
-
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:locale:alternate" content="en_US">
@@ -27,8 +24,6 @@
   <meta property="og:image" content="https://machiverse.app/assets/images/site/social-general.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="人・自然・社会・経済・都市・歴史がつながるMachiVerseの世界シミュレーションイメージ">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MachiVerse">
   <meta name="twitter:description" content="世界を作るのではなく、世界がそうなった理由までシミュレーションする。">
@@ -36,7 +31,7 @@
   <script>document.documentElement.classList.add('js', 'opening-pending')</script>
   <script src="./assets/js/main.js" defer></script>
 </head>
-<body class="localized-site">
+<body class="navigator-site localized-site">
   <a class="skip-link" href="#main">本文へ移動</a>
 
   <div class="opening" aria-hidden="true">
@@ -44,14 +39,8 @@
     <div class="opening-lines"></div>
     <div class="opening-logo">
       <img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240">
-      <p>因果と歴史を持つ世界シミュレーション</p>
+      <p>世界がそうなった理由まで。</p>
     </div>
-  </div>
-
-  <div class="page-atmosphere" aria-hidden="true">
-    <div class="atmosphere-grid"></div>
-    <div class="atmosphere-glow atmosphere-glow-a"></div>
-    <div class="atmosphere-glow atmosphere-glow-b"></div>
   </div>
 
   <header class="site-header">
@@ -62,10 +51,11 @@
       </a>
       <div class="header-actions">
         <nav class="site-nav" aria-label="メインナビゲーション">
-          <a href="#about">MachiVerseとは</a>
-          <a href="#vision">目指す世界</a>
+          <a href="#about">なぜ？</a>
+          <a href="#world">つながる世界</a>
           <a href="#diver">ダイバー</a>
           <a href="#status">現在地</a>
+          <a href="#join">参加する</a>
           <a href="./developer.html">開発者向け</a>
         </nav>
         <nav class="lang-switch" aria-label="言語切り替え">
@@ -78,224 +68,207 @@
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="hero-particles" aria-hidden="true"></div>
-      <div class="hero-rays" aria-hidden="true"></div>
-
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow hero-eyebrow">世界シミュレーション <span>OPEN SOURCE</span></p>
-          <p class="hero-note">人・自然・社会・経済・都市・歴史。その全部を、ひとつの世界として。</p>
-          <h1>
-            <span class="hero-line">この街が、</span>
-            <span class="hero-line hero-line-accent">ここにある理由</span>
-            <span class="hero-line">までシミュレーションする。</span>
-          </h1>
+    <section class="navigator-hero" id="intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
+      data-mio-alt="南雲澪"
+      data-mio-kicker="SYSTEM DEVELOPMENT / GUIDE"
+      data-mio-title="南雲 澪です。MachiVerseを案内します。"
+      data-mio-text="まずは、このプロジェクトが何をシミュレーションしようとしているのかから。">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <p class="navigator-kicker">OPEN SOURCE WORLD SIMULATION</p>
+          <h1>この街が、<br><span class="marker">ここにある理由</span><br>まで。</h1>
           <p class="hero-lead">
-            MachiVerseは、完成した街を最初から置くのではなく、
-            人や自然の営み、社会や経済の変化、時間の積み重ねによって、
-            「なぜ今の世界がこうなったのか」までたどれる世界を目指しています。
+            MachiVerseは、街を完成品として置くのではなく、人・自然・社会・経済・都市・歴史の変化をつなぎ、
+            「なぜ今の世界がこうなったのか」までたどれる世界を目指す大規模シミュレーションプロジェクトです。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#about">MachiVerseを知る</a>
-            <a class="button button-secondary" href="./developer.html">開発者向け情報</a>
+            <a class="button button-primary" href="#about">南雲と見ていく</a>
+            <a class="button button-secondary" href="./developer.html">実装を見る</a>
           </div>
-          <div class="hero-developer-credit" aria-label="MachiVerse システム開発者">
-            <figure class="hero-developer-portrait" hidden>
-              <img src="./assets/images/navigator/nagumo-mio.webp" alt="南雲澪" width="320" height="420">
-            </figure>
-            <div>
-              <span class="hero-developer-label">SYSTEM DEVELOPMENT</span>
-              <strong>南雲 澪</strong>
-              <small>Mio Nagumo</small>
-            </div>
-          </div>
+          <ol class="hero-route" aria-label="ページの流れ">
+            <li><a href="#about"><b>01</b> なぜ？</a></li>
+            <li><a href="#world"><b>02</b> 世界</a></li>
+            <li><a href="#diver"><b>03</b> 参加</a></li>
+            <li><a href="#status"><b>04</b> 現在地</a></li>
+          </ol>
         </div>
 
-        <div class="world-stage" data-parallax aria-hidden="true">
-          <div class="world-halo world-halo-a"></div>
-          <div class="world-halo world-halo-b"></div>
-          <div class="world-card">
-            <div class="world-core">世界</div>
-            <div class="orbit orbit-a"><span>人</span><span>社会</span></div>
-            <div class="orbit orbit-b"><span>自然</span><span>経済</span></div>
-            <div class="orbit orbit-c"><span>都市</span><span>歴史</span></div>
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerseシステム開発者 南雲澪">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>MIO'S GUIDE 00</strong>
+            <p>完成した都市を置く話ではありません。<br>そこに至るまでを動かす話です。</p>
+          </div>
+          <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="指差しながら笑顔で案内する南雲澪" width="720" height="960">
           </div>
         </div>
-      </div>
-
-      <a class="scroll-cue" href="#about" aria-label="MachiVerseとはへスクロール">
-        <span>下へ</span>
-        <i aria-hidden="true"></i>
-      </a>
-    </section>
-
-    <section id="about" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">起点</span>
-      <div class="container narrow reveal">
-        <p class="section-label">MachiVerseとは <small>ABOUT</small></p>
-        <h2>「完成した世界」ではなく、<br>「世界が世界になっていく過程」を。</h2>
-        <div class="prose lead-prose">
-          <p>
-            ここに街があるのは、誰かが最初から置いたからではないかもしれません。
-            水があり、暮らしやすい土地があり、人が集まり、仕事が生まれ、道ができた。
-            その結果として街が広がり、次の世代にはそれが「昔からある風景」になっていく。
-          </p>
-          <p>
-            MachiVerseは、都市や住民、自然環境を固定された完成物としてではなく、
-            過去の状態と選択の結果として現在が形成され、現在の変化が未来へ残っていく世界として扱うことを目指しています。
-          </p>
-        </div>
-        <p class="statement">「世界を作る」のではなく、<br>「世界がそうなった理由」までシミュレーションする。</p>
       </div>
     </section>
 
-    <div class="interlude interlude-ja" aria-hidden="true">
-      <div class="interlude-track">
-        <span>因果</span><i>×</i><span>状態</span><i>×</i><span>時間</span><i>×</i><span>歴史</span><i>×</i>
-        <span>因果</span><i>×</i><span>状態</span><i>×</i><span>時間</span><i>×</i><span>歴史</span><i>×</i>
-      </div>
-    </div>
-
-    <section id="vision" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">つながり</span>
-      <div class="container">
-        <div class="reveal">
-          <p class="section-label">目指す世界 <small>VISION</small></p>
-          <h2>世界は、いろいろなものが<br>つながった結果として変わっていく。</h2>
+    <section id="about" class="story-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-surprise.png"
+      data-mio-alt="驚いた表情の南雲澪"
+      data-mio-kicker="GUIDE 01 / WHY"
+      data-mio-title="『街がある』だけでは、理由は分かりません。"
+      data-mio-text="MachiVerseが扱いたいのは、結果だけでなく、そこへ至った状態と変化です。">
+      <div class="container story-shell">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">01 / WHY THIS WORLD?</p>
+          <h2>世界を置くのではなく、<br>世界ができるまでを。</h2>
+          <span class="big-line">水がある。人が集まる。仕事が生まれる。道ができる。街になる。</span>
+          <p>
+            いま目の前にある都市や社会は、突然完成したわけではありません。
+            過去の環境、選択、相互作用が積み重なり、それが次の状態へ影響した結果として「現在」があります。
+          </p>
+          <p>MachiVerseは、その過程自体を世界の一部として扱うことを目指しています。</p>
+          <div class="reason-board" aria-label="MachiVerseがつなぐ要素">
+            <div class="reason-chip"><b>CAUSE</b><span>変化のきっかけ</span></div>
+            <div class="reason-chip"><b>STATE</b><span>その時の世界の状態</span></div>
+            <div class="reason-chip"><b>TIME</b><span>状態が積み重なる時間</span></div>
+            <div class="reason-chip"><b>HISTORY</b><span>次の状態へ残る履歴</span></div>
+          </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card reveal" data-reveal-delay="0">
-            <span class="feature-index">01</span>
-            <h3>自然が暮らしを変える</h3>
-            <p>地形、水域、植生などを背景ではなく、居住、生産、産業、交通へ影響する世界状態として扱うことを目指します。</p>
-          </article>
-          <article class="feature-card reveal" data-reveal-delay="90">
-            <span class="feature-index">02</span>
-            <h3>人の営みが社会をつくる</h3>
-            <p>一人ひとりの生活や選択が、家族、仕事、組織、教育などの関係へつながり、社会の状態を変えていく世界を目指します。</p>
-          </article>
-          <article class="feature-card reveal" data-reveal-delay="180">
-            <span class="feature-index">03</span>
-            <h3>経済が都市の姿を変える</h3>
-            <p>資源、生産、物流、市場、人の移動をつなぎ、その積み重ねが街や集落の姿にも現れる世界を目指します。</p>
-          </article>
-          <article class="feature-card reveal" data-reveal-delay="270">
-            <span class="feature-index">04</span>
-            <h3>変化が歴史として残る</h3>
-            <p>出来事をその場限りで消費せず、過去の状態が次の状態へ影響し、「今」の理由をたどれる世界を目指します。</p>
-          </article>
-        </div>
-
-        <figure class="site-visual-figure reveal" data-reveal-delay="140">
-          <img src="./assets/images/site/concept-connected-world.webp" alt="自然、人、社会、経済、都市、歴史がひとつの世界状態として相互につながるMachiVerseのコンセプトビジュアル" width="1600" height="1200" loading="lazy">
-          <figcaption>
-            <strong>ひとつにつながる世界</strong>
-            <span>人・自然・社会・経済・都市・歴史を切り離さず、相互作用する世界として扱う。</span>
-          </figcaption>
+        <figure class="story-card reveal" data-reveal-delay="120">
+          <img src="./assets/images/site/hero-general.webp" alt="山、水辺、都市が連続するMachiVerseの世界イメージ" width="1920" height="1080" loading="lazy">
+          <figcaption>「今ある街」を見るだけではなく、その景色へ至るまでを世界の履歴として扱う。</figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="developer-note-section" aria-labelledby="developer-note-title">
-      <div class="container">
-        <div class="developer-note-card reveal">
-          <figure class="developer-note-portrait" hidden>
-            <img src="./assets/images/navigator/nagumo-mio.webp" alt="MachiVerseシステム開発者 南雲澪" width="720" height="960" loading="lazy">
-          </figure>
-          <div class="developer-note-copy">
-            <p class="section-label">開発者ノート <small>DEVELOPER'S NOTE</small></p>
-            <p class="developer-note-name"><strong>南雲 澪</strong><span>システム開発</span></p>
-            <h2 id="developer-note-title">現在の状態だけでなく、<br>そこに至る理由も残す。</h2>
-            <p>
-              MachiVerseの設計では、変化した結果だけでなく、そのきっかけや前後の状態を扱えることを重視しています。
-              世界の履歴が次の状態へ影響し、あとから「なぜこうなったのか」をたどれることが、プロジェクトの中心にある考え方です。
-            </p>
+    <section id="world" class="story-section world-playground"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="説明する南雲澪"
+      data-mio-kicker="GUIDE 02 / CONNECT"
+      data-mio-title="世界は、ひとつの要素だけでは動きません。"
+      data-mio-text="自然、人、社会、経済、都市、歴史。相互作用するから世界になります。">
+      <div class="container story-shell reverse">
+        <figure class="story-card reveal">
+          <img src="./assets/images/site/concept-connected-world.webp" alt="人、自然、社会、経済、都市、歴史がつながるMachiVerseのコンセプトビジュアル" width="1600" height="1200" loading="lazy">
+          <figcaption>個別のシステムではなく、相互作用する一つの世界としてつなげていく。</figcaption>
+        </figure>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">02 / CONNECT THE WORLD</p>
+          <h2>人も、自然も、経済も。<br>ぜんぶ同じ世界の中。</h2>
+          <p>
+            地形や水域は暮らしに影響し、人の活動が社会を形づくり、資源や物流、市場の変化が都市の姿へ現れる。
+            その変化が履歴として残り、さらに次の状態へ影響していく。MachiVerseは、こうした連鎖を長期的に育てていきます。
+          </p>
+          <div class="connection-grid" aria-label="つながる世界の要素">
+            <div class="connection-pill"><i></i>人</div>
+            <div class="connection-pill"><i></i>自然</div>
+            <div class="connection-pill"><i></i>社会</div>
+            <div class="connection-pill"><i></i>経済</div>
+            <div class="connection-pill"><i></i>都市</div>
+            <div class="connection-pill"><i></i>歴史</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="diver" class="section section-cinematic diver-section">
-      <span class="section-watermark" aria-hidden="true">ダイバー</span>
-      <div class="container">
-        <div class="diver-showcase">
-          <figure class="diver-visual reveal">
-            <img src="./assets/images/site/optional/character-lifestyle.webp" alt="水辺の街で暮らす住民を描いた、ダイバーの生活視点を想起させるビジュアル" width="1600" height="900" loading="lazy">
-            <figcaption>
-              <strong>世界の中で暮らす。</strong>
-              <span>外から世界を操作するのではなく、その社会の一員として参加する。</span>
-            </figcaption>
+    <section id="diver" class="story-section diver-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png"
+      data-mio-alt="指差しながらツッコミを入れる南雲澪"
+      data-mio-kicker="GUIDE 03 / DIVER"
+      data-mio-title="はい、ここ大事です。神視点ではありません。"
+      data-mio-text="ダイバーは世界の外から何でも置く存在ではなく、世界のルールの中へ入る参加者です。">
+      <div class="container diver-layout">
+        <div class="diver-photo-stack reveal">
+          <figure class="diver-photo-main">
+            <img src="./assets/images/site/optional/character-lifestyle.webp" alt="水辺の街を歩く住民の視点を描いたビジュアル" width="1920" height="1080" loading="lazy">
           </figure>
-
-          <div class="diver-copy reveal" data-reveal-delay="100">
-            <p class="section-label">ダイバー <small>DIVER</small></p>
-            <h2>世界の外から動かすのではなく、<br>一人の住人として世界の中へ。</h2>
-            <div class="prose">
-              <p>
-                MachiVerseでは、利用者ロールを「ダイバー」と呼びます。
-                ダイバーは世界の外側から何でも自由に配置する存在ではなく、世界のルール、時間、社会的関係、周囲の反応の中にいる一住民として参加する体験を目指しています。
-              </p>
-              <p>
-                自分の行動も世界の出来事のひとつになり、その結果が周囲へ伝わり、やがて世界の歴史の一部になる。
-                そんな参加の形を、長期的な方向性として育てています。
-              </p>
-            </div>
-            <aside class="status-panel diver-status" aria-label="ダイバーの現在の実装状況">
-              <span class="status-badge">実装済みの最小ループ</span>
-              <h3>最小の参加操作は、すでに実接続済み。</h3>
-              <p>Alpha 1.0では、General ViewからGatewayを経由してSimulation Coreへ届く最小のダイバー参加操作と、確定したWorldStateがViewへ戻る一連のループが接続されています。</p>
-              <a class="text-link" href="./developer.html#architecture">仕組みを開発者向けページで見る <span aria-hidden="true">→</span></a>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="status" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">現在地</span>
-      <div class="container status-layout">
-        <div class="reveal">
-          <p class="section-label">現在の開発状況 <small>CURRENT STATUS</small></p>
-          <h2>まだ完成ではない。<br>でも、構想だけでもない。</h2>
-          <div class="prose">
-            <p>
-              MachiVerseは現在も開発中です。完成形の巨大な世界にはまだ到達していません。
-              一方でAlpha 1.0では、世界を見る、操作する、正本の状態が変わる、その結果が戻るという最初の一周が実コンポーネント間で成立しています。
-            </p>
-          </div>
-          <aside class="status-developer-note" aria-label="南雲澪 開発メモ">
-            <span>開発メモ / 南雲 澪</span>
-            <p>Alpha 1.0は完成版ではなく、構想を実際のシステムとしてつなぐための最初の基盤です。</p>
+          <img class="diver-mio" src="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" alt="ダイバーの立場を説明する南雲澪" width="720" height="960" loading="lazy">
+          <aside class="diver-note">
+            <strong>外から全部を操作する、ではない。</strong>
+            <p>世界の時間、ルール、社会的関係、周囲の反応の中に、一住民として入る。</p>
           </aside>
         </div>
-        <aside class="status-panel reveal" data-reveal-delay="140" aria-label="Alpha 1.0の実装状況">
-          <span class="status-badge">Alpha 1.0</span>
-          <h3>再現可能な垂直スライス</h3>
-          <p>現在の実装内容、Quick Start、アーキテクチャ、今後のwork packageは開発者向けページにまとめています。</p>
-          <a class="text-link" href="./developer.html">開発者向けページへ <span aria-hidden="true">→</span></a>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">03 / DIVER</p>
+          <h2>世界を見る人から、<br>世界の中で暮らす人へ。</h2>
+          <p>
+            MachiVerseでは利用者ロールを「ダイバー」と呼びます。
+            自分の行動も世界の出来事のひとつになり、その結果が周囲へ伝わり、やがて履歴の一部になる参加体験を長期的な方向性として目指しています。
+          </p>
+          <p>
+            Alpha 1.0では、General ViewからGatewayを経由してSimulation Coreへ届く最小の参加操作と、
+            確定したWorldStateがViewへ戻る最小ループが接続済みです。
+          </p>
+          <a class="button button-secondary" href="./developer.html#architecture">どうつながっているか見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="story-section status-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png"
+      data-mio-alt="ガッツポーズをする南雲澪"
+      data-mio-kicker="GUIDE 04 / NOW"
+      data-mio-title="構想だけじゃなく、最初の一周はもうつながっています。"
+      data-mio-text="Alpha 1.0は完成版ではありません。けれど世界状態が動き、戻るvertical sliceは成立しています。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">04 / WHERE WE ARE</p>
+          <h2>まだ完成ではない。<br>でも、もう「動く世界」は始まっている。</h2>
+          <p>
+            現在のAlpha 1.0は、巨大な完成世界ではなく、構想を実システムとしてつなぐための最初の基盤です。
+            Simulation Core / Gateway / General View / Administration Viewが実接続され、状態同期や永続化・復旧を含むvertical sliceを再現できます。
+          </p>
+        </div>
+        <div class="status-steps reveal" data-reveal-delay="80" aria-label="Alpha 1.0の流れ">
+          <div class="status-step" data-step="01"><strong>見る</strong><span>General Viewから世界状態を受け取る。</span></div>
+          <div class="status-step" data-step="02"><strong>操作する</strong><span>最小の参加操作をGatewayへ送る。</span></div>
+          <div class="status-step" data-step="03"><strong>確定する</strong><span>Simulation Coreが正本WorldStateを更新する。</span></div>
+          <div class="status-step" data-step="04"><strong>戻ってくる</strong><span>FULL / DELTA同期で確定状態がViewへ届く。</span></div>
+        </div>
+        <aside class="alpha-card reveal" data-reveal-delay="140">
+          <div>
+            <span class="status-badge">ALPHA 1.0 / VERTICAL SLICE</span>
+            <h3>世界の最初の一周を、実コンポーネントで。</h3>
+            <p>実装状況、アーキテクチャ、Quick Start、設計原則は開発者向けページにまとめています。</p>
+            <a class="button button-secondary" href="./developer.html">開発者向けページへ</a>
+          </div>
+          <img src="./assets/images/characters/nagumo-mio/web/mio-alpha.png" alt="Alpha 1.0の現在地を示す南雲澪" width="720" height="960" loading="lazy">
         </aside>
       </div>
     </section>
 
-    <section id="join" class="section section-cta section-cinematic">
-      <span class="section-watermark" aria-hidden="true">参加</span>
-      <div class="container cta-inner reveal">
-        <div>
-          <p class="section-label">オープンソース <small>OPEN SOURCE</small></p>
-          <h2>この世界を、一緒に育てる。</h2>
-          <p>
-            MachiVerseはオープンソースで開発しています。
-            技術や実装から参加したい方には、開発者向けページからQuick Start、設計資料、Contribution Guideへ進める入口を用意しています。
-          </p>
-        </div>
-        <div class="cta-actions">
-          <a class="button button-primary" href="./developer.html">開発者向けページ</a>
-          <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+    <section id="join" class="join-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png"
+      data-mio-alt="大喜びする南雲澪"
+      data-mio-kicker="GUIDE 05 / JOIN"
+      data-mio-title="ここから先は、一緒につくれます。"
+      data-mio-text="MachiVerseはオープンソースです。コード、設計、議論、いろいろな入口があります。">
+      <div class="container">
+        <div class="join-card reveal">
+          <div>
+            <p class="chapter-kicker">05 / OPEN SOURCE</p>
+            <h2>この世界を、<br>一緒に育てる。</h2>
+            <p>
+              MachiVerseはオープンソースで開発しています。
+              まず動かしてみたい方、設計を読みたい方、実装や議論から参加したい方は、開発者向けページとGitHubからどうぞ。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="./developer.html">開発者向けページ</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+            </div>
+          </div>
+          <img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="参加を歓迎する南雲澪" width="720" height="960" loading="lazy">
         </div>
       </div>
     </section>
   </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="南雲澪によるページ案内">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="南雲澪" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>SYSTEM DEVELOPMENT / GUIDE</span>
+      <strong class="mio-dock-title" data-mio-title>南雲 澪です。MachiVerseを案内します。</strong>
+      <span class="mio-dock-text" data-mio-text>まずは、このプロジェクトが何をシミュレーションしようとしているのかから。</span>
+    </div>
+  </aside>
 
   <footer class="site-footer">
     <div class="container footer-inner">
