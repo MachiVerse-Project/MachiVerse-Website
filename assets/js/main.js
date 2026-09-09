@@ -4,6 +4,10 @@
   const opening = document.querySelector('.opening');
   const progress = document.querySelector('.scroll-progress');
   const parallaxTarget = document.querySelector('[data-parallax]');
+  const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+  const observedSections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
 
   let openingSeen = false;
   try {
@@ -55,21 +59,45 @@
     revealTargets.forEach((element) => observer.observe(element));
   }
 
+  if ('IntersectionObserver' in window && observedSections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`);
+      });
+    }, {
+      rootMargin: '-28% 0px -58% 0px',
+      threshold: [0.01, 0.25, 0.5],
+    });
+
+    observedSections.forEach((section) => sectionObserver.observe(section));
+  }
+
   let scrollFrame = 0;
-  const updateScrollProgress = () => {
+  const updateScrollEffects = () => {
     scrollFrame = 0;
-    if (!progress) return;
 
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
-    progress.style.transform = `scaleX(${ratio})`;
+
+    if (progress) progress.style.transform = `scaleX(${ratio})`;
+
+    if (!reduceMotion) {
+      root.style.setProperty('--page-scroll', ratio.toFixed(4));
+      root.style.setProperty('--hero-ray-shift', `${Math.min(70, window.scrollY * 0.035)}px`);
+    }
   };
 
   window.addEventListener('scroll', () => {
     if (scrollFrame) return;
-    scrollFrame = window.requestAnimationFrame(updateScrollProgress);
+    scrollFrame = window.requestAnimationFrame(updateScrollEffects);
   }, { passive: true });
-  updateScrollProgress();
+  updateScrollEffects();
 
   if (!reduceMotion && parallaxTarget && window.matchMedia('(pointer: fine)').matches) {
     let pointerFrame = 0;
