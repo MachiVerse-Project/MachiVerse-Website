@@ -85,6 +85,14 @@
   transform-origin:50% 12%;
 }
 
+/* The fixed guide is redundant once the final CTA/footer enters view.
+   Clear it before it can cover footer navigation or legal links. */
+.navigator-site .mio-dock.is-footer-clear {
+  opacity:0;
+  transform:translateY(24px) scale(.96);
+  pointer-events:none;
+}
+
 @media (max-width:1000px) {
   .navigator-site .mio-hero-stage { min-height:500px; }
   .navigator-site .mio-hero-character {
