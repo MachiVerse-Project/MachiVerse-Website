@@ -87,6 +87,16 @@
         if (visible) applyMio(visible.target);
       }, { rootMargin: '-22% 0px -54% 0px', threshold: [0.01, 0.18, 0.42] });
       mioSections.forEach((section) => mioObserver.observe(section));
+
+      const footer = document.querySelector('.site-footer');
+      if (footer) {
+        const footerObserver = new IntersectionObserver((entries) => {
+          const shouldClearFooter = entries.some((entry) => entry.isIntersecting);
+          mioDock.classList.toggle('is-footer-clear', shouldClearFooter);
+          mioDock.setAttribute('aria-hidden', shouldClearFooter ? 'true' : 'false');
+        }, { rootMargin: '0px 0px 96px 0px', threshold: 0 });
+        footerObserver.observe(footer);
+      }
     }
   }
 
