@@ -54,6 +54,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .atmosphere-glow-a { top: -10vw; left: -8vw; }
 .atmosphere-glow-b { right: -12vw; bottom: 4vh; }
 
+/*
+ * MIO GUIDE is created by JavaScript before its dedicated stylesheet may have
+ * finished loading. Keep its raw DOM out of layout and invisible from the very
+ * first stylesheet paint so reloads never expose a dialog-shaped flash.
+ */
+.mio-guide-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .opening { display: none; }
 .js .opening {
   position: fixed;
@@ -64,7 +77,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   transition: opacity .9s ease, visibility .9s ease;
 }
-.js .opening.is-finished { opacity: 0; visibility: hidden; pointer-events: none; }
+/*
+ * Even when JS decides the opening can finish immediately (for example on a
+ * warm reload), hold the full-screen mark for a readable beat before fading.
+ */
+.js .opening.is-finished {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 1.2s, 1.2s;
+}
 .opening-flare,.opening-lines { position: absolute; }
 .opening-lines { inset: 0; }
 .opening-logo { position: relative; width: min(72vw,700px); text-align: center; }
