@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="MachiVerse">
   <meta name="twitter:description" content="世界を作るのではなく、世界がそうなった理由までシミュレーションする。">
   <meta name="twitter:image" content="https://machiverse.app/assets/images/social/og-image.png">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js', 'opening-pending')</script>
   <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
@@ -44,6 +44,11 @@
     <div class="atmosphere-glow atmosphere-glow-b"></div>
   </div>
 
+  <div class="side-caption" aria-hidden="true">
+    <span>MACHIVERSE / WORLD SIMULATION</span>
+    <i></i>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="MachiVerse トップページ">
@@ -58,6 +63,7 @@
         <a href="#join">参加する</a>
       </nav>
     </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -84,7 +90,7 @@
           </div>
         </div>
 
-        <div class="world-stage" aria-hidden="true">
+        <div class="world-stage" data-parallax aria-hidden="true">
           <div class="world-halo world-halo-a"></div>
           <div class="world-halo world-halo-b"></div>
           <div class="world-card" aria-label="人、自然、社会、経済、都市、歴史が相互につながるMachiVerseの概念図">
@@ -121,6 +127,13 @@
         <p class="statement">「世界を作る」のではなく、<br>「世界がそうなった理由」までシミュレーションする。</p>
       </div>
     </section>
+
+    <div class="interlude" aria-hidden="true">
+      <div class="interlude-track">
+        <span>CAUSE</span><i>×</i><span>STATE</span><i>×</i><span>TIME</span><i>×</i><span>HISTORY</span><i>×</i>
+        <span>CAUSE</span><i>×</i><span>STATE</span><i>×</i><span>TIME</span><i>×</i><span>HISTORY</span><i>×</i>
+      </div>
+    </div>
 
     <section id="vision" class="section section-alt section-cinematic">
       <span class="section-watermark section-watermark-right" aria-hidden="true">SYSTEM</span>
