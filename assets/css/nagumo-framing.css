@@ -2,6 +2,31 @@
    Full-body presentation is optional; hero/navigation/callout contexts favor waist-up or bust crops
    so Mio's expression and gesture remain readable without dominating the page height. */
 
+/* Header brand should remain unmistakable against the translucent light header. */
+.navigator-site .brand {
+  gap:12px;
+  padding:6px 11px 6px 7px;
+  border:1px solid rgba(24,78,112,.09);
+  border-radius:16px;
+  background:rgba(255,255,255,.92);
+  color:#17324a;
+  box-shadow:0 8px 22px rgba(33,87,121,.10);
+  font-size:1.02rem;
+  font-weight:900;
+  letter-spacing:.015em;
+}
+.navigator-site .brand-mark {
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  filter:drop-shadow(0 4px 8px rgba(20,118,176,.16));
+}
+.navigator-site .brand:hover,
+.navigator-site .brand:focus-visible {
+  box-shadow:0 10px 26px rgba(33,87,121,.15);
+  transform:translateY(-1px);
+}
+
 .navigator-site .mio-hero-stage {
   min-height:520px;
 }
@@ -106,6 +131,18 @@
 }
 
 @media (max-width:760px) {
+  .navigator-site .brand {
+    gap:8px;
+    padding:4px 8px 4px 5px;
+    border-radius:13px;
+    font-size:.9rem;
+  }
+  .navigator-site .brand-mark {
+    width:36px;
+    height:36px;
+    flex-basis:36px;
+  }
+
   .navigator-site .mio-hero-stage {
     min-height:360px;
     margin-top:12px;
