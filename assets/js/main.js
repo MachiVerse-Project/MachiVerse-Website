@@ -5,8 +5,9 @@
   const progress = document.querySelector('.scroll-progress');
   const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
   const observedSections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const navigatorSite = document.body?.classList.contains('navigator-site');
 
-  if (document.body?.classList.contains('navigator-site')) {
+  if (navigatorSite) {
     const framingStyles = document.createElement('link');
     framingStyles.rel = 'stylesheet';
     framingStyles.href = './assets/css/nagumo-framing.css';
@@ -61,6 +62,11 @@
         diverButton ? diverButton.before(proofStrip) : diverCopy.appendChild(proofStrip);
       }
     }
+
+    const motionStyles = document.createElement('link');
+    motionStyles.rel = 'stylesheet';
+    motionStyles.href = './assets/css/motion-system.css';
+    document.head.appendChild(motionStyles);
   }
 
   let openingSeen = false;
@@ -104,6 +110,54 @@
       navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
     }, { rootMargin: '-26% 0px -60% 0px', threshold: [0.01, 0.2, 0.5] });
     observedSections.forEach((section) => sectionObserver.observe(section));
+  }
+
+  /* Run larger sequences only while their section is actually on screen. */
+  if (navigatorSite && !reduceMotion) {
+    const motionSections = [...document.querySelectorAll(
+      '.product-proof-section, .world-model-section, .diver-stage, .alpha-proof-section, .join-stage, .navigator-developer section'
+    )];
+
+    if ('IntersectionObserver' in window) {
+      const motionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('is-motion-active', entry.isIntersecting && entry.intersectionRatio > 0.08);
+        });
+      }, { rootMargin: '-8% 0px -10% 0px', threshold: [0.01, 0.08, 0.28] });
+      motionSections.forEach((section) => motionObserver.observe(section));
+    } else {
+      motionSections.forEach((section) => section.classList.add('is-motion-active'));
+    }
+
+    /* Fine-pointer hero parallax: intentionally small so copy remains stable. */
+    const hero = document.querySelector('.navigator-hero');
+    const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    if (hero && finePointer) {
+      let pointerFrame = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      const paintPointer = () => {
+        pointerFrame = 0;
+        hero.style.setProperty('--motion-x', `${pointerX}px`);
+        hero.style.setProperty('--motion-y', `${pointerY}px`);
+      };
+
+      hero.addEventListener('pointermove', (event) => {
+        const rect = hero.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) - 0.5;
+        const y = ((event.clientY - rect.top) / rect.height) - 0.5;
+        pointerX = x * 24;
+        pointerY = y * 18;
+        if (!pointerFrame) pointerFrame = window.requestAnimationFrame(paintPointer);
+      }, { passive:true });
+
+      hero.addEventListener('pointerleave', () => {
+        pointerX = 0;
+        pointerY = 0;
+        if (!pointerFrame) pointerFrame = window.requestAnimationFrame(paintPointer);
+      }, { passive:true });
+    }
   }
 
   const mioDock = document.querySelector('[data-mio-dock]');
@@ -150,12 +204,18 @@
     }
   }
 
+  const hero = document.querySelector('.navigator-hero');
   let scrollFrame = 0;
   const updateScroll = () => {
     scrollFrame = 0;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
     if (progress) progress.style.transform = `scaleX(${ratio})`;
+
+    if (hero && navigatorSite && !reduceMotion) {
+      const heroScroll = Math.min(18, Math.max(0, window.scrollY * 0.035));
+      hero.style.setProperty('--hero-scroll', `${heroScroll}px`);
+    }
   };
   window.addEventListener('scroll', () => {
     if (scrollFrame) return;
