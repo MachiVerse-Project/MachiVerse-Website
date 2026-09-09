@@ -1,0 +1,140 @@
+/* Final public-page polish: tighter hero, stronger body copy, honest Viewer framing. */
+
+.navigator-site {
+  --muted:#536f82;
+}
+
+.navigator-site .hero-lead,
+.navigator-site .story-copy p,
+.navigator-site .world-model-copy p,
+.navigator-site .alpha-proof-copy p,
+.navigator-site .try-card p,
+.navigator-site .done-next ul {
+  color:#435f73;
+}
+
+.navigator-site .story-card figcaption,
+.navigator-site .mio-dock-text,
+.navigator-site .proof-fact span {
+  color:#526d80;
+}
+
+/* The city image in the Diver section is still a concept visual, not the current General View UI. */
+.navigator-site .diver-photo-main {
+  overflow:hidden;
+}
+
+.viewer-visual-label {
+  position:absolute;
+  z-index:6;
+  top:24px;
+  left:24px;
+  max-width:calc(100% - 48px);
+  margin:0;
+  padding:8px 11px;
+  border:1px solid rgba(23,50,74,.10);
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  color:#39566b;
+  box-shadow:0 8px 24px rgba(31,75,104,.12);
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.045em;
+  line-height:1.35;
+  backdrop-filter:blur(10px);
+}
+
+.viewer-proof-strip {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  margin:22px 0 24px;
+}
+
+.viewer-proof-strip span {
+  display:block;
+  min-width:0;
+  padding:12px 13px;
+  border:1px solid rgba(30,103,145,.10);
+  border-radius:16px;
+  background:#f6fbfe;
+}
+
+.viewer-proof-strip b,
+.viewer-proof-strip small {
+  display:block;
+}
+
+.viewer-proof-strip b {
+  color:#0b86c3;
+  font-size:.68rem;
+  letter-spacing:.055em;
+}
+
+.viewer-proof-strip small {
+  margin-top:4px;
+  color:#496579;
+  font-size:.72rem;
+  font-weight:700;
+  line-height:1.35;
+}
+
+/* Let the technical proof section peek into the first viewport on common laptop/desktop sizes. */
+@media (min-width:1001px) {
+  .navigator-site .navigator-hero {
+    min-height:auto;
+    padding:38px 0 48px;
+  }
+
+  .navigator-site .navigator-copy {
+    padding:18px 0;
+  }
+
+  .navigator-site .navigator-copy .hero-lead {
+    margin-top:20px;
+  }
+
+  .navigator-site .navigator-copy .hero-actions {
+    margin-top:22px;
+  }
+
+  .navigator-site .hero-route {
+    margin-top:18px;
+  }
+
+  .navigator-site .mio-hero-stage {
+    min-height:455px !important;
+  }
+
+  .navigator-site .mio-hero-poster {
+    inset:26px 0 18px 24px;
+  }
+
+  .navigator-site .mio-hero-character {
+    width:min(70%,440px) !important;
+    height:350px !important;
+  }
+
+  .navigator-site .mio-hero-bubble {
+    top:46px;
+    width:min(280px,60%);
+    padding:17px 19px;
+  }
+
+  .navigator-site .mio-hero-bubble p {
+    font-size:.92rem;
+  }
+}
+
+@media (max-width:760px) {
+  .viewer-visual-label {
+    top:18px;
+    left:18px;
+    max-width:calc(100% - 36px);
+    font-size:.6rem;
+  }
+
+  .viewer-proof-strip {
+    grid-template-columns:1fr;
+  }
+}
