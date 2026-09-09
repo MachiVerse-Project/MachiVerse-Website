@@ -124,40 +124,51 @@
   overflow:hidden;
   min-height:590px;
   border-right:1px solid rgba(28,67,96,.08);
-  background:linear-gradient(180deg,rgba(223,247,255,.82),rgba(255,255,255,.25));
+  background:
+    radial-gradient(circle at 48% 24%,rgba(255,255,255,.98),rgba(255,255,255,0) 15rem),
+    linear-gradient(180deg,rgba(223,247,255,.82),rgba(255,255,255,.25));
 }
 
 .mio-guide-visual::after {
   position:absolute;
-  right:22px;
-  bottom:24px;
-  left:22px;
-  height:18px;
+  right:30px;
+  bottom:18px;
+  left:30px;
+  height:22px;
   border-radius:50%;
   background:rgba(38,90,123,.13);
   content:"";
-  filter:blur(12px);
+  filter:blur(14px);
 }
 
+/*
+ * The guide panel is conversational UI, not a standing-art gallery.
+ * Enlarge the source art and crop it inside the visual column so Mio's face,
+ * expression and gesture remain the focus. Full-body visibility is intentionally
+ * not preserved here.
+ */
 .mio-guide-character {
   position:absolute;
   z-index:2;
   left:50%;
-  bottom:-20px;
-  width:min(430px,122%);
+  bottom:-310px;
+  width:auto;
+  height:900px;
   max-width:none;
-  max-height:620px;
+  max-height:none;
   object-fit:contain;
-  object-position:center bottom;
-  filter:drop-shadow(0 22px 24px rgba(34,78,108,.19));
+  object-position:center top;
+  filter:drop-shadow(0 24px 26px rgba(34,78,108,.2));
   transform:translateX(-50%);
 }
 
+/* Keep the label away from Mio's face. */
 .mio-guide-visual-badge {
   position:absolute;
   z-index:4;
-  top:28px;
-  left:28px;
+  top:auto;
+  bottom:24px;
+  left:24px;
   max-width:230px;
   padding:10px 13px;
   border-radius:15px;
@@ -283,15 +294,21 @@ body.mio-guide-open .mio-dock { opacity:0; pointer-events:none; transform:transl
   }
   .mio-guide-character {
     left:auto;
-    right:14px;
-    bottom:-82px;
-    width:250px;
-    height:330px;
-    object-fit:cover;
+    right:-18px;
+    bottom:-190px;
+    width:auto;
+    height:420px;
+    max-width:none;
+    object-fit:contain;
     object-position:center top;
     transform:none;
   }
-  .mio-guide-visual-badge { top:22px; left:22px; max-width:180px; }
+  .mio-guide-visual-badge {
+    top:20px;
+    bottom:auto;
+    left:20px;
+    max-width:170px;
+  }
   .mio-guide-content { max-height:calc(100svh - 254px); padding:32px 24px 30px; }
   .mio-guide-heading { font-size:clamp(1.85rem,9vw,2.8rem); }
 }
@@ -300,7 +317,19 @@ body.mio-guide-open .mio-dock { opacity:0; pointer-events:none; transform:transl
   .mio-guide-overlay { padding:0; }
   .mio-guide-dialog { width:100%; max-height:100svh; border-radius:24px 24px 0 0; }
   .mio-guide-visual { min-height:190px; }
-  .mio-guide-character { right:-6px; bottom:-92px; width:215px; height:300px; }
+  .mio-guide-character {
+    right:-22px;
+    bottom:-170px;
+    width:auto;
+    height:360px;
+  }
+  .mio-guide-visual-badge {
+    top:16px;
+    left:16px;
+    max-width:145px;
+    padding:8px 10px;
+    font-size:.6rem;
+  }
   .mio-guide-content { max-height:calc(100svh - 205px); padding:28px 18px 26px; }
   .mio-guide-points { grid-template-columns:1fr; }
   .mio-guide-close { top:12px; right:12px; width:38px; height:38px; }
