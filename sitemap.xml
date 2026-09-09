@@ -1,23 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://machiverse.app/</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://machiverse.app/index-en.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://machiverse.app/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/index-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-general.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
 
-  <url><loc>https://machiverse.app/developer.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://machiverse.app/developer-en.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://machiverse.app/developer-zh-tw.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://machiverse.app/developer-ko.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://machiverse.app/developer.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/developer-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/developer-zh-tw.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/developer-ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/developer-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/developer-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
 
-  <url><loc>https://machiverse.app/self-hosting.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://machiverse.app/self-hosting-en.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://machiverse.app/self-hosting-zh-tw.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://machiverse.app/self-hosting-ko.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url>
+    <loc>https://machiverse.app/self-hosting.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/self-hosting-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/self-hosting-zh-tw.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/self-hosting-ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/self-hosting-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/self-hosting-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
 
-  <url><loc>https://machiverse.app/architecture.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://machiverse.app/architecture-en.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://machiverse.app/architecture-zh-tw.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://machiverse.app/architecture-ko.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/><xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/><xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/><xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url>
+    <loc>https://machiverse.app/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/architecture-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/architecture-zh-tw.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/architecture-ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/architecture-zh-tw.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://machiverse.app/architecture-ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <image:image><image:loc>https://machiverse.app/assets/images/site/social-developer.png</image:loc></image:image>
+    <lastmod>2026-09-10</lastmod>
+  </url>
 
-  <url><loc>https://machiverse.app/license.html</loc><lastmod>2026-09-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://machiverse.app/trademarks.html</loc><lastmod>2026-09-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url>
+    <loc>https://machiverse.app/license.html</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://machiverse.app/trademarks.html</loc>
+    <lastmod>2026-09-10</lastmod>
+  </url>
 </urlset>
