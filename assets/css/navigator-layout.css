@@ -539,76 +539,89 @@
   .story-copy .big-line { margin:18px 0; font-size:1.2rem; }
   .story-card { padding:10px; border-radius:26px; }
   .story-card img { height:330px; border-radius:20px; }
-  .story-card figcaption { font-size:.76rem; }
-  .reason-board { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
-  .reason-chip { padding:15px; }
-  .connection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .connection-pill:nth-child(2n) { transform:none; }
-
-  .diver-photo-stack { min-height:390px; }
-  .diver-photo-main { inset:12px 22px 58px 0; padding:8px; border-radius:24px; }
-  .diver-photo-main img { border-radius:18px; }
-  .diver-mio { right:0; bottom:48px; width:128px; max-height:285px; }
-  .diver-note { left:12px; bottom:8px; width:min(250px,68%); padding:13px 14px; }
-  .diver-note strong { font-size:.86rem; }
-  .diver-note p { font-size:.72rem; }
-
+  .world-playground .story-card img { height:310px; }
+  .story-card figcaption { padding:12px 7px 2px; }
+  .reason-board,
   .status-steps,
   .arch-board { grid-template-columns:1fr; }
-  .arch-node::after { display:none!important; }
+  .reason-chip { transform:none!important; }
+  .connection-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .connection-pill:nth-child(2n) { transform:none; }
+
+  .diver-photo-stack { min-height:400px; }
+  .diver-photo-main { inset:8px 20px 44px 0; }
+  .diver-note { left:12px; bottom:8px; width:min(255px,72%); padding:13px 14px; }
+  .diver-note strong { font-size:.88rem; }
+  .diver-note p { font-size:.74rem; }
+  .diver-mio { right:0; bottom:20px; width:135px; max-height:290px; }
+
   .alpha-card,
   .join-card {
-    position:relative;
-    display:block;
-    min-height:390px;
-    padding:28px 22px 170px;
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:27px 22px 0;
     border-radius:30px;
   }
   .alpha-card img,
-  .join-card img {
-    position:absolute;
-    right:8px;
-    bottom:0;
-    width:150px;
-    max-height:190px;
-  }
-  .join-card h2 { font-size:clamp(2rem,10vw,3rem); }
-  .join-stage { padding:72px 0 92px; }
-  .dev-hero-facts { grid-template-columns:1fr 1fr; }
+  .join-card img { justify-self:end; width:min(58%,210px); max-height:240px; }
+  .join-card h2 { font-size:clamp(2.1rem,10vw,3.4rem); }
+  .join-stage { padding:70px 0 84px; }
 
   .mio-dock {
     right:10px;
     bottom:10px;
-    grid-template-columns:50px minmax(0,1fr);
-    width:calc(100vw - 20px);
-    min-height:70px;
+    grid-template-columns:55px minmax(0,1fr);
+    width:min(268px,calc(100vw - 20px));
+    min-height:72px;
     padding:6px 9px 6px 3px;
     border-radius:18px;
   }
-  .mio-dock img { width:54px; max-height:70px; }
-  .mio-dock-kicker { font-size:.52rem; }
-  .mio-dock-title { font-size:.75rem; }
+  .mio-dock img { width:60px; max-height:72px; }
   .mio-dock-text { display:none; }
+  .mio-dock-kicker { font-size:.52rem; }
+  .mio-dock-title { font-size:.72rem; }
+  .dev-hero-facts { grid-template-columns:1fr 1fr; }
 }
 
-@media (max-width:480px) {
-  .navigator-copy h1 { font-size:clamp(2.35rem,12.5vw,3.25rem); }
-  .navigator-kicker,.chapter-kicker { font-size:.62rem; }
-  .hero-actions { gap:8px; }
-  .navigator-site .button { min-height:46px; padding:9px 15px; font-size:.86rem; }
-  .hero-route { grid-template-columns:1fr 1fr; }
+@media (max-width:430px) {
+  .navigator-site .container { width:min(calc(100% - 22px),1240px); }
+  .navigator-copy h1 { font-size:clamp(2.35rem,12.5vw,3.4rem); }
+  .navigator-kicker,
+  .chapter-kicker { font-size:.63rem; }
   .mio-hero-stage { min-height:390px; }
-  .mio-hero-character { width:min(58%,225px); }
-  .mio-hero-bubble { width:58%; }
+  .mio-hero-character { width:min(64%,235px); }
+  .mio-hero-bubble { width:62%; }
   .mio-name-sticker { max-width:145px; }
-  .story-card img { height:280px; }
-  .reason-board { grid-template-columns:1fr; }
+  .story-copy h2 { font-size:clamp(1.9rem,9.2vw,2.7rem); }
+  .story-card img { height:285px; }
+  .world-playground .story-card img { height:270px; }
   .connection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .diver-photo-stack { min-height:350px; }
-  .diver-mio { width:112px; max-height:245px; }
-  .diver-note { width:66%; }
-  .dev-hero-facts { grid-template-columns:1fr; }
+  .diver-mio { width:115px; }
+  .diver-note { width:74%; }
+  .status-step { padding:17px; }
+  .hero-actions { gap:8px; }
+  .navigator-site .button { min-height:46px; padding:9px 15px; }
 }
+
+/* Japanese headline rhythm: prefer semantic, balanced wraps over hard-coded breaks. */
+html[lang="ja"] .navigator-site .story-copy h2,
+html[lang="ja"] .navigator-site .join-card h2,
+html[lang="ja"] .navigator-site .alpha-card h3 {
+  text-wrap:balance;
+  line-break:strict;
+  word-break:normal;
+  overflow-wrap:normal;
+}
+html[lang="ja"] .navigator-site .story-copy h2 br,
+html[lang="ja"] .navigator-site .join-card h2 br {
+  display:none;
+}
+html[lang="ja"] #about .story-copy h2 { max-width:11em; }
+html[lang="ja"] #world .story-copy h2 { max-width:11.5em; }
+html[lang="ja"] #diver .story-copy h2 { max-width:12.5em; }
+html[lang="ja"] #status .story-copy h2 { max-width:14em; }
+html[lang="ja"] #join .join-card h2 { max-width:10em; }
 
 @media (prefers-reduced-motion:reduce) {
   .navigator-site *,
