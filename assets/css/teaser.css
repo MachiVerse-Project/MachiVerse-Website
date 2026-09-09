@@ -1,1 +1,77 @@
-.teaser-section{position:relative;min-height:92svh;overflow:hidden;display:grid;place-items:center;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:radial-gradient(circle at 50% 46%,rgba(95,195,255,.12),transparent 24rem),linear-gradient(to bottom,#06080d,#090d14 52%,#05070b);isolation:isolate}.teaser-section:before{position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at center,black,transparent 72%);content:""}.teaser-frame{width:min(calc(100% - 40px),1080px);min-height:min(72svh,720px);position:relative;display:grid;place-items:center;border:1px solid rgba(255,255,255,.1);background:rgba(4,6,10,.52);box-shadow:0 40px 120px rgba(0,0,0,.42),inset 0 0 100px rgba(95,195,255,.025);overflow:hidden}.teaser-frame:before,.teaser-frame:after{position:absolute;left:0;right:0;height:1px;content:"";background:linear-gradient(90deg,transparent,rgba(139,211,255,.4),transparent)}.teaser-frame:before{top:14%}.teaser-frame:after{bottom:14%}.teaser-grid{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),linear-gradient(115deg,transparent 0 42%,rgba(95,195,255,.03) 50%,transparent 58%);pointer-events:none}.teaser-copy{position:relative;z-index:2;max-width:860px;padding:70px 42px;text-align:center}.teaser-label{margin:0 0 28px;color:var(--accent);font-size:.68rem;font-weight:800;letter-spacing:.28em}.teaser-title{margin:0;font-size:clamp(2.2rem,6vw,5.4rem);line-height:1.12;letter-spacing:-.04em}.teaser-title span{display:block;opacity:.22;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.75,.2,1),text-shadow .9s ease}.teaser-section.is-running .teaser-title span{opacity:1;transform:translateY(0);text-shadow:0 0 36px rgba(95,195,255,.12)}.teaser-title span:nth-child(2){transition-delay:.38s}.teaser-title span:nth-child(3){transition-delay:.76s}.teaser-status{margin-top:34px;color:rgba(255,255,255,.5);font-size:.72rem;font-weight:700;letter-spacing:.18em}.teaser-status strong{color:var(--accent-warm);font-weight:800}.teaser-sequence{position:absolute;inset:auto 0 7%;z-index:2;display:flex;justify-content:center;gap:16px 28px;flex-wrap:wrap;padding-inline:28px;color:rgba(255,255,255,.32);font-size:.62rem;font-weight:800;letter-spacing:.16em}.teaser-sequence span{position:relative}.teaser-sequence span:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;background:var(--accent);opacity:0;transform:scaleX(0);transition:opacity .35s ease,transform .35s ease}.teaser-sequence span.is-active{color:rgba(255,255,255,.82)}.teaser-sequence span.is-active:after{opacity:.8;transform:scaleX(1)}.teaser-flare{position:absolute;inset:0;pointer-events:none}.teaser-flare:before{position:absolute;top:50%;left:-20%;width:140%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,211,255,.8),rgba(255,210,138,.6),transparent);box-shadow:0 0 38px rgba(95,195,255,.26);content:"";opacity:.12;transform:scaleX(.25)}.teaser-section.is-running .teaser-flare:before{animation:teaser-flash 4.8s ease-in-out infinite}@keyframes teaser-flash{0%,15%,100%{opacity:.08;transform:scaleX(.15)}28%{opacity:.72;transform:scaleX(1)}38%{opacity:.16;transform:scaleX(.68)}}@media(max-width:680px){.teaser-frame{width:min(calc(100% - 24px),1080px);min-height:72svh}.teaser-copy{padding-inline:24px}.teaser-sequence{gap:14px 18px}}@media(prefers-reduced-motion:reduce){.teaser-flare:before{animation:none!important}.teaser-title span{opacity:1;transform:none;transition:none}}
+/* Teaser / story sequence in the pop redesign.
+   Keeps the world-history idea while moving away from a dark trailer aesthetic. */
+
+.teaser-section,
+.world-teaser,
+.teaser {
+  position: relative;
+  overflow: hidden;
+}
+
+.teaser-section::before,
+.world-teaser::before,
+.teaser::before {
+  position: absolute;
+  inset: 18px 14px;
+  z-index: -2;
+  border-radius: 44px;
+  background:
+    linear-gradient(95deg,rgba(255,255,255,.94),rgba(255,255,255,.70)),
+    url("../images/site/teaser-world-start.webp") center / cover no-repeat;
+  box-shadow: 0 24px 64px rgba(51,108,145,.12);
+  content: "";
+}
+
+.teaser-title,
+.teaser-copy,
+.teaser-message {
+  color: #17324a;
+  text-shadow: none;
+}
+
+.teaser-kicker,
+.teaser-status,
+.teaser-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #e8f8ff;
+  color: #168ac3;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.teaser-sequence,
+.teaser-steps,
+.teaser-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.teaser-sequence span,
+.teaser-steps span,
+.teaser-flow span {
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #fff;
+  color: #3d5b70;
+  box-shadow: 0 8px 20px rgba(55,111,146,.08);
+}
+
+.teaser-sequence span:nth-child(3n+1),
+.teaser-steps span:nth-child(3n+1),
+.teaser-flow span:nth-child(3n+1) { background: #fff0f6; }
+.teaser-sequence span:nth-child(3n+2),
+.teaser-steps span:nth-child(3n+2),
+.teaser-flow span:nth-child(3n+2) { background: #effaf6; }
+.teaser-sequence span:nth-child(3n),
+.teaser-steps span:nth-child(3n),
+.teaser-flow span:nth-child(3n) { background: #fff7db; }
+
+@media (max-width: 680px) {
+  .teaser-section::before,
+  .world-teaser::before,
+  .teaser::before { inset-inline: 8px; border-radius: 32px; }
+}
