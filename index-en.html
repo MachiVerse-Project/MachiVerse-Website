@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MachiVerse | Simulating why the world became what it is</title>
-  <meta name="description" content="MachiVerse is an open-source, agent-based large-scale world simulation project connecting people, nature, society, economy, cities, and history — including the causal path to the present.">
+  <title>MachiVerse | Simulating why the world became this way</title>
+  <meta name="description" content="MachiVerse is an open-source, agent-based large-scale world simulator built with C# and .NET 10. Alpha 1.0 contains a reproducible vertical slice connecting four real components.">
   <meta name="theme-color" content="#f7fcff">
   <link rel="canonical" href="https://machiverse.app/index-en.html">
   <link rel="alternate" hreflang="ja" href="https://machiverse.app/">
@@ -14,87 +14,298 @@
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/localized.css">
   <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <link rel="stylesheet" href="./assets/css/product-proof.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ja_JP">
   <meta property="og:site_name" content="MachiVerse">
-  <meta property="og:title" content="MachiVerse | Simulating why the world became what it is">
-  <meta property="og:description" content="An open-source large-scale world simulation that aims to model not only the present state, but also the causality and history that produced it.">
+  <meta property="og:title" content="MachiVerse | Simulating why the world became this way">
+  <meta property="og:description" content="An open-source, agent-based large-scale world simulator built with C# and .NET 10. Alpha 1.0 connects a real end-to-end vertical slice.">
   <meta property="og:url" content="https://machiverse.app/index-en.html">
   <meta property="og:image" content="https://machiverse.app/assets/images/site/social-general.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MachiVerse">
-  <meta name="twitter:description" content="Not just building a world, but simulating why it became what it is.">
+  <meta name="twitter:description" content="Simulating a world as a dynamic system with causality and history, not just a collection of states.">
   <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-general.png">
   <script>document.documentElement.classList.add('js', 'opening-pending')</script>
   <script src="./assets/js/main.js" defer></script>
 </head>
-<body class="navigator-site localized-site language-en">
+<body class="navigator-site localized-site">
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="opening" aria-hidden="true"><div class="opening-flare"></div><div class="opening-lines"></div><div class="opening-logo"><img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240"><p>ALL THE WAY TO WHY.</p></div></div>
+
+  <div class="opening" aria-hidden="true">
+    <div class="opening-flare"></div>
+    <div class="opening-lines"></div>
+    <div class="opening-logo">
+      <img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240">
+      <p>All the way to why the world became this way.</p>
+    </div>
+  </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="./index-en.html" aria-label="MachiVerse home"><img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34"><span>MachiVerse</span></a>
+      <a class="brand" href="./index-en.html" aria-label="MachiVerse home">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
       <div class="header-actions">
-        <nav class="site-nav" aria-label="Main navigation"><a href="#about">Why?</a><a href="#world">Connected world</a><a href="#diver">Diver</a><a href="#status">Where we are</a><a href="#join">Join</a><a href="./developer-en.html">Developers</a></nav>
-        <nav class="lang-switch" aria-label="Language"><a href="./" lang="ja">日本語</a><a href="./index-en.html" lang="en" aria-current="page">EN</a></nav>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#proof">Implemented</a>
+          <a href="#world">World model</a>
+          <a href="#diver">Diver</a>
+          <a href="#status">Alpha 1.0</a>
+          <a href="./developer-en.html">Developers</a>
+        </nav>
+        <nav class="lang-switch" aria-label="Language">
+          <a href="./" lang="ja">日本語</a>
+          <a href="./index-en.html" lang="en" aria-current="page">EN</a>
+        </nav>
       </div>
     </div>
     <div class="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
-    <section class="navigator-hero" id="intro" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png" data-mio-alt="Mio Nagumo" data-mio-kicker="SYSTEM DEVELOPMENT / GUIDE" data-mio-title="I'm Mio Nagumo. I'll guide you through MachiVerse." data-mio-text="We start with what this project is actually trying to simulate.">
+    <section class="navigator-hero" id="intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
+      data-mio-alt="Mio Nagumo"
+      data-mio-kicker="MIO GUIDE / INTRO"
+      data-mio-title="First: what kind of product is MachiVerse?"
+      data-mio-text="MachiVerse is an open-source large-scale world simulator with a real Alpha vertical slice already connected.">
       <div class="container navigator-hero-grid">
         <div class="navigator-copy reveal">
-          <p class="navigator-kicker">OPEN SOURCE WORLD SIMULATION</p>
+          <p class="navigator-kicker">OPEN SOURCE WORLD SIMULATOR</p>
           <h1>All the way to<br><span class="marker">why this city</span><br>exists here.</h1>
-          <p class="hero-lead">MachiVerse does not begin with a finished city placed into the world. It aims to connect people, nature, society, economy, cities, and history so the reasons behind the present can be traced.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#about">Take the tour with Mio</a><a class="button button-secondary" href="./developer-en.html">See the implementation</a></div>
-          <ol class="hero-route" aria-label="Page route"><li><a href="#about"><b>01</b> Why</a></li><li><a href="#world"><b>02</b> World</a></li><li><a href="#diver"><b>03</b> Participate</a></li><li><a href="#status"><b>04</b> Status</a></li></ol>
+          <p class="product-definition"><strong>MachiVerse is:</strong>&nbsp; an open-source, agent-based large-scale world simulator built with C# and .NET 10.</p>
+          <p class="hero-lead">
+            Instead of placing a finished world, MachiVerse aims to connect state, causality, interaction, time, and history so the present can be explained as the result of what came before.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./developer-en.html#quick-start">Run Alpha 1.0</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+          </div>
+          <ol class="hero-route" aria-label="Page route">
+            <li><a href="#proof"><b>01</b> Proof</a></li>
+            <li><a href="#world"><b>02</b> Model</a></li>
+            <li><a href="#diver"><b>03</b> Participate</a></li>
+            <li><a href="#status"><b>04</b> Status</a></li>
+          </ol>
         </div>
+
         <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerse system developer Mio Nagumo">
           <div class="mio-hero-poster" aria-hidden="true"></div>
-          <div class="mio-hero-bubble"><strong>MIO'S GUIDE 00</strong><p>This isn't about placing a finished city.<br>It's about letting the path to it happen.</p></div>
+          <div class="mio-hero-bubble">
+            <strong>MIO GUIDE 00</strong>
+            <p>This is not only a vision.<br>Let's start with what already runs.</p>
+          </div>
           <div class="mio-name-sticker">Mio Nagumo / 南雲 澪<br>SYSTEM DEVELOPMENT</div>
-          <div class="mio-hero-character"><img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo pointing with a smile" width="720" height="960"></div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo pointing with a smile" width="720" height="960">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="story-section" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-surprise.png" data-mio-alt="Mio Nagumo looking surprised" data-mio-kicker="GUIDE 01 / WHY" data-mio-title="A city being there does not explain why it is there." data-mio-text="MachiVerse aims to preserve not just results, but the states and changes that led to them.">
-      <div class="container story-shell">
-        <div class="story-copy reveal"><p class="chapter-kicker">01 / WHY THIS WORLD?</p><h2>Not placing a world.<br>Letting a world become itself.</h2><span class="big-line">Water. People. Work. Roads. A city. Then a familiar landscape.</span><p>The world we see now is the result of prior environments, choices, and interactions. MachiVerse aims to treat that path itself as part of the world.</p><div class="reason-board"><div class="reason-chip"><b>CAUSE</b><span>What triggered change</span></div><div class="reason-chip"><b>STATE</b><span>What the world was like then</span></div><div class="reason-chip"><b>TIME</b><span>How states accumulate</span></div><div class="reason-chip"><b>HISTORY</b><span>What persists into the next state</span></div></div></div>
-        <figure class="story-card reveal" data-reveal-delay="120"><img src="./assets/images/site/hero-general.webp" alt="A MachiVerse landscape connecting mountains, water, and a city" width="1920" height="1080" loading="lazy"><figcaption>Not only seeing today's city, but treating the path to it as world history.</figcaption></figure>
+    <section id="proof" class="product-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="Mio Nagumo explaining"
+      data-mio-kicker="MIO GUIDE / PRODUCT PROOF"
+      data-mio-title="Alpha 1.0 already connects four real components."
+      data-mio-text="An operation can travel from the browser through Gateway to Core, then confirmed WorldState returns through FULL / DELTA publication.">
+      <div class="container">
+        <div class="proof-header reveal">
+          <div>
+            <span class="proof-kicker">ALPHA 1.0 / RUNNING VERTICAL SLICE</span>
+            <h2>Not just a design.<br>A real end-to-end loop.</h2>
+          </div>
+          <p>
+            The current <code>develop</code> branch contains a reproducible vertical slice connecting Simulation Core, Gateway, General View, and Administration View.
+            The UI is still Alpha-quality, but real communication, authoritative state, synchronization, persistence, and recovery are implemented.
+          </p>
+        </div>
+
+        <div class="proof-console reveal" data-reveal-delay="80" aria-label="Alpha 1.0 connected flow">
+          <div class="proof-console-bar">
+            <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>ACTUAL CONNECTED FLOW / ALPHA 1.0</span>
+          </div>
+          <div class="proof-flow">
+            <article class="proof-node">
+              <small>01 / BROWSER</small>
+              <strong>General View</strong>
+              <p>A real browser session for world state and a minimal Diver operation.</p>
+            </article>
+            <article class="proof-node">
+              <small>02 / EDGE</small>
+              <strong>Gateway</strong>
+              <p>External boundary, authorization, operation aggregation, confirmed cache, publication.</p>
+            </article>
+            <article class="proof-node">
+              <small>03 / AUTHORITY</small>
+              <strong>Simulation Core</strong>
+              <p>The authoritative WorldState owner that executes and confirms operations.</p>
+            </article>
+            <article class="proof-node">
+              <small>04 / OPERATIONS</small>
+              <strong>Administration View</strong>
+              <p>Real browser E2E for health and Config read/change.</p>
+            </article>
+            <div class="proof-return"><b>CONFIRMED</b> FULL / DELTA publication → prediction / reconciliation → View</div>
+          </div>
+        </div>
+
+        <div class="proof-facts reveal" data-reveal-delay="130">
+          <div class="proof-fact"><b>gRPC</b><span>Core ↔ Gateway connected</span></div>
+          <div class="proof-fact"><b>BROWSER E2E</b><span>General / Admin View</span></div>
+          <div class="proof-fact"><b>FULL / DELTA</b><span>confirmed world publication</span></div>
+          <div class="proof-fact"><b>DIVER OP</b><span>minimal participation binding</span></div>
+          <div class="proof-fact"><b>PERSISTENCE</b><span>restart and recovery</span></div>
+          <div class="proof-fact"><b>FAIL-CLOSED</b><span>resync on continuity mismatch</span></div>
+        </div>
+        <p class="proof-note reveal">Large-scale Resident / economy / governance scenarios and polished UI are future work packages. We do not publish scale or performance numbers that are not yet established.</p>
       </div>
     </section>
 
-    <section id="world" class="story-section world-playground" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png" data-mio-alt="Mio Nagumo explaining" data-mio-kicker="GUIDE 02 / CONNECT" data-mio-title="A world does not move through one system alone." data-mio-text="People, nature, society, economy, cities, and history interact — that is what makes it a world.">
-      <div class="container story-shell reverse">
-        <figure class="story-card reveal"><img src="./assets/images/site/concept-connected-world.webp" alt="MachiVerse concept visual connecting people, nature, society, economy, cities, and history" width="1600" height="1200" loading="lazy"><figcaption>Connecting domains as one interacting world instead of separate systems.</figcaption></figure>
-        <div class="story-copy reveal" data-reveal-delay="100"><p class="chapter-kicker">02 / CONNECT THE WORLD</p><h2>People, nature, economy —<br>inside the same world.</h2><p>Terrain and water affect life. Human activity shapes society. Resources, logistics, and markets appear in the form of cities. Those changes persist as history and influence what comes next.</p><div class="connection-grid"><div class="connection-pill"><i></i>People</div><div class="connection-pill"><i></i>Nature</div><div class="connection-pill"><i></i>Society</div><div class="connection-pill"><i></i>Economy</div><div class="connection-pill"><i></i>City</div><div class="connection-pill"><i></i>History</div></div></div>
+    <section id="world" class="world-model-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="Mio Nagumo thinking while explaining"
+      data-mio-kicker="MIO GUIDE / WORLD MODEL"
+      data-mio-title="The subject is not a finished city. It is the change of world state."
+      data-mio-text="State changes through interactions, and the result becomes the next state and history. MachiVerse treats that chain as the world.">
+      <span id="about" class="anchor-alias" aria-hidden="true"></span>
+      <div class="container world-model-grid">
+        <div class="world-model-copy reveal">
+          <p class="chapter-kicker">02 / HOW THE WORLD MOVES</p>
+          <h2>Not placing a world. Letting a world become itself.</h2>
+          <p>
+            Water. People. Work. Roads. A city. MachiVerse is interested not only in results, but in the process where state changes and those changes persist into what comes next.
+          </p>
+          <div class="model-domains" aria-label="World domains MachiVerse aims to connect over time">
+            <span>People</span><span>Nature</span><span>Society</span><span>Economy</span><span>City</span><span>History</span>
+          </div>
+        </div>
+
+        <div class="causal-track reveal" data-reveal-delay="100" aria-label="Conceptual flow from world state to history">
+          <div class="causal-step"><span class="num">STATE t</span><strong>The world at this moment</strong><span>environment, residents, relations, placement</span></div>
+          <div class="causal-step"><span class="num">CAUSE</span><strong>Operations and interactions</strong><span>change occurs inside world rules</span></div>
+          <div class="causal-step"><span class="num">STATE t+1</span><strong>The next state is confirmed</strong><span>the same world continues with updated state</span></div>
+          <div class="causal-step"><span class="num">HISTORY</span><strong>Change persists as history</strong><span>the present becomes a condition for the future</span></div>
+        </div>
       </div>
     </section>
 
-    <section id="diver" class="story-section diver-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" data-mio-alt="Mio Nagumo pointing emphatically" data-mio-kicker="GUIDE 03 / DIVER" data-mio-title="Important: this is not an omnipotent outside view." data-mio-text="A Diver joins from inside the world's rules, not as someone who can freely place anything from outside.">
+    <section id="diver" class="story-section diver-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png"
+      data-mio-alt="Mio Nagumo pointing while explaining"
+      data-mio-kicker="MIO GUIDE / DIVER"
+      data-mio-title="A Diver is not an omnipotent editor outside the world."
+      data-mio-text="A Diver enters inside the world's rules, where their operation is one event that can change world state.">
       <div class="container diver-layout">
-        <div class="diver-photo-stack reveal"><figure class="diver-photo-main"><img src="./assets/images/site/optional/character-lifestyle.webp" alt="A resident walking through a waterfront city" width="1920" height="1080" loading="lazy"></figure><img class="diver-mio" src="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" alt="Mio Nagumo explaining the Diver role" width="720" height="960" loading="lazy"><aside class="diver-note"><strong>Not controlling everything from outside.</strong><p>Participate as a resident inside the world's time, rules, relationships, and reactions.</p></aside></div>
-        <div class="story-copy reveal" data-reveal-delay="100"><p class="chapter-kicker">03 / DIVER</p><h2>From watching the world<br>to living inside it.</h2><p>MachiVerse calls the participant role a “Diver.” The long-term direction is for your actions to become events in the world, affect others, and eventually become part of its history.</p><p>In Alpha 1.0, a minimal participation operation already travels from General View through Gateway to Simulation Core, and the confirmed WorldState returns to the View.</p><a class="button button-secondary" href="./developer-en.html#architecture">See how it is connected</a></div>
+        <div class="diver-photo-stack reveal">
+          <figure class="diver-photo-main">
+            <img src="./assets/images/site/optional/character-lifestyle.webp" alt="A resident walking through a waterfront city" width="1920" height="1080" loading="lazy">
+          </figure>
+          <img class="diver-mio" src="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" alt="Mio Nagumo explaining the Diver role" width="720" height="960" loading="lazy">
+          <aside class="diver-note">
+            <strong>Participate from inside, not from a god view.</strong>
+            <p>In Alpha 1.0, a minimal participation operation already travels General View → Gateway → Simulation Core, then confirmed state returns to the View.</p>
+          </aside>
+        </div>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">03 / DIVER</p>
+          <h2>From watching the world to living inside it.</h2>
+          <p>
+            The participant role, “Diver,” is intended to exist as one resident inside the world's time, rules, and social relationships rather than as an administrator that freely places things from outside.
+          </p>
+          <p>
+            Alpha 1.0 does not implement that entire long-term experience yet. What is connected today is the minimum loop where a participation operation crosses real components and updates authoritative WorldState.
+          </p>
+          <a class="button button-secondary" href="./developer-en.html#architecture">See the implementation</a>
+        </div>
       </div>
     </section>
 
-    <section id="status" class="story-section status-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png" data-mio-alt="Mio Nagumo making a confident pose" data-mio-kicker="GUIDE 04 / NOW" data-mio-title="It is not just a concept: the first complete loop is connected." data-mio-text="Alpha 1.0 is not the finished world, but a reproducible vertical slice already exists.">
-      <div class="container"><div class="story-copy reveal"><p class="chapter-kicker">04 / WHERE WE ARE</p><h2>Not finished yet.<br>But already moving.</h2><p>Alpha 1.0 is the first foundation that connects the vision to a real system. Simulation Core, Gateway, General View, and Administration View are connected, including state synchronization and persistence/recovery.</p></div><div class="status-steps reveal" data-reveal-delay="80"><div class="status-step" data-step="01"><strong>See</strong><span>General View receives world state.</span></div><div class="status-step" data-step="02"><strong>Act</strong><span>A minimal participation operation goes through Gateway.</span></div><div class="status-step" data-step="03"><strong>Confirm</strong><span>Simulation Core updates the authoritative WorldState.</span></div><div class="status-step" data-step="04"><strong>Return</strong><span>Confirmed state reaches the View through FULL / DELTA sync.</span></div></div><aside class="alpha-card reveal" data-reveal-delay="140"><div><span class="status-badge">ALPHA 1.0 / VERTICAL SLICE</span><h3>The first full loop, across real components.</h3><p>Implementation status, architecture, Quick Start, and engineering principles are on the developer page.</p><a class="button button-secondary" href="./developer-en.html">Developer page</a></div><img src="./assets/images/characters/nagumo-mio/web/mio-alpha.png" alt="Mio Nagumo presenting Alpha 1.0" width="720" height="960" loading="lazy"></aside></div>
-    </section>
+    <section id="status" class="alpha-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png"
+      data-mio-alt="Mio Nagumo presenting Alpha 1.0"
+      data-mio-kicker="MIO GUIDE / ALPHA 1.0"
+      data-mio-title="Here is what works now, and what is still next."
+      data-mio-text="The local Alpha is reproducible, but production profiles and large-scale world scenarios are still future work.">
+      <div class="container alpha-proof-grid">
+        <div class="alpha-proof-copy reveal">
+          <p class="chapter-kicker">04 / CURRENT STATE</p>
+          <h2>Alpha 1.0. A working foundation, not a finished world.</h2>
+          <p>
+            The current local Alpha profile is loopback-only for development and integration. MachiVerse publishes the boundary between implemented behavior and future work instead of presenting the vision as already complete.
+          </p>
+          <div class="done-next">
+            <article>
+              <h3>✓ Implemented now</h3>
+              <ul>
+                <li>Four components connected end to end</li>
+                <li>General / Admin View browser E2E</li>
+                <li>FULL / DELTA state synchronization</li>
+                <li>Minimal Diver Operation</li>
+                <li>Persistence, restart, recovery, resync</li>
+              </ul>
+            </article>
+            <article>
+              <h3>→ Next work packages</h3>
+              <ul>
+                <li>Core observability / telemetry</li>
+                <li>performance / soak harness</li>
+                <li>multi-Gateway failover / View churn</li>
+                <li>production OIDC / TLS acceptance</li>
+                <li>large-scale Resident / economy / governance scenarios</li>
+              </ul>
+            </article>
+          </div>
+        </div>
 
-    <section id="join" class="join-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png" data-mio-alt="Mio Nagumo celebrating" data-mio-kicker="GUIDE 05 / JOIN" data-mio-title="From here, you can help build it." data-mio-text="MachiVerse is open source. Code, design, documentation, and discussion are all possible entry points.">
-      <div class="container"><div class="join-card reveal"><div><p class="chapter-kicker">05 / OPEN SOURCE</p><h2>Grow this world<br>with us.</h2><p>MachiVerse is developed in the open. If you want to run it, read the design, contribute code, or join discussion, start from the developer page or GitHub.</p><div class="hero-actions"><a class="button button-primary" href="./developer-en.html">Developer page</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a></div></div><img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="Mio Nagumo welcoming contributors" width="720" height="960" loading="lazy"></div></div>
+        <aside class="try-card reveal" data-reveal-delay="100">
+          <span class="status-badge">PRIMARY ACTION</span>
+          <h3>Run Alpha 1.0 locally first.</h3>
+          <p>On Windows with a .NET SDK equivalent to 10.0.400, <code>start-alpha.bat</code> starts all four components and opens both Views.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./developer-en.html#quick-start">Open Quick Start</a>
+          </div>
+          <div class="try-secondary">
+            <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Alpha 1.0 Integration</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+          </div>
+        </aside>
+      </div>
     </section>
   </main>
 
-  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="Page guide by Mio Nagumo"><img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo" width="720" height="960"><div class="mio-dock-copy"><span class="mio-dock-kicker" data-mio-kicker>SYSTEM DEVELOPMENT / GUIDE</span><strong class="mio-dock-title" data-mio-title>I'm Mio Nagumo. I'll guide you through MachiVerse.</strong><span class="mio-dock-text" data-mio-text>We start with what this project is actually trying to simulate.</span></div></aside>
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="Page guide by Mio Nagumo">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>MIO GUIDE / INTRO</span>
+      <strong class="mio-dock-title" data-mio-title>First: what kind of product is MachiVerse?</strong>
+      <span class="mio-dock-text" data-mio-text>MachiVerse is an open-source large-scale world simulator with a real Alpha vertical slice already connected.</span>
+    </div>
+  </aside>
 
-  <footer class="site-footer"><div class="container footer-inner"><div><strong>MachiVerse</strong><p>Agent-based large-scale world simulation with causality and history.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="./developer-en.html">Developers</a><a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a><a href="./LICENSE">License</a><a href="./TRADEMARKS.md">Trademarks</a><a href="./" lang="ja">日本語</a></nav></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>MachiVerse</strong>
+        <p>Agent-based large-scale world simulation with causality and history.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./developer-en.html">Developers</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./LICENSE">License</a>
+        <a href="./TRADEMARKS.md">Trademarks</a>
+        <a href="./" lang="ja">日本語</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
