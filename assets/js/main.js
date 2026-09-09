@@ -6,12 +6,18 @@
   const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
   const observedSections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const navigatorSite = document.body?.classList.contains('navigator-site');
+  const isJapanese = document.documentElement.lang === 'ja';
 
   if (navigatorSite) {
     const framingStyles = document.createElement('link');
     framingStyles.rel = 'stylesheet';
     framingStyles.href = './assets/css/nagumo-framing.css';
     document.head.appendChild(framingStyles);
+
+    const guideStyles = document.createElement('link');
+    guideStyles.rel = 'stylesheet';
+    guideStyles.href = './assets/css/mio-guide-panel.css';
+    document.head.appendChild(guideStyles);
 
     if (!document.body.classList.contains('navigator-developer')) {
       const polishStyles = document.createElement('link');
@@ -24,7 +30,6 @@
       instanceStyles.href = './assets/css/instance-cta.css';
       document.head.appendChild(instanceStyles);
 
-      const isJapanese = document.documentElement.lang === 'ja';
       const heroActions = document.querySelector('.navigator-hero .hero-actions');
       if (heroActions && !heroActions.querySelector('[data-instance-action]')) {
         const instanceButton = document.createElement('button');
@@ -195,6 +200,202 @@
 
   const mioDock = document.querySelector('[data-mio-dock]');
   const mioSections = [...document.querySelectorAll('[data-mio-pose]')];
+  let currentMioSection = mioSections[0] || null;
+
+  const normalizeText = (value = '') => value.replace(/\s+/g, ' ').trim();
+
+  const collectMioDetail = (section) => {
+    const heading = normalizeText(section.querySelector('h1, h2')?.textContent || section.dataset.mioTitle || 'MachiVerse');
+    const lead = normalizeText(section.dataset.mioText || '');
+
+    const detailParagraphs = [...section.querySelectorAll('p')]
+      .filter((paragraph) => {
+        if (paragraph.closest('.mio-hero-bubble, .mio-dock, .viewer-visual-label')) return false;
+        const text = normalizeText(paragraph.textContent);
+        return text.length >= 34 && text !== lead;
+      })
+      .map((paragraph) => normalizeText(paragraph.textContent));
+
+    const uniqueParagraphs = [...new Set(detailParagraphs)].slice(0, 2);
+    const detail = uniqueParagraphs.join('\n\n') || lead;
+
+    const preferredItems = [...section.querySelectorAll(
+      '.proof-node, .proof-fact, .causal-step, .viewer-proof-strip > span, .done-next > article, .dev-hero-fact, .arch-node, .reason-chip, .status-step, .principle-card'
+    )];
+
+    const points = [];
+    preferredItems.forEach((item) => {
+      if (points.length >= 6) return;
+
+      const titleNode = item.querySelector('strong, h3, b, .num, small');
+      const title = normalizeText(titleNode?.textContent || '');
+      let description = '';
+
+      const listItems = [...item.querySelectorAll('li')]
+        .map((li) => normalizeText(li.textContent))
+        .filter(Boolean)
+        .slice(0, 3);
+
+      if (listItems.length) {
+        description = listItems.join(' / ');
+      } else {
+        const candidates = [...item.querySelectorAll('p, span, small')]
+          .map((node) => normalizeText(node.textContent))
+          .filter((text) => text && text !== title);
+        description = candidates.join(' · ');
+      }
+
+      if (!title && !description) return;
+      const key = `${title}|${description}`;
+      if (points.some((point) => point.key === key)) return;
+      points.push({ key, title: title || (isJapanese ? 'POINT' : 'POINT'), description });
+    });
+
+    return { heading, lead, detail, points };
+  };
+
+  let mioGuideOverlay = null;
+  let mioGuideClose = null;
+  let mioGuideImage = null;
+  let mioGuideKicker = null;
+  let mioGuideHeading = null;
+  let mioGuideLead = null;
+  let mioGuideDetail = null;
+  let mioGuidePoints = null;
+  let mioGuideFooterSection = null;
+  let lastMioTrigger = null;
+
+  const closeMioGuide = () => {
+    if (!mioGuideOverlay?.classList.contains('is-open')) return;
+    mioGuideOverlay.classList.remove('is-open');
+    mioGuideOverlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('mio-guide-open');
+    window.setTimeout(() => lastMioTrigger?.focus(), reduceMotion ? 0 : 220);
+  };
+
+  const openMioGuide = (section) => {
+    if (!section || !mioGuideOverlay) return;
+    const detail = collectMioDetail(section);
+
+    if (mioGuideImage) {
+      mioGuideImage.src = section.dataset.mioPose || '';
+      mioGuideImage.alt = section.dataset.mioAlt || (isJapanese ? '南雲澪' : 'Mio Nagumo');
+    }
+    if (mioGuideKicker) mioGuideKicker.textContent = section.dataset.mioKicker || 'MIO GUIDE';
+    if (mioGuideHeading) mioGuideHeading.textContent = detail.heading;
+    if (mioGuideLead) mioGuideLead.textContent = detail.lead || section.dataset.mioTitle || '';
+    if (mioGuideDetail) mioGuideDetail.textContent = detail.detail;
+    if (mioGuideFooterSection) mioGuideFooterSection.textContent = `SECTION / ${section.id || 'current'}`.toUpperCase();
+
+    if (mioGuidePoints) {
+      mioGuidePoints.replaceChildren();
+      detail.points.forEach((point) => {
+        const card = document.createElement('div');
+        card.className = 'mio-guide-point';
+        const title = document.createElement('b');
+        const copy = document.createElement('span');
+        title.textContent = point.title;
+        copy.textContent = point.description;
+        card.append(title, copy);
+        mioGuidePoints.appendChild(card);
+      });
+      mioGuidePoints.hidden = detail.points.length === 0;
+    }
+
+    lastMioTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : mioDock;
+    mioGuideOverlay.classList.add('is-open');
+    mioGuideOverlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('mio-guide-open');
+    window.setTimeout(() => mioGuideClose?.focus(), reduceMotion ? 0 : 80);
+  };
+
+  if (navigatorSite && mioDock && mioSections.length) {
+    mioGuideOverlay = document.createElement('div');
+    mioGuideOverlay.className = 'mio-guide-overlay';
+    mioGuideOverlay.setAttribute('aria-hidden', 'true');
+
+    const dialog = document.createElement('section');
+    dialog.className = 'mio-guide-dialog';
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-labelledby', 'mio-guide-heading');
+
+    mioGuideClose = document.createElement('button');
+    mioGuideClose.type = 'button';
+    mioGuideClose.className = 'mio-guide-close';
+    mioGuideClose.setAttribute('aria-label', isJapanese ? 'MIO GUIDEを閉じる' : 'Close MIO GUIDE');
+    mioGuideClose.textContent = '×';
+
+    const grid = document.createElement('div');
+    grid.className = 'mio-guide-grid';
+
+    const visual = document.createElement('div');
+    visual.className = 'mio-guide-visual';
+    const badge = document.createElement('span');
+    badge.className = 'mio-guide-visual-badge';
+    badge.textContent = isJapanese ? 'MIO GUIDE / SECTION EXPLAINER' : 'MIO GUIDE / SECTION EXPLAINER';
+    mioGuideImage = document.createElement('img');
+    mioGuideImage.className = 'mio-guide-character';
+    mioGuideImage.width = 720;
+    mioGuideImage.height = 960;
+    visual.append(badge, mioGuideImage);
+
+    const content = document.createElement('div');
+    content.className = 'mio-guide-content';
+    mioGuideKicker = document.createElement('span');
+    mioGuideKicker.className = 'mio-guide-kicker';
+    mioGuideHeading = document.createElement('h2');
+    mioGuideHeading.id = 'mio-guide-heading';
+    mioGuideHeading.className = 'mio-guide-heading';
+    mioGuideLead = document.createElement('p');
+    mioGuideLead.className = 'mio-guide-lead';
+    mioGuideDetail = document.createElement('p');
+    mioGuideDetail.className = 'mio-guide-detail';
+    mioGuidePoints = document.createElement('div');
+    mioGuidePoints.className = 'mio-guide-points';
+
+    const footer = document.createElement('div');
+    footer.className = 'mio-guide-footer';
+    mioGuideFooterSection = document.createElement('span');
+    const footerHint = document.createElement('span');
+    footerHint.textContent = isJapanese ? 'Esc または背景クリックで閉じる' : 'Press Esc or click the backdrop to close';
+    footer.append(mioGuideFooterSection, footerHint);
+
+    content.append(mioGuideKicker, mioGuideHeading, mioGuideLead, mioGuideDetail, mioGuidePoints, footer);
+    grid.append(visual, content);
+    dialog.append(mioGuideClose, grid);
+    mioGuideOverlay.appendChild(dialog);
+    document.body.appendChild(mioGuideOverlay);
+
+    mioDock.setAttribute('role', 'button');
+    mioDock.setAttribute('tabindex', '0');
+    mioDock.setAttribute('aria-haspopup', 'dialog');
+    mioDock.setAttribute('aria-label', isJapanese
+      ? 'MIO GUIDEを開いて、このセクションの詳しい説明を見る'
+      : 'Open MIO GUIDE for more detail about this section');
+    mioDock.title = isJapanese ? 'クリックして詳しく見る' : 'Click for more detail';
+
+    mioDock.addEventListener('click', () => openMioGuide(currentMioSection));
+    mioDock.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openMioGuide(currentMioSection);
+    });
+    mioGuideClose.addEventListener('click', closeMioGuide);
+    mioGuideOverlay.addEventListener('click', (event) => {
+      if (event.target === mioGuideOverlay) closeMioGuide();
+    });
+    mioGuideOverlay.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        mioGuideClose?.focus();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMioGuide();
+    });
+  }
+
   if (mioDock && mioSections.length) {
     const image = mioDock.querySelector('[data-mio-image]');
     const kicker = mioDock.querySelector('[data-mio-kicker]');
@@ -205,6 +406,7 @@
     const applyMio = (section) => {
       if (!section || current === section) return;
       current = section;
+      currentMioSection = section;
       mioDock.classList.add('is-changing');
       const update = () => {
         if (image && section.dataset.mioPose) image.src = section.dataset.mioPose;
