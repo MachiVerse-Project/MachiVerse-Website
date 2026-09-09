@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/"/>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,7 +24,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,8 +33,20 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html"/>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://machiverse.app/license.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://machiverse.app/trademarks.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
