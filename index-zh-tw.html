@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MachiVerse | 模擬世界為何會成為現在的樣子</title>
+  <meta name="description" content="MachiVerse 是一個開源、以代理人為基礎的大規模世界模擬器，讓人、社會、經濟、自然等狀態在同一個世界中一起變化。以 C# / .NET 10 開發，Alpha 1.0 已將四個實際元件連接成可重現的 vertical slice。">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/index-zh-tw.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html">
+  <link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html">
+  <link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <link rel="stylesheet" href="./assets/css/product-proof.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="MachiVerse | 模擬世界為何會成為現在的樣子">
+  <meta property="og:description" content="讓人、社會、經濟、自然等狀態在同一個世界中一起變化的開源代理人式世界模擬器。Alpha 1.0 已連接實際元件，形成可重現的 vertical slice。">
+  <meta property="og:url" content="https://machiverse.app/index-zh-tw.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-general.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse">
+  <meta name="twitter:description" content="不是只模擬世界的狀態，而是連同因果與歷史一起模擬。">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-general.png">
+  <script>document.documentElement.classList.add('js', 'opening-pending')</script>
+  <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/public-language-runtime.js" defer></script>
+</head>
+<body class="navigator-site localized-site">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <div class="opening" aria-hidden="true">
+    <div class="opening-flare"></div>
+    <div class="opening-lines"></div>
+    <div class="opening-logo">
+      <img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240">
+      <p>連世界為何成為現在這樣，也一起模擬。</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index-zh-tw.html" aria-label="MachiVerse 首頁">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="主要導覽">
+          <a href="#proof">已實作</a>
+          <a href="#world">世界如何運作</a>
+          <a href="#diver">Diver</a>
+          <a href="#status">Alpha 1.0</a>
+          <a href="./developer-zh-tw.html">開發者</a>
+        </nav>
+        <nav class="lang-switch" aria-label="語言切換">
+          <a href="./" lang="ja">日本語</a>
+          <a href="./index-en.html" lang="en">EN</a>
+          <a href="./index-zh-tw.html" lang="zh-TW" aria-current="page">繁中</a>
+          <a href="./index-ko.html" lang="ko">한국어</a>
+        </nav>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="navigator-hero" id="intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
+      data-mio-alt="南雲澪"
+      data-mio-kicker="MIO GUIDE / INTRO"
+      data-mio-title="先從 MachiVerse 是什麼樣的產品開始。"
+      data-mio-text="MachiVerse 是一個已經有實際 Alpha vertical slice 連接運作的開源大規模世界模擬器。">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <p class="navigator-kicker">OPEN SOURCE WORLD SIMULATOR</p>
+          <h1>這座城市，<br><span class="marker">為什麼會在這裡</span><br>也能成為模擬的一部分。</h1>
+          <p class="product-definition">
+            <strong>讓人、社會、經濟與自然在同一個世界中一起變化的開源代理人式世界模擬器。</strong>
+            <span>以 C# / .NET 10 開發。</span>
+          </p>
+          <p class="hero-lead">
+            MachiVerse 不把世界當成已完成的佈景，而是把狀態、因果、互動、時間與歷史連接起來，
+            讓「為什麼現在的世界會成為這個樣子」也能從一路累積的變化中被理解。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./self-hosting-zh-tw.html#quick-start">執行 Alpha 1.0</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+          </div>
+          <ol class="hero-route" aria-label="頁面導覽">
+            <li><a href="#proof"><b>01</b> 實作</a></li>
+            <li><a href="#world"><b>02</b> 機制</a></li>
+            <li><a href="#diver"><b>03</b> 參與</a></li>
+            <li><a href="#status"><b>04</b> 現況</a></li>
+          </ol>
+        </div>
+
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerse 系統開發者 南雲澪">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>MIO GUIDE 00</strong>
+            <p>不只是構想。<br>可以先從現在已經能運作的一整圈開始看。</p>
+          </div>
+          <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="微笑著引導頁面的南雲澪" width="720" height="960">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="product-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="正在說明的南雲澪"
+      data-mio-kicker="MIO GUIDE / PRODUCT PROOF"
+      data-mio-title="Alpha 1.0 已經把四個實際元件連接起來。"
+      data-mio-text="操作可以從瀏覽器經過 Gateway 到 Core，再由 Core 確定 WorldState，透過 FULL / DELTA publication 回到 View。">
+      <div class="container">
+        <div class="proof-header reveal">
+          <div>
+            <span class="proof-kicker">ALPHA 1.0 / RUNNING VERTICAL SLICE</span>
+            <h2>不只是設計。<br>實際元件已經可以跑完一整圈。</h2>
+          </div>
+          <p>
+            目前的 <code>develop</code> 分支包含一個可重現的 vertical slice，實際連接 Simulation Core、Gateway、General View 與 Administration View。
+            UI 仍是 Alpha 品質，但通訊、權威狀態確定、同步、持久化與復原都已經接通。
+          </p>
+        </div>
+
+        <div class="proof-console reveal" data-reveal-delay="80" aria-label="Alpha 1.0 實際連接流程">
+          <div class="proof-console-bar">
+            <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>ACTUAL CONNECTED FLOW / ALPHA 1.0</span>
+          </div>
+          <div class="proof-flow">
+            <article class="proof-node">
+              <small>01 / BROWSER</small>
+              <strong>General View</strong>
+              <p>實際瀏覽器 session，可查看世界狀態並送出最小 Diver 操作。</p>
+            </article>
+            <article class="proof-node">
+              <small>02 / EDGE</small>
+              <strong>Gateway</strong>
+              <p>負責外部連接、認證授權、Operation 彙整、confirmed cache 與 publication。</p>
+            </article>
+            <article class="proof-node">
+              <small>03 / AUTHORITY</small>
+              <strong>Simulation Core</strong>
+              <p>持有 authoritative WorldState，執行並確定 Operation 的權威來源。</p>
+            </article>
+            <article class="proof-node">
+              <small>04 / OPERATIONS</small>
+              <strong>Administration View</strong>
+              <p>已透過實際瀏覽器 E2E 驗證 health 與 Config read / change。</p>
+            </article>
+            <div class="proof-return"><b>CONFIRMED</b> FULL / DELTA publication → prediction / reconciliation → View</div>
+          </div>
+        </div>
+
+        <div class="proof-facts reveal" data-reveal-delay="130">
+          <div class="proof-fact"><b>gRPC</b><span>Core ↔ Gateway 實際連接</span></div>
+          <div class="proof-fact"><b>BROWSER E2E</b><span>General / Admin View</span></div>
+          <div class="proof-fact"><b>FULL / DELTA</b><span>confirmed world publication</span></div>
+          <div class="proof-fact"><b>DIVER OP</b><span>最小 participation binding</span></div>
+          <div class="proof-fact"><b>PERSISTENCE</b><span>restart 與 recovery</span></div>
+          <div class="proof-fact"><b>FAIL-CLOSED</b><span>continuity mismatch 時 resync</span></div>
+        </div>
+        <p class="proof-note reveal">大型 Resident / economy / governance scenario 與 polished UI 屬於 Alpha 1.0 之後的 work package。尚未建立的規模與效能數值不會在這裡先行宣稱。</p>
+      </div>
+    </section>
+
+    <section id="world" class="world-model-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="思考並說明的南雲澪"
+      data-mio-kicker="MIO GUIDE / WORLD MODEL"
+      data-mio-title="MachiVerse 的主角不是完成的城市，而是世界狀態如何改變。"
+      data-mio-text="狀態因互動而改變，結果成為下一個狀態並留下歷史。MachiVerse 把這條連鎖本身當作世界。">
+      <span id="about" class="anchor-alias" aria-hidden="true"></span>
+      <div class="container world-model-grid">
+        <div class="world-model-copy reveal">
+          <p class="chapter-kicker">02 / HOW THE WORLD MOVES</p>
+          <h2>不是把世界擺在那裡，而是讓世界一路形成。</h2>
+          <p>
+            有水。人開始聚集。工作出現。道路形成。城市逐漸成形。
+            MachiVerse 關注的不只是結果，而是狀態如何改變，以及這些變化如何延續到下一個狀態。
+          </p>
+          <div class="model-domains" aria-label="MachiVerse 長期希望連接的世界領域">
+            <span>人</span><span>自然</span><span>社會</span><span>經濟</span><span>城市</span><span>歷史</span>
+          </div>
+        </div>
+
+        <div class="causal-track reveal" data-reveal-delay="100" aria-label="從世界狀態到歷史的概念流程">
+          <div class="causal-step"><span class="num">STATE t</span><strong>此刻的世界狀態</strong><span>環境、居民、關係、配置等</span></div>
+          <div class="causal-step"><span class="num">CAUSE</span><strong>Operation 與互動</strong><span>變化發生在世界規則之中</span></div>
+          <div class="causal-step"><span class="num">STATE t+1</span><strong>下一個狀態被確定</strong><span>同一個世界延續並更新狀態</span></div>
+          <div class="causal-step"><span class="num">HISTORY</span><strong>變化留下成為歷史</strong><span>現在成為未來的前提</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diver" class="story-section diver-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png"
+      data-mio-alt="指向重點說明的南雲澪"
+      data-mio-kicker="MIO GUIDE / DIVER"
+      data-mio-title="Diver 不是站在世界外面任意放置一切的人。"
+      data-mio-text="Diver 進入世界規則之中，自身的操作也會成為改變世界狀態的事件之一。">
+      <div class="container diver-layout">
+        <div class="diver-photo-stack reveal">
+          <figure class="diver-photo-main">
+            <img src="./assets/images/site/optional/character-lifestyle.webp" alt="從居民視角走在水岸城市中的概念視覺" width="1920" height="1080" loading="lazy">
+          </figure>
+          <img class="diver-mio" src="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" alt="說明 Diver 角色的南雲澪" width="720" height="960" loading="lazy">
+          <aside class="diver-note">
+            <strong>不是上帝視角，而是從世界裡面參與。</strong>
+            <p>Alpha 1.0 中，最小參與操作已能從 General View → Gateway → Simulation Core，之後 confirmed state 會回到 View。</p>
+          </aside>
+        </div>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">03 / DIVER</p>
+          <h2>從觀看世界的人，走向生活在世界中的人。</h2>
+          <p>
+            使用者角色「Diver」的長期方向，是作為一名存在於世界時間、規則與社會關係中的居民參與，而不是從世界外任意配置事物的管理者。
+          </p>
+          <p>
+            Alpha 1.0 還沒有實作這個未來體驗的全部。目前已接通的是最小循環：參與操作穿過實際元件，最後反映到 authoritative WorldState。
+          </p>
+          <a class="button button-secondary" href="./architecture-zh-tw.html#operation-flow">查看實作架構</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="alpha-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png"
+      data-mio-alt="介紹 Alpha 1.0 現況的南雲澪"
+      data-mio-kicker="MIO GUIDE / ALPHA 1.0"
+      data-mio-title="目前能做到的事，和仍在下一階段的事，會分開說明。"
+      data-mio-text="Local Alpha 已可重現，但 production profile 與大規模世界 scenario 仍是後續工作。">
+      <div class="container alpha-proof-grid">
+        <div class="alpha-proof-copy reveal">
+          <p class="chapter-kicker">04 / CURRENT STATE</p>
+          <h2>Alpha 1.0。已經有能運作的基礎，但還不是完成的世界。</h2>
+          <p>
+            目前的 local Alpha profile 是 loopback-only，用於開發與 integration。MachiVerse 會把已實作的內容與未來工作分開呈現，而不把長期願景描述成已經完成。
+          </p>
+          <div class="done-next">
+            <article>
+              <h3>✓ 目前已實作</h3>
+              <ul>
+                <li>四個元件端到端實際連接</li>
+                <li>General / Admin View browser E2E</li>
+                <li>FULL / DELTA state synchronization</li>
+                <li>最小 Diver Operation</li>
+                <li>Persistence、restart、recovery、resync</li>
+              </ul>
+            </article>
+            <article>
+              <h3>→ 下一批 work package</h3>
+              <ul>
+                <li>Core observability / telemetry</li>
+                <li>performance / soak harness</li>
+                <li>multi-Gateway failover / View churn</li>
+                <li>production OIDC / TLS acceptance</li>
+                <li>大型 Resident / economy / governance scenario</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <aside class="try-card reveal" data-reveal-delay="100">
+          <span class="status-badge">PRIMARY ACTION</span>
+          <h3>Alpha 1.0 可以先在本機環境中執行。</h3>
+          <p>在 Windows 與 .NET SDK 10.0.400 相當版本的環境中，<code>start-alpha.bat</code> 可以一次啟動四個元件並開啟兩個 View。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./self-hosting-zh-tw.html#quick-start">查看 Quick Start</a>
+          </div>
+          <div class="try-secondary">
+            <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Alpha 1.0 Integration</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="南雲澪頁面導覽">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="南雲澪" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>MIO GUIDE / INTRO</span>
+      <strong class="mio-dock-title" data-mio-title>先從 MachiVerse 是什麼樣的產品開始。</strong>
+      <span class="mio-dock-text" data-mio-text>MachiVerse 是一個已經有實際 Alpha vertical slice 連接運作的開源大規模世界模擬器。</span>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>MachiVerse</strong>
+        <p>以因果與歷史為核心的代理人式大規模世界模擬專案</p>
+      </div>
+      <nav class="footer-links" aria-label="頁尾導覽">
+        <a href="./developer-zh-tw.html">開發者</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./license.html">License</a>
+        <a href="./trademarks.html">Trademarks</a>
+        <a href="./" lang="ja">日本語</a>
+        <a href="./index-en.html" lang="en">English</a>
+        <a href="./index-ko.html" lang="ko">한국어</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
