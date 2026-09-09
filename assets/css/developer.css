@@ -68,6 +68,33 @@
 /* Keep contribution document chips clear of the rounded card edge without lifting Mio. */
 .developer-page .join-card > div { padding-bottom:30px; }
 
+/* Navigation clarity: separate section navigation from language switching. */
+.developer-page .site-header { border-color:rgba(23,50,74,.12); box-shadow:0 14px 42px rgba(44,101,139,.15); }
+.developer-page .header-inner { min-height:82px; align-items:stretch; }
+.developer-page .brand { align-self:center; }
+.developer-page .developer-header-actions { display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px; flex:1; }
+.developer-page .site-nav { position:relative; display:flex; align-items:center; justify-content:flex-end; gap:4px; padding-left:88px; }
+.developer-page .site-nav::before { position:absolute; left:0; top:50%; color:#7a8f9f; content:"TECH"; font-size:.64rem; font-weight:900; letter-spacing:.16em; transform:translateY(-50%); }
+.developer-page .site-nav a { padding:10px 13px; border:1px solid transparent; border-radius:13px; color:#667d8e; font-size:.84rem; font-weight:760; }
+.developer-page .site-nav a:hover,.developer-page .site-nav a:focus-visible { border-color:rgba(32,174,243,.16); background:#eef9ff; color:#12679b; transform:none; }
+.developer-page .site-nav a[aria-current="page"] { border-color:rgba(32,174,243,.34); background:#dff4ff; color:#0e6f9f; box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 6px 16px rgba(32,174,243,.12); }
+.developer-page .site-nav a[aria-current="page"]::before { content:"CURRENT"; display:block; margin-bottom:1px; color:#1688bd; font-size:.52rem; font-weight:900; letter-spacing:.12em; line-height:1; }
+.developer-page .site-nav a:last-child { margin-left:8px; border-left-color:rgba(23,50,74,.08); background:#f8fbfd; }
+.developer-page .lang-switch { position:relative; display:flex; align-items:center; gap:2px; padding:22px 5px 5px; border-radius:14px; box-shadow:none; }
+.developer-page .lang-switch::before { position:absolute; top:5px; left:10px; color:#7a8f9f; content:"LANGUAGE"; font-size:.52rem; font-weight:900; letter-spacing:.12em; }
+.developer-page .lang-switch a { min-width:38px; padding:6px 8px; font-size:.68rem; }
+.developer-page .lang-switch a[aria-current="page"] { background:#17324a; color:#fff; }
+.developer-page .dev-breadcrumb { width:fit-content; margin-bottom:18px; padding:8px 12px; border:1px solid rgba(23,50,74,.08); border-radius:999px; background:rgba(255,255,255,.86); color:#657b8c; box-shadow:0 8px 20px rgba(55,111,146,.07); }
+.developer-page .dev-breadcrumb span:last-child { color:#12679b; font-weight:850; }
+
+@media (max-width:1080px) {
+  .developer-page .header-inner { align-items:center; flex-wrap:wrap; padding-block:10px; }
+  .developer-page .developer-header-actions { grid-template-columns:1fr; gap:8px; width:100%; }
+  .developer-page .site-nav { justify-content:flex-start; padding:24px 0 0; }
+  .developer-page .site-nav::before { top:2px; left:4px; transform:none; }
+  .developer-page .lang-switch { width:fit-content; }
+}
+
 @media (max-width:900px) {
   .developer-hero-grid,.architecture-flow { grid-template-columns:1fr 1fr; }
   .architecture-node:nth-child(2)::after { display:none; }
@@ -82,4 +109,13 @@
   .code-block { margin-inline:-6px; padding:20px 18px; border-radius:18px; font-size:.82rem; }
   .dev-route-card { min-height:0; padding:28px 24px 76px; }
   .spec-table-wrap { margin-inline:-6px; border-radius:18px; }
+  .developer-page .site-header { top:6px; width:calc(100% - 12px); margin-top:6px; border-radius:18px; }
+  .developer-page .header-inner { gap:8px; }
+  .developer-page .brand { width:100%; }
+  .developer-page .site-nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; gap:6px; }
+  .developer-page .site-nav a { display:flex; min-height:48px; align-items:center; justify-content:center; padding:8px 10px; text-align:center; }
+  .developer-page .site-nav a[aria-current="page"] { flex-direction:column; }
+  .developer-page .site-nav a:last-child { margin-left:0; }
+  .developer-page .lang-switch { width:100%; justify-content:center; padding-top:22px; }
+  .developer-page .lang-switch::before { left:50%; transform:translateX(-50%); }
 }
