@@ -1,0 +1,173 @@
+/* Visual asset integration. Generated images intentionally contain no MachiVerse logo. */
+
+body:not(.developer-page) .hero {
+  background-image:
+    linear-gradient(90deg, rgba(9, 11, 17, 0.96) 0%, rgba(9, 11, 17, 0.82) 31%, rgba(9, 11, 17, 0.42) 62%, rgba(9, 11, 17, 0.3) 100%),
+    linear-gradient(to bottom, rgba(9, 11, 17, 0.14), rgba(9, 11, 17, 0.82) 90%, var(--bg)),
+    url("../images/site/hero-general.webp");
+  background-position: center, center, center;
+  background-size: cover;
+}
+
+body:not(.developer-page) .hero::before {
+  background:
+    radial-gradient(circle at 72% 45%, rgba(95, 195, 255, 0.1), transparent 24rem),
+    linear-gradient(to bottom, rgba(9, 11, 17, 0.02), rgba(9, 11, 17, 0.72));
+}
+
+body:not(.developer-page) .hero .world-stage {
+  opacity: 0.72;
+  mix-blend-mode: screen;
+}
+
+.developer-page .developer-hero {
+  background-image:
+    linear-gradient(90deg, rgba(7, 10, 16, 0.95) 0%, rgba(7, 10, 16, 0.74) 48%, rgba(7, 10, 16, 0.46) 100%),
+    linear-gradient(to bottom, rgba(7, 10, 16, 0.14), rgba(7, 10, 16, 0.82)),
+    url("../images/site/hero-developer.webp");
+  background-position: center, center, center;
+  background-size: cover;
+}
+
+body .teaser-section {
+  background-image:
+    radial-gradient(circle at 50% 46%, rgba(95, 195, 255, 0.12), transparent 24rem),
+    linear-gradient(to bottom, rgba(6, 8, 13, 0.72), rgba(9, 13, 20, 0.5) 52%, rgba(5, 7, 11, 0.86)),
+    url("../images/site/teaser-world-start.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.site-visual-figure {
+  position: relative;
+  margin: 56px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(139, 211, 255, 0.16);
+  border-radius: var(--radius);
+  background: rgba(8, 12, 19, 0.72);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.3);
+}
+
+.site-visual-figure::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.site-visual-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-visual-figure figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.site-visual-figure figcaption strong {
+  color: var(--text);
+}
+
+.architecture-visual {
+  max-width: 1080px;
+}
+
+.development-update-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: grid;
+  align-items: end;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background-image:
+    linear-gradient(90deg, rgba(7, 10, 16, 0.94) 0%, rgba(7, 10, 16, 0.58) 46%, rgba(7, 10, 16, 0.18) 100%),
+    linear-gradient(to top, rgba(7, 10, 16, 0.9), transparent 58%),
+    url("../images/site/template-development-update.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.development-update-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 84px 0;
+}
+
+.development-update-copy .brand-lockup {
+  width: min(360px, 72vw);
+  margin-bottom: 28px;
+}
+
+.development-update-copy p {
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  body:not(.developer-page) .hero {
+    background-position: center, center, 66% center;
+  }
+
+  body:not(.developer-page) .hero .world-stage {
+    opacity: 0.5;
+  }
+
+  .developer-page .developer-hero {
+    background-position: center, center, 62% center;
+  }
+}
+
+@media (max-width: 680px) {
+  body:not(.developer-page) .hero {
+    background-image:
+      linear-gradient(to bottom, rgba(9, 11, 17, 0.72), rgba(9, 11, 17, 0.9) 70%, var(--bg)),
+      url("../images/site/hero-general.webp");
+    background-position: center, 68% center;
+  }
+
+  body:not(.developer-page) .hero .world-stage {
+    display: none;
+  }
+
+  .developer-page .developer-hero {
+    background-image:
+      linear-gradient(to bottom, rgba(7, 10, 16, 0.72), rgba(7, 10, 16, 0.92)),
+      url("../images/site/hero-developer.webp");
+    background-position: center, 66% center;
+  }
+
+  .site-visual-figure {
+    margin-top: 36px;
+    border-radius: 16px;
+  }
+
+  .site-visual-figure figcaption {
+    display: block;
+  }
+
+  .development-update-banner {
+    min-height: 620px;
+    background-position: center, center, 58% center;
+  }
+
+  .development-update-copy {
+    padding: 72px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.developer-page) .hero .world-stage {
+    opacity: 0.62;
+  }
+}
