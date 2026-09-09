@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MachiVerse Developers | Alpha 1.0, architecture, and contributing</title>
   <meta name="description" content="Developer information for MachiVerse, including Alpha 1.0 status, the four-component architecture, Quick Start, engineering principles, and contribution links.">
-  <meta name="theme-color" content="#090b11">
+  <meta name="theme-color" content="#f7fcff">
   <link rel="canonical" href="https://machiverse.app/developer-en.html">
   <link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html">
   <link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html">
   <link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html">
   <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/cinematic.css">
   <link rel="stylesheet" href="./assets/css/developer.css">
-  <link rel="stylesheet" href="./assets/css/visual-assets.css">
   <link rel="stylesheet" href="./assets/css/localized.css">
-
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ja_JP">
@@ -25,265 +23,80 @@
   <meta property="og:description" content="Alpha 1.0 status, architecture, Quick Start, engineering principles, and contribution information for MachiVerse.">
   <meta property="og:url" content="https://machiverse.app/developer-en.html">
   <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MachiVerse Alpha 1.0 developer visual showing major components and world-state flow">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MachiVerse Developers">
   <meta name="twitter:description" content="Alpha 1.0, architecture, Quick Start, engineering principles, and contribution information.">
   <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
   <script src="./assets/js/main.js" defer></script>
 </head>
-<body class="developer-page localized-site language-en">
+<body class="navigator-site navigator-developer developer-page localized-site language-en">
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="page-atmosphere" aria-hidden="true">
-    <div class="atmosphere-grid"></div>
-    <div class="atmosphere-glow atmosphere-glow-a"></div>
-    <div class="atmosphere-glow atmosphere-glow-b"></div>
-  </div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="./index-en.html" aria-label="MachiVerse home">
-        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
-        <span>MachiVerse</span>
-      </a>
+      <a class="brand" href="./index-en.html" aria-label="MachiVerse home"><img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34"><span>MachiVerse</span></a>
       <div class="header-actions developer-header-actions">
-        <nav class="page-switch" aria-label="Page switch">
-          <a href="./index-en.html">General</a>
-          <a href="./developer-en.html" aria-current="page">Developers</a>
-        </nav>
-        <nav class="lang-switch" aria-label="Language">
-          <a href="./developer.html" lang="ja">日本語</a>
-          <a href="./developer-en.html" lang="en" aria-current="page">EN</a>
-        </nav>
+        <nav class="site-nav" aria-label="Developer navigation"><a href="#architecture">Architecture</a><a href="#quick-start">Quick Start</a><a href="#principles">Principles</a><a href="#limitations">Limitations</a><a href="#contribute">Contribute</a><a href="./index-en.html">General</a></nav>
+        <nav class="lang-switch" aria-label="Language"><a href="./developer.html" lang="ja">日本語</a><a href="./developer-en.html" lang="en" aria-current="page">EN</a></nav>
       </div>
     </div>
     <div class="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
-    <section class="developer-hero">
-      <div class="container developer-hero-grid">
-        <div>
-          <p class="eyebrow">MACHIVERSE / DEVELOPER</p>
-          <h1>The current state and entry point<span>for building the world.</span></h1>
-          <p>
-            MachiVerse is an agent-based large-scale world simulator developed in C# / .NET 10.
-            The current develop branch contains a reproducible Alpha 1.0 vertical slice connecting Simulation Core, Gateway, General View, and Administration View.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#quick-start">Quick Start</a>
-            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub Repository</a>
-          </div>
+    <section class="navigator-hero" id="developer-intro" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-excited.png" data-mio-alt="Mio Nagumo leaning forward enthusiastically" data-mio-kicker="SYSTEM DEVELOPMENT / DEV TOUR" data-mio-title="Welcome to the implementation side. Let's look under the hood." data-mio-text="We'll go from the connected Alpha 1.0 slice through architecture, startup, engineering principles, and contributing.">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <p class="navigator-kicker">MACHIVERSE / FOR DEVELOPERS</p>
+          <h1>The current state<br>and the <span class="marker">way in.</span></h1>
+          <p class="hero-lead">MachiVerse is an agent-based large-scale world simulator developed in C# / .NET 10. The current develop branch contains a reproducible Alpha 1.0 vertical slice connecting Simulation Core, Gateway, General View, and Administration View.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#quick-start">Run it first</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">View GitHub</a></div>
+          <div class="dev-hero-facts" aria-label="Development environment overview"><div class="dev-hero-fact"><span>STATUS</span><strong>Alpha 1.0</strong></div><div class="dev-hero-fact"><span>RUNTIME</span><strong>.NET 10</strong></div><div class="dev-hero-fact"><span>LANGUAGE</span><strong>C#</strong></div><div class="dev-hero-fact"><span>LICENSE</span><strong>Apache 2.0</strong></div></div>
         </div>
-        <aside class="developer-meta" aria-label="Development environment">
-          <div class="developer-meta-row"><span>Status</span><strong>Alpha 1.0</strong></div>
-          <div class="developer-meta-row"><span>Runtime</span><strong>.NET 10</strong></div>
-          <div class="developer-meta-row"><span>Language</span><strong>C#</strong></div>
-          <div class="developer-meta-row"><span>License</span><strong>Apache License 2.0</strong></div>
-          <div class="developer-meta-row"><span>Integration</span><strong>INT-01 Complete</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="architecture" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">RUNTIME</span>
-      <div class="container reveal">
-        <p class="section-label">Architecture <small>ARCHITECTURE</small></p>
-        <h2>Four execution units,<br>connected by protocols.</h2>
-        <div class="prose">
-          <p>
-            MachiVerse treats four top-level components as independent execution, build, and distribution units.
-            Internal implementation types and DLLs are not shared as communication contracts; versioned protocol/schema boundaries are used instead.
-          </p>
-        </div>
-
-        <div class="architecture-flow" aria-label="Major MachiVerse components">
-          <div class="architecture-node"><strong>Simulation Core</strong><span>WorldState / Operation / Persistence</span></div>
-          <div class="architecture-node"><strong>Gateway</strong><span>Auth / Cache / Publication</span></div>
-          <div class="architecture-node"><strong>General View</strong><span>Browser / Participation / Prediction</span></div>
-          <div class="architecture-node"><strong>Administration View</strong><span>Health / Config / Operations</span></div>
-        </div>
-
-        <figure class="site-visual-figure architecture-visual reveal" data-reveal-delay="100">
-          <img src="./assets/images/site/architecture-overview.webp" alt="MachiVerse architecture visual showing Simulation Core, Gateway, General View, Administration View, and WorldState" width="1600" height="1200" loading="lazy">
-          <figcaption>
-            <strong>Architecture overview</strong>
-            <span>Authoritative WorldState and the operation/publication boundaries are separated by component responsibility.</span>
-          </figcaption>
-        </figure>
-
-        <div class="dev-grid">
-          <article class="dev-card reveal" data-reveal-delay="0">
-            <span class="dev-card-tag">SIMULATION CORE</span>
-            <h3>Owns the authoritative world</h3>
-            <p>Responsible for world simulation, authoritative WorldState, operation execution, and persistence. Alpha 1.0 verifies real startup, mutation, and recovery.</p>
-          </article>
-          <article class="dev-card reveal" data-reveal-delay="70">
-            <span class="dev-card-tag">GATEWAY</span>
-            <h3>The external connection boundary</h3>
-            <p>Handles external connectivity, authentication/authorization, confirmed cache, operation aggregation, and publication. Core, View, and Admin are connected end to end.</p>
-          </article>
-          <article class="dev-card reveal" data-reveal-delay="140">
-            <span class="dev-card-tag">GENERAL VIEW</span>
-            <h3>Entry point for Divers</h3>
-            <p>The general-user reference and participation UI. Built with Blazor WASM + three.js, with browser E2E and the foundations of prediction/reconciliation connected.</p>
-          </article>
-          <article class="dev-card reveal" data-reveal-delay="210">
-            <span class="dev-card-tag">ADMINISTRATION VIEW</span>
-            <h3>Operations and configuration</h3>
-            <p>Responsible for monitoring, configuration, and operational UI. Alpha 1.0 includes E2E health checks and config read/change flows.</p>
-          </article>
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerse system developer Mio Nagumo">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble"><strong>DEV TOUR / START</strong><p>We'll see the architecture, then get it running.<br>Alpha 1.0 is not just documentation — you can launch it.</p></div>
+          <div class="mio-name-sticker">Mio Nagumo / 南雲 澪<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character"><img src="./assets/images/characters/nagumo-mio/web/mio-excited.png" alt="Mio Nagumo guiding the developer tour" width="720" height="960"></div>
         </div>
       </div>
     </section>
 
-    <section id="quick-start" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">BOOT</span>
-      <div class="container status-layout">
-        <div class="reveal">
-          <p class="section-label">Quick Start <small>QUICK START</small></p>
-          <h2>Run the Alpha 1.0 loop<br>on your local machine.</h2>
-          <div class="prose">
-            <p>The current README Quick Start targets Windows. With a .NET SDK equivalent to 10.0.400 and the latest develop branch, the startup script builds and launches all four components.</p>
-          </div>
-          <pre class="code-block" data-label="WINDOWS"><code>git checkout develop
-git pull
-start-alpha.bat</code></pre>
-          <pre class="code-block" data-label="NO BUILD"><code>start-alpha.bat --no-build</code></pre>
-        </div>
-        <aside class="status-panel reveal" data-reveal-delay="120">
-          <span class="status-badge">start-alpha.bat</span>
-          <h3>What the script does</h3>
-          <ul class="dev-list">
-            <li>Checks the .NET SDK</li>
-            <li>Release-builds all four components</li>
-            <li>Starts and synchronizes Simulation Core and Gateway</li>
-            <li>Starts General View and Administration View</li>
-            <li>Opens both Views in the browser</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="principles" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">CONTRACT</span>
-      <div class="container reveal">
-        <p class="section-label">Engineering principles <small>PRINCIPLES</small></p>
-        <h2>Protect the world's contracts<br>before implementing features.</h2>
-        <div class="dev-grid">
-          <article class="dev-card">
-            <span class="dev-card-tag">DETERMINISM</span>
-            <h3>Preserve determinism</h3>
-            <p>The basic contract is that the same World Seed, configuration, and operations converge to the same result.</p>
-          </article>
-          <article class="dev-card">
-            <span class="dev-card-tag">PROTOCOL</span>
-            <h3>Use versioned boundaries</h3>
-            <p>Internal types or shared DTO libraries are not used as communication contracts between components; Protocol/schema is the boundary.</p>
-          </article>
-          <article class="dev-card">
-            <span class="dev-card-tag">DESIGN FIRST</span>
-            <h3>Do not invent unapproved behavior</h3>
-            <p>Related design documents and AGENTS.md are checked before implementation; unapproved behavior is not assumed and implemented as if it were decided.</p>
-          </article>
-          <article class="dev-card">
-            <span class="dev-card-tag">CONFIG</span>
-            <h3>Keep tunable values in external config</h3>
-            <p>Tunable values are intended to remain configurable through external configuration owned by each component.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="current-limitations" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">NEXT</span>
-      <div class="container status-layout">
-        <div class="reveal">
-          <p class="section-label">Current limitations <small>LIMITATIONS</small></p>
-          <h2>Alpha 1.0 is not<br>the finished product.</h2>
-          <div class="prose">
-            <p>The current local Alpha profile is loopback-only for development and integration. It is not a substitute for a production security profile.</p>
-          </div>
-        </div>
-        <aside class="status-panel reveal" data-reveal-delay="120">
-          <span class="status-badge">NEXT WORK</span>
-          <ul class="dev-list">
-            <li>Core observability / telemetry</li>
-            <li>Performance / soak harness</li>
-            <li>Multi-Gateway failover / resync / View churn</li>
-            <li>Release acceptance / 24h soak</li>
-            <li>Production OIDC / TLS deployment acceptance</li>
-            <li>Large-scale Resident / economy / governance scenarios</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section class="development-update-banner" aria-label="Development Update">
+    <section id="architecture" class="story-section world-playground" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png" data-mio-alt="Mio Nagumo explaining" data-mio-kicker="DEV TOUR 01 / ARCHITECTURE" data-mio-title="Four executable units, connected through Protocol." data-mio-text="Internal types and implementation DLLs are not the wire contract; versioned Protocol / schema forms the boundary.">
       <div class="container">
-        <div class="development-update-copy reveal">
-          <img class="brand-lockup" src="./assets/images/brand/logo-primary.png" alt="MachiVerse" width="680" height="240" loading="lazy">
-          <p class="section-label">Development update <small>DEVELOPMENT UPDATE</small></p>
-          <h2>Keep the current state<br>of implementation visible.</h2>
-          <p>GitHub and the Roadmap remain the source of truth for work packages after Alpha 1.0, design changes, and implementation progress.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/MachiVerse-Project/MachiVerse">View GitHub</a>
-            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md">Roadmap</a>
-          </div>
+        <div class="story-copy reveal"><p class="chapter-kicker">01 / ARCHITECTURE</p><h2>Split the responsibilities.<br>Keep one connected world.</h2><p>MachiVerse treats four top-level components as independent execution, build, and distribution units. Communication boundaries use versioned Protocol / schema rather than sharing internal types or implementation DLLs as contracts.</p></div>
+        <div class="arch-board reveal" data-reveal-delay="80" aria-label="Major MachiVerse components"><div class="arch-node"><b>Simulation Core</b><span>WorldState / Operation / Persistence</span></div><div class="arch-node"><b>Gateway</b><span>Auth / Cache / Publication</span></div><div class="arch-node"><b>General View</b><span>Browser / Participation / Prediction</span></div><div class="arch-node"><b>Administration View</b><span>Health / Config / Operations</span></div></div>
+        <div class="story-shell reverse">
+          <figure class="story-card reveal"><img src="./assets/images/site/architecture-overview.webp" alt="Architecture visual showing Simulation Core, Gateway, General View, and Administration View" width="1600" height="1200" loading="lazy"><figcaption>Separate authoritative state, operations, publication, and operations while connecting them through Protocol.</figcaption></figure>
+          <div class="story-copy reveal" data-reveal-delay="100"><span class="big-line">In Alpha 1.0, all four are actually connected.</span><div class="reason-board"><div class="reason-chip"><b>CORE</b><span>Real startup, mutation, and recovery verified.</span></div><div class="reason-chip"><b>GATEWAY</b><span>Real Core / View / Admin connections established.</span></div><div class="reason-chip"><b>GENERAL VIEW</b><span>Browser E2E and the foundation for prediction / reconciliation are connected.</span></div><div class="reason-chip"><b>ADMIN VIEW</b><span>Health and Config read / change E2E flows are established.</span></div></div></div>
         </div>
       </div>
     </section>
 
-    <section id="contribute" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">CONTRIBUTE</span>
-      <div class="container reveal">
-        <p class="section-label">Contributing <small>CONTRIBUTING</small></p>
-        <h2>From Issue, Discussion, or Pull Request<br>to implementation in the world.</h2>
-        <div class="prose">
-          <p>
-            Normal work branches from the relevant persistent component branch and is integrated through Pull Requests.
-            Protocol changes update the relevant protocol design document before implementation, and design changes are reflected in related documentation.
-          </p>
-        </div>
-        <pre class="code-block" data-label="BRANCH FLOW"><code>main                 stable / release candidate
-  ↑
-develop              next integrated version
-  ↑
-├─ simulation
-├─ gateway
-├─ view
-└─ administration-view</code></pre>
-
-        <div class="dev-links">
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse"><strong>GitHub Repository</strong><span>Source code and latest README</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md"><strong>Alpha 1.0 Integration</strong><span>Reproduction steps and acceptance</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs"><strong>Design Documents</strong><span>Architecture, protocols, and design materials</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md"><strong>Roadmap</strong><span>Implementation sequence and next work packages</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/CONTRIBUTING.md"><strong>Contribution Guide</strong><span>How to use Issues, PRs, and Discussions</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/discussions"><strong>GitHub Discussions</strong><span>Ideas, Q&amp;A, and design discussions</span></a>
-        </div>
+    <section id="quick-start" class="story-section" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png" data-mio-alt="Mio Nagumo pointing with a smile" data-mio-kicker="DEV TOUR 02 / QUICK START" data-mio-title="Now let's run the Alpha 1.0 loop locally." data-mio-text="The documented Quick Start currently targets Windows, .NET SDK 10.0.400-equivalent, and the latest develop branch.">
+      <div class="container quickstart-grid">
+        <div class="reveal"><p class="chapter-kicker">02 / QUICK START</p><div class="story-copy"><h2>Run it before<br>reading everything.</h2><p>The current README Quick Start is for Windows. It assumes a .NET SDK 10.0.400-equivalent environment and the latest develop branch.</p></div><pre class="code-block" data-label="WINDOWS"><code>git checkout develop
+git pull
+start-alpha.bat</code></pre><pre class="code-block" data-label="NO BUILD"><code>start-alpha.bat --no-build</code></pre></div>
+        <aside class="story-card reveal" data-reveal-delay="120"><div style="padding:22px 20px 26px"><p class="chapter-kicker">START-ALPHA.BAT</p><h3>What the script does</h3><div class="reason-board"><div class="reason-chip"><b>01</b><span>Checks the .NET SDK.</span></div><div class="reason-chip"><b>02</b><span>Release-builds all four components.</span></div><div class="reason-chip"><b>03</b><span>Starts and synchronizes Core / Gateway.</span></div><div class="reason-chip"><b>04</b><span>Starts both Views and opens them in the browser.</span></div></div></div></aside>
       </div>
+    </section>
+
+    <section id="principles" class="story-section status-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png" data-mio-alt="Mio Nagumo thinking with folded arms" data-mio-kicker="DEV TOUR 03 / PRINCIPLES" data-mio-title="Working code is not enough. The world's contracts matter." data-mio-text="Determinism, Protocol boundaries, Design First, and external Config are part of the engineering foundation.">
+      <div class="container"><div class="story-copy reveal"><p class="chapter-kicker">03 / ENGINEERING PRINCIPLES</p><h2>Before writing code,<br>protect the contracts.</h2><p>To grow a world simulator over time, reproducibility and clear boundaries take priority over implementation convenience.</p></div><div class="reason-board reveal" data-reveal-delay="80"><article class="reason-chip"><b>DETERMINISM</b><span>The same World Seed, config, and operations should converge to the same result.</span></article><article class="reason-chip"><b>PROTOCOL</b><span>Use versioned Protocol / schema as the communication boundary instead of internal types or shared DTO libraries.</span></article><article class="reason-chip"><b>DESIGN FIRST</b><span>Read the relevant design docs and AGENTS.md; do not turn unapproved assumptions into implementation facts.</span></article><article class="reason-chip"><b>CONFIG</b><span>Tunable values should remain changeable through external Config owned by each component.</span></article></div></div>
+    </section>
+
+    <section id="limitations" class="story-section diver-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" data-mio-alt="Mio Nagumo pointing out an important limitation" data-mio-kicker="DEV TOUR 04 / LIMITS" data-mio-title="Important: Alpha 1.0 is not a production profile." data-mio-text="The current local Alpha profile is loopback-only for development and integration; it does not replace a production security profile.">
+      <div class="container story-shell"><div class="story-copy reveal"><p class="chapter-kicker">04 / CURRENT LIMITATIONS</p><h2>Alpha 1.0 is<br>not the finished system.</h2><span class="big-line">“Connected” and “production-ready” are different claims.</span><p>The current local Alpha profile is loopback-only for development and integration and is not a substitute for a production security profile.</p></div><aside class="story-card reveal" data-reveal-delay="110"><div style="padding:22px 20px 26px"><p class="chapter-kicker">NEXT WORK</p><h3>Work still ahead</h3><ul class="dev-list"><li>Core observability / telemetry</li><li>Performance / soak harness</li><li>Multi-Gateway failover / resync / View churn</li><li>Release acceptance / 24h soak</li><li>Production OIDC / TLS deployment acceptance</li><li>Large Resident / economy / governance scenarios</li></ul></div></aside></div>
+    </section>
+
+    <section id="contribute" class="join-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png" data-mio-alt="Mio Nagumo celebrating" data-mio-kicker="DEV TOUR 05 / CONTRIBUTE" data-mio-title="From here, the route leads to your working branch." data-mio-text="Issues, Discussions, and Pull Requests are all ways in — through implementation, design, or discussion.">
+      <div class="container"><div class="join-card reveal"><div><p class="chapter-kicker">05 / CONTRIBUTING</p><h2>Join the<br>implementation.</h2><p>Normal work starts from the persistent branch for the target component, moves to a working branch, and is integrated through Pull Requests. Protocol changes update the relevant protocol design first, and design changes should be reflected in the related documentation.</p><div class="hero-actions"><a class="button button-primary" href="https://github.com/MachiVerse-Project/MachiVerse">Repository</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/CONTRIBUTING.md">Contribution Guide</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a></div><div class="hero-route" aria-label="Key documents"><a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md"><b>DOC</b> Alpha 1.0 Integration</a><a href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs"><b>DOC</b> Design Docs</a><a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md"><b>DOC</b> Roadmap</a></div></div><img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="Mio Nagumo welcoming contributors" width="720" height="960" loading="lazy"></div></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>MachiVerse Developers</strong>
-        <p>Alpha 1.0 / Architecture / Contributing</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="./index-en.html">General</a>
-        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
-        <a href="./LICENSE">License</a>
-        <a href="./TRADEMARKS.md">Trademarks</a>
-        <a href="./developer.html" lang="ja">日本語</a>
-      </nav>
-    </div>
-  </footer>
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="Developer tour guide by Mio Nagumo"><img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-excited.png" alt="Mio Nagumo" width="720" height="960"><div class="mio-dock-copy"><span class="mio-dock-kicker" data-mio-kicker>SYSTEM DEVELOPMENT / DEV TOUR</span><strong class="mio-dock-title" data-mio-title>Welcome to the implementation side. Let's look under the hood.</strong><span class="mio-dock-text" data-mio-text>We'll go from the connected Alpha 1.0 slice through architecture, startup, engineering principles, and contributing.</span></div></aside>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>MachiVerse Developers</strong><p>Alpha 1.0 / Architecture / Contributing</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="./index-en.html">General</a><a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a><a href="./LICENSE">License</a><a href="./TRADEMARKS.md">Trademarks</a><a href="./developer.html" lang="ja">日本語</a></nav></div></footer>
 </body>
 </html>
