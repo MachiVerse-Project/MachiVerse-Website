@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Run MachiVerse Yourself | Self-hosting Alpha 1.0</title>
+  <meta name="description" content="A practical guide for running MachiVerse Alpha 1.0 on a PC or managed test environment, including the Windows Quick Start, prerequisites, persistent data, and current limitations.">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/self-hosting-en.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/developer.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="Run MachiVerse Yourself | Self-hosting Alpha 1.0">
+  <meta property="og:description" content="Windows Quick Start and current limits for running MachiVerse Alpha 1.0 in an environment you control.">
+  <meta property="og:url" content="https://machiverse.app/self-hosting-en.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse Self-hosting Alpha 1.0">
+  <meta name="twitter:description" content="Run Alpha 1.0 in an environment you control.">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body class="navigator-site navigator-developer developer-page localized-site language-en">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="./index-en.html" aria-label="MachiVerse home"><img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34"><span>MachiVerse</span></a><div class="header-actions developer-header-actions"><nav class="site-nav" aria-label="Technical navigation"><a href="./developer-en.html">Technical</a><a href="./self-hosting-en.html" aria-current="page">Self-hosting</a><a href="./architecture-en.html">Architecture</a><a href="./developer-en.html#contribute">Contribute</a><a href="./index-en.html">General</a></nav><nav class="lang-switch" aria-label="Language"><a href="./self-hosting.html" lang="ja">日本語</a><a href="./self-hosting-en.html" lang="en" aria-current="page">EN</a></nav></div></div><div class="scroll-progress" aria-hidden="true"></div></header>
+
+  <main id="main">
+    <section class="navigator-hero" id="self-hosting-intro" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png" data-mio-alt="Mio Nagumo guiding the reader" data-mio-kicker="SELF-HOSTING / ALPHA 1.0" data-mio-title="If you want to run it yourself, start by understanding the current Alpha profile." data-mio-text="The simplest path today is local Windows startup. It is not a production internet deployment guide.">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal"><div class="dev-breadcrumb"><a href="./developer-en.html">Technical Guide</a><span>/</span><span>Self-hosting</span></div><p class="navigator-kicker">MACHIVERSE / SELF-HOSTING</p><h1>Start by launching<br>the <span class="marker">world yourself.</span></h1><p class="hero-lead">This page is for people who want to run MachiVerse before contributing code, or try it on a PC or test machine they control. The current Alpha 1.0 can launch as a real local integration profile connecting all four top-level components.</p><div class="hero-actions"><a class="button button-primary" href="#quick-start">Quick Start</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Official runbook</a></div><div class="dev-hero-facts" aria-label="Startup overview"><div class="dev-hero-fact"><span>PROFILE</span><strong>Local Alpha</strong></div><div class="dev-hero-fact"><span>RECOMMENDED</span><strong>Windows</strong></div><div class="dev-hero-fact"><span>SDK</span><strong>.NET 10.0.400-equivalent</strong></div><div class="dev-hero-fact"><span>NETWORK</span><strong>Loopback only</strong></div></div></div>
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerse system developer Mio Nagumo"><div class="mio-hero-poster" aria-hidden="true"></div><div class="mio-hero-bubble"><strong>SELF-HOST / START</strong><p>Alpha 1.0 can run today.<br>But “runs locally” and “production-ready” are different claims.</p></div><div class="mio-name-sticker">Mio Nagumo / 南雲 澪<br>SYSTEM DEVELOPMENT</div><div class="mio-hero-character"><img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo guiding the self-hosting page" width="720" height="960"></div></div>
+      </div>
+    </section>
+
+    <section id="before-start" class="story-section world-playground" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png" data-mio-alt="Mio Nagumo explaining" data-mio-kicker="SELF-HOSTING / BEFORE START" data-mio-title="What you can run today is the Alpha 1.0 local integration profile." data-mio-text="Even on an on-prem test machine, keep it inside an environment you control rather than exposing it as a production service.">
+      <div class="container story-shell"><div class="story-copy reveal"><p class="chapter-kicker">01 / BEFORE START</p><h2>Separate “on-prem testing”<br>from production operation.</h2><p>The current local Alpha profile is loopback-only and intended for development and integration. It is suitable for experiencing the present state of MachiVerse on a PC or managed test machine, but it is not a production security profile.</p><div class="dev-callout"><strong>Do not treat the current Alpha as internet-facing production</strong><p>Production OIDC / TLS deployment acceptance is still a later work package. Adding your own authentication or TLS layer does not, by itself, make the current profile an accepted production deployment.</p></div></div><aside class="story-card reveal" data-reveal-delay="100"><div style="padding:22px 20px 26px"><p class="chapter-kicker">SUITABLE FOR</p><ul class="dev-list"><li>Launching Alpha 1.0 on a Windows PC</li><li>Testing on a machine you control</li><li>Seeing the four connected components and browser UIs</li><li>Trying restart, recovery, and resynchronization</li></ul></div></aside></div>
+    </section>
+
+    <section id="quick-start" class="story-section" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-excited.png" data-mio-alt="Mio Nagumo leaning forward enthusiastically" data-mio-kicker="SELF-HOSTING / QUICK START" data-mio-title="On Windows, start with start-alpha.bat." data-mio-text="Use the latest develop branch with a .NET SDK 10.0.400-equivalent environment and launch all four components together.">
+      <div class="container quickstart-grid"><div class="reveal"><p class="chapter-kicker">02 / QUICK START — WINDOWS</p><div class="story-copy"><h2>Three lines<br>to startup.</h2><p>The current Quick Start in the main repository targets Windows and assumes a .NET SDK 10.0.400-equivalent environment plus the latest <code>develop</code>.</p></div><pre class="code-block" data-label="WINDOWS"><code>git checkout develop
+git pull
+start-alpha.bat</code></pre><p>If you have already built the components, subsequent runs can skip the build.</p><pre class="code-block" data-label="NO BUILD"><code>start-alpha.bat --no-build</code></pre></div><aside class="story-card reveal" data-reveal-delay="120"><div style="padding:22px 20px 26px"><p class="chapter-kicker">START-ALPHA.BAT</p><h3>What the script does</h3><ul class="dev-list"><li>Checks the .NET SDK</li><li>Release-builds all four components</li><li>Starts Simulation Core and waits for health</li><li>Starts Gateway and waits for Core Synced</li><li>Starts General View and Administration View</li><li>Opens both Views in the browser</li></ul></div></aside></div>
+    </section>
+
+    <section id="what-starts" class="story-section status-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png" data-mio-alt="Mio Nagumo thinking" data-mio-kicker="SELF-HOSTING / COMPONENTS" data-mio-title="You are not launching only the Core." data-mio-text="Alpha 1.0 starts Simulation Core, Gateway, General View, and Administration View as one connected slice.">
+      <div class="container"><div class="story-copy reveal"><p class="chapter-kicker">03 / WHAT STARTS</p><h2>The world engine,<br>the gateway, and two Views.</h2><p>The standard Alpha 1.0 startup connects these four components.</p></div><div class="architecture-flow reveal" data-reveal-delay="80" aria-label="Four components started by Alpha 1.0"><div class="architecture-node"><strong>Simulation Core</strong><span>Authoritative WorldState / Simulation / Persistence</span></div><div class="architecture-node"><strong>Gateway</strong><span>Auth / Cache / Operation / Publication</span></div><div class="architecture-node"><strong>General View</strong><span>General-user browser UI</span></div><div class="architecture-node"><strong>Administration View</strong><span>Operations / Config browser UI</span></div></div><div class="dev-section-links"><a href="./architecture-en.html">Understand the four-component design</a><a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/architecture/overview.md">Read the source design document</a></div></div>
+    </section>
+
+    <section id="persistence" class="story-section" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png" data-mio-alt="Mio Nagumo explaining" data-mio-kicker="SELF-HOSTING / DATA" data-mio-title="Local world and Gateway persistent data are retained." data-mio-text="The Alpha profile stores them under .machiverse-alpha/, so restart and recovery can be tested as well.">
+      <div class="container story-shell reverse"><aside class="story-card reveal"><div style="padding:22px 20px 26px"><p class="chapter-kicker">LOCAL DATA</p><h3><code>.machiverse-alpha/</code></h3><p>The local world and Gateway persistent data live here. Keep this directory in mind when resetting or recreating a test environment.</p></div></aside><div class="story-copy reveal" data-reveal-delay="100"><p class="chapter-kicker">04 / PERSISTENCE &amp; RECOVERY</p><h2>Not just startup.<br>Test restart too.</h2><p>Alpha 1.0 connects Core / Gateway persistence, shutdown, restart, recovery, and resynchronization. You can inspect more than a one-shot demo path.</p></div></div>
+    </section>
+
+    <section id="next" class="join-stage" data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png" data-mio-alt="Mio Nagumo guiding the next step" data-mio-kicker="SELF-HOSTING / NEXT" data-mio-title="Once it is running, look at how it is built." data-mio-text="The architecture page explains component boundaries, determinism, and the authoritative WorldState model.">
+      <div class="container"><div class="join-card reveal"><div><p class="chapter-kicker">NEXT STEP</p><h2>From running the world<br>to understanding it.</h2><p>The main repository's Alpha 1.0 Integration Runbook is the source of truth for manual startup, Linux / macOS-equivalent commands, the Golden Demo, and known limitations. For the system model, continue to Architecture &amp; Design.</p><div class="hero-actions"><a class="button button-primary" href="./architecture-en.html">Architecture &amp; Design</a><a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Integration Runbook</a><a class="button button-secondary" href="./developer-en.html">Technical Guide</a></div></div><img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="Mio Nagumo guiding the reader to more technical information" width="720" height="960" loading="lazy"></div></div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="Self-hosting guide by Mio Nagumo"><img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="Mio Nagumo" width="720" height="960"><div class="mio-dock-copy"><span class="mio-dock-kicker" data-mio-kicker>SELF-HOSTING / ALPHA 1.0</span><strong class="mio-dock-title" data-mio-title>If you want to run it yourself, start by understanding the current Alpha profile.</strong><span class="mio-dock-text" data-mio-text>The simplest path today is local Windows startup. It is not a production internet deployment guide.</span></div></aside>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>MachiVerse Self-hosting</strong><p>Alpha 1.0 / Quick Start / Local operation</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="./developer-en.html">Technical</a><a href="./architecture-en.html">Architecture</a><a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a><a href="./license.html">License</a><a href="./self-hosting.html" lang="ja">日本語</a></nav></div></footer>
+</body>
+</html>

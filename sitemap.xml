@@ -38,6 +38,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://machiverse.app/self-hosting.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://machiverse.app/self-hosting-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://machiverse.app/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://machiverse.app/architecture-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://machiverse.app/license.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
