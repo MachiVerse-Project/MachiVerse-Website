@@ -11,6 +11,56 @@
     framingStyles.rel = 'stylesheet';
     framingStyles.href = './assets/css/nagumo-framing.css';
     document.head.appendChild(framingStyles);
+
+    if (!document.body.classList.contains('navigator-developer')) {
+      const polishStyles = document.createElement('link');
+      polishStyles.rel = 'stylesheet';
+      polishStyles.href = './assets/css/public-polish.css';
+      document.head.appendChild(polishStyles);
+
+      const isJapanese = document.documentElement.lang === 'ja';
+      const diverFigure = document.querySelector('#diver .diver-photo-main');
+      if (diverFigure && !diverFigure.querySelector('.viewer-visual-label')) {
+        const label = document.createElement('figcaption');
+        label.className = 'viewer-visual-label';
+        label.textContent = isJapanese
+          ? 'CONCEPT VISUAL — 現在のGeneral View UIではありません'
+          : 'CONCEPT VISUAL — not the current General View UI';
+        diverFigure.appendChild(label);
+      }
+
+      const diverCopy = document.querySelector('#diver .story-copy');
+      if (diverCopy && !diverCopy.querySelector('.viewer-proof-strip')) {
+        const proofStrip = document.createElement('div');
+        proofStrip.className = 'viewer-proof-strip';
+        proofStrip.setAttribute('aria-label', isJapanese ? 'General Viewで実装済みの内容' : 'Implemented General View evidence');
+
+        const facts = isJapanese
+          ? [
+              ['GENERAL VIEW', '実ブラウザE2E'],
+              ['DIVER OP', '最小参加操作を実接続'],
+              ['CONFIRMED STATE', 'FULL / DELTAでViewへ反映']
+            ]
+          : [
+              ['GENERAL VIEW', 'real browser E2E'],
+              ['DIVER OP', 'minimal participation operation'],
+              ['CONFIRMED STATE', 'FULL / DELTA back to the View']
+            ];
+
+        facts.forEach(([title, detail]) => {
+          const item = document.createElement('span');
+          const heading = document.createElement('b');
+          const copy = document.createElement('small');
+          heading.textContent = title;
+          copy.textContent = detail;
+          item.append(heading, copy);
+          proofStrip.appendChild(item);
+        });
+
+        const diverButton = diverCopy.querySelector('.button');
+        diverButton ? diverButton.before(proofStrip) : diverCopy.appendChild(proofStrip);
+      }
+    }
   }
 
   let openingSeen = false;
