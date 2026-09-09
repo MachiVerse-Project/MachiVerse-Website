@@ -100,19 +100,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-align: center;
 }
 /*
- * The repository currently carries the light wordmark and the official symbol,
- * but not the horizontal dark wordmark. On a white opening screen use the
- * official symbol directly rather than recolouring or fabricating the logo.
+ * The official symbol contains a light upper gradient, so it loses contrast on
+ * a pure white opening screen. Keep the symbol untouched and place it on a
+ * small dark presentation plate instead of recolouring the asset itself.
  */
 .opening-logo img {
   display: block;
+  box-sizing: content-box;
   content: url("../images/brand/logo-symbol.png");
-  width: min(30vw,160px);
+  width: min(34vw,190px);
   height: auto;
   margin: 0 auto;
+  padding: 18px 22px;
+  border-radius: 30px;
+  background: linear-gradient(145deg,#102c43,#1f5879);
+  box-shadow: 0 18px 44px rgba(16,44,67,.18);
 }
 .opening-logo p {
-  margin: 18px 0 0;
+  margin: 22px 0 0;
   color: #17324a;
   font-size: .72rem;
   font-weight: 800;
