@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MachiVerse | 世界がそうなった理由までシミュレーションする</title>
   <meta name="description" content="MachiVerseは、人・自然・社会・経済・都市・歴史がつながり、現在に至る因果まで扱うことを目指すオープンソースの大規模世界シミュレーションプロジェクトです。">
-  <meta name="theme-color" content="#10131a">
+  <meta name="theme-color" content="#090b11">
   <link rel="canonical" href="https://machiverse.app/">
   <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
@@ -23,9 +23,26 @@
   <meta name="twitter:title" content="MachiVerse">
   <meta name="twitter:description" content="世界を作るのではなく、世界がそうなった理由までシミュレーションする。">
   <meta name="twitter:image" content="https://machiverse.app/assets/images/social/og-image.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
+
+  <div class="opening" aria-hidden="true">
+    <div class="opening-flare"></div>
+    <div class="opening-lines"></div>
+    <div class="opening-logo">
+      <img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240">
+      <p>WORLD SIMULATION PROJECT</p>
+    </div>
+  </div>
+
+  <div class="page-atmosphere" aria-hidden="true">
+    <div class="atmosphere-grid"></div>
+    <div class="atmosphere-glow atmosphere-glow-a"></div>
+    <div class="atmosphere-glow atmosphere-glow-b"></div>
+  </div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -45,10 +62,17 @@
 
   <main id="main">
     <section class="hero">
+      <div class="hero-particles" aria-hidden="true"></div>
+      <div class="hero-rays" aria-hidden="true"></div>
+
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">OPEN SOURCE WORLD SIMULATION</p>
-          <h1>この街が、<br><span>ここにある理由</span>まで<br>シミュレーションする。</h1>
+          <p class="eyebrow hero-eyebrow">OPEN SOURCE WORLD SIMULATION</p>
+          <h1>
+            <span class="hero-line">この街が、</span>
+            <span class="hero-line hero-line-accent">ここにある理由</span>
+            <span class="hero-line">までシミュレーションする。</span>
+          </h1>
           <p class="hero-lead">
             人、自然、社会、経済、都市、歴史。
             MachiVerseは、それぞれを切り離さず、相互作用と時間の積み重ねによって
@@ -60,17 +84,27 @@
           </div>
         </div>
 
-        <div class="world-card" aria-label="人、自然、社会、経済、都市、歴史が相互につながるMachiVerseの概念図">
-          <div class="world-core">WORLD</div>
-          <div class="orbit orbit-a"><span>人</span><span>社会</span></div>
-          <div class="orbit orbit-b"><span>自然</span><span>経済</span></div>
-          <div class="orbit orbit-c"><span>都市</span><span>歴史</span></div>
+        <div class="world-stage" aria-hidden="true">
+          <div class="world-halo world-halo-a"></div>
+          <div class="world-halo world-halo-b"></div>
+          <div class="world-card" aria-label="人、自然、社会、経済、都市、歴史が相互につながるMachiVerseの概念図">
+            <div class="world-core">WORLD</div>
+            <div class="orbit orbit-a"><span>人</span><span>社会</span></div>
+            <div class="orbit orbit-b"><span>自然</span><span>経済</span></div>
+            <div class="orbit orbit-c"><span>都市</span><span>歴史</span></div>
+          </div>
         </div>
       </div>
+
+      <a class="scroll-cue" href="#about" aria-label="MachiVerseとはへスクロール">
+        <span>SCROLL</span>
+        <i aria-hidden="true"></i>
+      </a>
     </section>
 
-    <section id="about" class="section">
-      <div class="container narrow">
+    <section id="about" class="section section-cinematic">
+      <span class="section-watermark" aria-hidden="true">ORIGIN</span>
+      <div class="container narrow reveal">
         <p class="section-label">ABOUT</p>
         <h2>「完成した世界」ではなく、<br>「世界が世界になっていく過程」を。</h2>
         <div class="prose lead-prose">
@@ -88,27 +122,30 @@
       </div>
     </section>
 
-    <section id="vision" class="section section-alt">
+    <section id="vision" class="section section-alt section-cinematic">
+      <span class="section-watermark section-watermark-right" aria-hidden="true">SYSTEM</span>
       <div class="container">
-        <p class="section-label">VISION</p>
-        <h2>世界は、いろいろなものが<br>つながった結果として変わっていく。</h2>
+        <div class="reveal">
+          <p class="section-label">VISION</p>
+          <h2>世界は、いろいろなものが<br>つながった結果として変わっていく。</h2>
+        </div>
         <div class="feature-grid">
-          <article class="feature-card">
+          <article class="feature-card reveal" data-reveal-delay="0">
             <span class="feature-index">01</span>
             <h3>自然が暮らしを変える</h3>
             <p>地形、水域、植生などを背景ではなく、居住、生産、産業、交通へ影響する世界状態として扱うことを目指します。</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card reveal" data-reveal-delay="90">
             <span class="feature-index">02</span>
             <h3>人の営みが社会をつくる</h3>
             <p>一人ひとりの生活や選択が、家族、仕事、組織、教育などの関係へつながり、社会の状態を変えていく世界を目指します。</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card reveal" data-reveal-delay="180">
             <span class="feature-index">03</span>
             <h3>経済が都市の姿を変える</h3>
             <p>資源、生産、物流、市場、人の移動をつなぎ、その積み重ねが街や集落の姿にも現れる世界を目指します。</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card reveal" data-reveal-delay="270">
             <span class="feature-index">04</span>
             <h3>変化が歴史として残る</h3>
             <p>出来事をその場限りで消費せず、過去の状態が次の状態へ影響し、「今」の理由をたどれる世界を目指します。</p>
@@ -117,9 +154,10 @@
       </div>
     </section>
 
-    <section id="diver" class="section">
+    <section id="diver" class="section section-cinematic">
+      <span class="section-watermark" aria-hidden="true">DIVER</span>
       <div class="container status-layout">
-        <div>
+        <div class="reveal">
           <p class="section-label">DIVER</p>
           <h2>世界の外から動かすのではなく、<br>一人の住人として世界の中へ。</h2>
           <div class="prose">
@@ -133,7 +171,7 @@
             </p>
           </div>
         </div>
-        <aside class="status-panel" aria-label="ダイバーの現在の実装状況">
+        <aside class="status-panel reveal" data-reveal-delay="140" aria-label="ダイバーの現在の実装状況">
           <span class="status-badge">IMPLEMENTED SLICE</span>
           <h3>最小の参加操作は、すでに実接続済み。</h3>
           <p>
@@ -144,9 +182,10 @@
       </div>
     </section>
 
-    <section id="status" class="section section-alt">
+    <section id="status" class="section section-alt section-cinematic">
+      <span class="section-watermark section-watermark-right" aria-hidden="true">ALPHA</span>
       <div class="container status-layout">
-        <div>
+        <div class="reveal">
           <p class="section-label">CURRENT STATUS</p>
           <h2>まだ完成ではない。<br>でも、構想だけでもない。</h2>
           <div class="prose">
@@ -159,7 +198,7 @@
             </p>
           </div>
         </div>
-        <aside class="status-panel" aria-label="Alpha 1.0の実装状況">
+        <aside class="status-panel reveal" data-reveal-delay="140" aria-label="Alpha 1.0の実装状況">
           <span class="status-badge">Alpha 1.0</span>
           <h3>再現可能なvertical slice</h3>
           <p>
@@ -170,8 +209,9 @@
       </div>
     </section>
 
-    <section id="join" class="section section-cta">
-      <div class="container cta-inner">
+    <section id="join" class="section section-cta section-cinematic">
+      <span class="section-watermark" aria-hidden="true">OPEN</span>
+      <div class="container cta-inner reveal">
         <div>
           <p class="section-label">OPEN SOURCE</p>
           <h2>この世界を、一緒に育てる。</h2>
