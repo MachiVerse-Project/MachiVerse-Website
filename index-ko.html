@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MachiVerse | 세계가 왜 지금의 모습이 되었는지까지 시뮬레이션하다</title>
+  <meta name="description" content="MachiVerse는 사람, 사회, 경제, 자연 등의 상태 변화를 하나의 세계 안에서 함께 다루는 오픈소스 에이전트 기반 대규모 세계 시뮬레이터입니다. C# / .NET 10으로 개발 중이며, Alpha 1.0에서는 네 개의 실제 컴포넌트를 연결한 재현 가능한 vertical slice가 동작합니다.">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/index-ko.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html">
+  <link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html">
+  <link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <link rel="stylesheet" href="./assets/css/product-proof.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="MachiVerse | 세계가 왜 지금의 모습이 되었는지까지 시뮬레이션하다">
+  <meta property="og:description" content="사람, 사회, 경제, 자연의 상태가 하나의 세계 안에서 함께 변화하는 오픈소스 에이전트 기반 세계 시뮬레이터. Alpha 1.0에서는 실제 컴포넌트를 연결한 vertical slice가 동작합니다.">
+  <meta property="og:url" content="https://machiverse.app/index-ko.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-general.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse">
+  <meta name="twitter:description" content="세계의 상태뿐 아니라 인과와 역사까지 함께 시뮬레이션합니다.">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-general.png">
+  <script>document.documentElement.classList.add('js', 'opening-pending')</script>
+  <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/public-language-runtime.js" defer></script>
+</head>
+<body class="navigator-site localized-site">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+
+  <div class="opening" aria-hidden="true">
+    <div class="opening-flare"></div>
+    <div class="opening-lines"></div>
+    <div class="opening-logo">
+      <img src="./assets/images/brand/logo-primary.png" alt="" width="680" height="240">
+      <p>세계가 그렇게 된 이유까지.</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index-ko.html" aria-label="MachiVerse 홈">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="메인 내비게이션">
+          <a href="#proof">구현됨</a>
+          <a href="#world">세계의 구조</a>
+          <a href="#diver">Diver</a>
+          <a href="#status">Alpha 1.0</a>
+          <a href="./developer-ko.html">개발자용</a>
+        </nav>
+        <nav class="lang-switch" aria-label="언어 전환">
+          <a href="./" lang="ja">日本語</a>
+          <a href="./index-en.html" lang="en">EN</a>
+          <a href="./index-zh-tw.html" lang="zh-TW">繁中</a>
+          <a href="./index-ko.html" lang="ko" aria-current="page">한국어</a>
+        </nav>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="navigator-hero" id="intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
+      data-mio-alt="나구모 미오"
+      data-mio-kicker="MIO GUIDE / INTRO"
+      data-mio-title="먼저 MachiVerse가 어떤 제품인지부터 소개합니다."
+      data-mio-text="MachiVerse는 실제 Alpha vertical slice가 이미 연결되어 동작하는 오픈소스 대규모 세계 시뮬레이터입니다.">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <p class="navigator-kicker">OPEN SOURCE WORLD SIMULATOR</p>
+          <h1>이 도시가,<br><span class="marker">왜 이곳에 존재하는지</span><br>그 이유까지.</h1>
+          <p class="product-definition">
+            <strong>사람·사회·경제·자연이 같은 세계 안에서 함께 움직이는 오픈소스 에이전트 기반 세계 시뮬레이터.</strong>
+            <span>C# / .NET 10으로 개발하고 있습니다.</span>
+          </p>
+          <p class="hero-lead">
+            완성된 세계를 배치하는 대신 상태, 인과, 상호작용, 시간, 역사를 연결해
+            “왜 현재의 세계가 이런 상태가 되었는가”까지 이전의 변화로부터 이해할 수 있는 동적인 세계를 지향합니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./self-hosting-ko.html#quick-start">Alpha 1.0 실행하기</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+          </div>
+          <ol class="hero-route" aria-label="페이지 흐름">
+            <li><a href="#proof"><b>01</b> 구현</a></li>
+            <li><a href="#world"><b>02</b> 구조</a></li>
+            <li><a href="#diver"><b>03</b> 참여</a></li>
+            <li><a href="#status"><b>04</b> 현재</a></li>
+          </ol>
+        </div>
+
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerse 시스템 개발자 나구모 미오">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>MIO GUIDE 00</strong>
+            <p>구상만 있는 프로젝트는 아닙니다.<br>지금 실제로 이어지는 한 바퀴부터 볼 수 있습니다.</p>
+          </div>
+          <div class="mio-name-sticker">Mio Nagumo / 南雲 澪<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="웃으며 페이지를 안내하는 나구모 미오" width="720" height="960">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="product-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="설명하는 나구모 미오"
+      data-mio-kicker="MIO GUIDE / PRODUCT PROOF"
+      data-mio-title="Alpha 1.0에서는 네 개의 실제 컴포넌트가 이미 연결되어 있습니다."
+      data-mio-text="브라우저의 조작이 Gateway를 거쳐 Core로 전달되고, Core에서 확정된 WorldState가 FULL / DELTA publication으로 View에 돌아오는 흐름까지 재현할 수 있습니다.">
+      <div class="container">
+        <div class="proof-header reveal">
+          <div>
+            <span class="proof-kicker">ALPHA 1.0 / RUNNING VERTICAL SLICE</span>
+            <h2>설계만 있는 것이 아닙니다.<br>실제 컴포넌트가 끝까지 연결됩니다.</h2>
+          </div>
+          <p>
+            현재 <code>develop</code> 브랜치에는 Simulation Core, Gateway, General View, Administration View를 실제로 연결한 재현 가능한 vertical slice가 있습니다.
+            UI는 아직 Alpha 품질이지만 실제 통신, 권위 있는 상태 확정, 동기화, 영속화, 복구까지 구현되어 있습니다.
+          </p>
+        </div>
+
+        <div class="proof-console reveal" data-reveal-delay="80" aria-label="Alpha 1.0 실제 연결 흐름">
+          <div class="proof-console-bar">
+            <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>ACTUAL CONNECTED FLOW / ALPHA 1.0</span>
+          </div>
+          <div class="proof-flow">
+            <article class="proof-node">
+              <small>01 / BROWSER</small>
+              <strong>General View</strong>
+              <p>실제 브라우저 세션에서 세계 상태를 보고 최소 Diver 조작을 보낼 수 있습니다.</p>
+            </article>
+            <article class="proof-node">
+              <small>02 / EDGE</small>
+              <strong>Gateway</strong>
+              <p>외부 연결, 인증·인가, Operation 집계, confirmed cache, publication을 담당합니다.</p>
+            </article>
+            <article class="proof-node">
+              <small>03 / AUTHORITY</small>
+              <strong>Simulation Core</strong>
+              <p>authoritative WorldState를 소유하고 Operation을 실행·확정하는 권위 원본입니다.</p>
+            </article>
+            <article class="proof-node">
+              <small>04 / OPERATIONS</small>
+              <strong>Administration View</strong>
+              <p>실제 브라우저 E2E에서 health와 Config read / change까지 확인되어 있습니다.</p>
+            </article>
+            <div class="proof-return"><b>CONFIRMED</b> FULL / DELTA publication → prediction / reconciliation → View</div>
+          </div>
+        </div>
+
+        <div class="proof-facts reveal" data-reveal-delay="130">
+          <div class="proof-fact"><b>gRPC</b><span>Core ↔ Gateway 실제 연결</span></div>
+          <div class="proof-fact"><b>BROWSER E2E</b><span>General / Admin View</span></div>
+          <div class="proof-fact"><b>FULL / DELTA</b><span>confirmed world publication</span></div>
+          <div class="proof-fact"><b>DIVER OP</b><span>최소 participation binding</span></div>
+          <div class="proof-fact"><b>PERSISTENCE</b><span>restart와 recovery</span></div>
+          <div class="proof-fact"><b>FAIL-CLOSED</b><span>continuity mismatch 시 resync</span></div>
+        </div>
+        <p class="proof-note reveal">대규모 Resident / economy / governance scenario와 polished UI는 Alpha 1.0 다음 work package입니다. 아직 확립되지 않은 규모나 성능 수치는 미리 제시하지 않습니다.</p>
+      </div>
+    </section>
+
+    <section id="world" class="world-model-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="생각하며 설명하는 나구모 미오"
+      data-mio-kicker="MIO GUIDE / WORLD MODEL"
+      data-mio-title="MachiVerse의 중심은 완성된 도시가 아니라 세계 상태의 변화입니다."
+      data-mio-text="상태가 상호작용으로 바뀌고, 그 결과가 다음 상태와 역사로 남습니다. MachiVerse는 그 연쇄 자체를 세계로 다룹니다.">
+      <span id="about" class="anchor-alias" aria-hidden="true"></span>
+      <div class="container world-model-grid">
+        <div class="world-model-copy reveal">
+          <p class="chapter-kicker">02 / HOW THE WORLD MOVES</p>
+          <h2>세계를 놓아두는 것이 아니라, 세계가 만들어지는 과정까지.</h2>
+          <p>
+            물이 있다. 사람이 모인다. 일이 생긴다. 길이 놓인다. 도시가 된다.
+            MachiVerse는 결과만 나열하지 않고 상태가 어떻게 변하며, 그 변화가 다음 상태에 어떻게 남는지를 다룹니다.
+          </p>
+          <div class="model-domains" aria-label="MachiVerse가 장기적으로 연결하려는 세계 영역">
+            <span>사람</span><span>자연</span><span>사회</span><span>경제</span><span>도시</span><span>역사</span>
+          </div>
+        </div>
+
+        <div class="causal-track reveal" data-reveal-delay="100" aria-label="세계 상태가 역사로 이어지는 개념 흐름">
+          <div class="causal-step"><span class="num">STATE t</span><strong>그 시점의 세계 상태</strong><span>환경, 주민, 관계, 배치 등</span></div>
+          <div class="causal-step"><span class="num">CAUSE</span><strong>Operation과 상호작용</strong><span>세계 규칙 안에서 변화가 일어남</span></div>
+          <div class="causal-step"><span class="num">STATE t+1</span><strong>다음 상태가 확정됨</strong><span>같은 세계의 연속으로 상태가 갱신됨</span></div>
+          <div class="causal-step"><span class="num">HISTORY</span><strong>변화가 역사로 남음</strong><span>현재가 다음 미래의 조건이 됨</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diver" class="story-section diver-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png"
+      data-mio-alt="핵심을 가리키며 설명하는 나구모 미오"
+      data-mio-kicker="MIO GUIDE / DIVER"
+      data-mio-title="Diver는 세계 밖에서 무엇이든 배치하는 사람이 아닙니다."
+      data-mio-text="세계의 규칙 안으로 들어가며, 자신의 조작도 세계 상태를 바꾸는 사건 중 하나가 됩니다.">
+      <div class="container diver-layout">
+        <div class="diver-photo-stack reveal">
+          <figure class="diver-photo-main">
+            <img src="./assets/images/site/optional/character-lifestyle.webp" alt="수변 도시를 걷는 주민의 관점을 그린 콘셉트 비주얼" width="1920" height="1080" loading="lazy">
+          </figure>
+          <img class="diver-mio" src="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png" alt="Diver의 위치를 설명하는 나구모 미오" width="720" height="960" loading="lazy">
+          <aside class="diver-note">
+            <strong>신의 시점이 아니라 세계 안에서.</strong>
+            <p>Alpha 1.0에서는 최소 참여 조작이 General View → Gateway → Simulation Core로 전달되고, confirmed state가 다시 View로 돌아옵니다.</p>
+          </aside>
+        </div>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">03 / DIVER</p>
+          <h2>세계를 보는 사람에서, 세계 안에서 살아가는 사람으로.</h2>
+          <p>
+            사용자 역할 “Diver”는 세계 밖에서 자유롭게 배치하는 관리자가 아니라, 세계의 시간·규칙·사회적 관계 안에 존재하는 한 주민으로 참여하는 경험을 장기 방향으로 삼고 있습니다.
+          </p>
+          <p>
+            Alpha 1.0은 그 장기 경험 전체를 구현한 단계는 아닙니다. 현재 연결된 범위는 참여 조작이 실제 컴포넌트를 통과해 authoritative WorldState에 반영되는 최소 루프까지입니다.
+          </p>
+          <a class="button button-secondary" href="./architecture-ko.html#operation-flow">구현 구조 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="alpha-proof-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png"
+      data-mio-alt="Alpha 1.0의 현재 상태를 보여주는 나구모 미오"
+      data-mio-kicker="MIO GUIDE / ALPHA 1.0"
+      data-mio-title="지금 가능한 것과 아직 다음 단계인 것을 나누어 소개합니다."
+      data-mio-text="로컬 Alpha는 재현 가능하지만 production profile과 대규모 세계 scenario는 아직 이후 단계입니다.">
+      <div class="container alpha-proof-grid">
+        <div class="alpha-proof-copy reveal">
+          <p class="chapter-kicker">04 / CURRENT STATE</p>
+          <h2>Alpha 1.0. 동작하는 기반은 있지만, 완성된 세계는 아직 아닙니다.</h2>
+          <p>
+            현재 local Alpha profile은 개발과 integration을 위한 loopback-only 구성입니다. MachiVerse는 장기 비전을 이미 완성된 것처럼 표현하지 않고, 구현된 동작과 향후 작업의 경계를 구분해 공개합니다.
+          </p>
+          <div class="done-next">
+            <article>
+              <h3>✓ 현재 구현됨</h3>
+              <ul>
+                <li>네 컴포넌트의 실제 end-to-end 연결</li>
+                <li>General / Admin View browser E2E</li>
+                <li>FULL / DELTA state synchronization</li>
+                <li>최소 Diver Operation</li>
+                <li>Persistence, restart, recovery, resync</li>
+              </ul>
+            </article>
+            <article>
+              <h3>→ 다음 work package</h3>
+              <ul>
+                <li>Core observability / telemetry</li>
+                <li>performance / soak harness</li>
+                <li>multi-Gateway failover / View churn</li>
+                <li>production OIDC / TLS acceptance</li>
+                <li>대규모 Resident / economy / governance scenario</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <aside class="try-card reveal" data-reveal-delay="100">
+          <span class="status-badge">PRIMARY ACTION</span>
+          <h3>Alpha 1.0은 로컬 환경에서 실행해 볼 수 있습니다.</h3>
+          <p>Windows와 .NET SDK 10.0.400 상당 환경에서 <code>start-alpha.bat</code>로 네 컴포넌트를 한 번에 시작하고 두 View를 열 수 있습니다.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./self-hosting-ko.html#quick-start">Quick Start 보기</a>
+          </div>
+          <div class="try-secondary">
+            <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Alpha 1.0 Integration</a>
+            <span>·</span>
+            <a href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="나구모 미오의 페이지 안내">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="나구모 미오" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>MIO GUIDE / INTRO</span>
+      <strong class="mio-dock-title" data-mio-title>먼저 MachiVerse가 어떤 제품인지부터 소개합니다.</strong>
+      <span class="mio-dock-text" data-mio-text>MachiVerse는 실제 Alpha vertical slice가 이미 연결되어 동작하는 오픈소스 대규모 세계 시뮬레이터입니다.</span>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>MachiVerse</strong>
+        <p>인과와 역사를 가진 에이전트 기반 대규모 세계 시뮬레이션 프로젝트</p>
+      </div>
+      <nav class="footer-links" aria-label="푸터 내비게이션">
+        <a href="./developer-ko.html">개발자용</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./license.html">License</a>
+        <a href="./trademarks.html">Trademarks</a>
+        <a href="./" lang="ja">日本語</a>
+        <a href="./index-en.html" lang="en">English</a>
+        <a href="./index-zh-tw.html" lang="zh-TW">繁中</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
