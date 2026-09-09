@@ -107,9 +107,180 @@
 }
 
 .world-stage {
+  position: relative;
+  isolation: isolate;
   translate: var(--parallax-x, 0) var(--parallax-y, 0);
   transition: translate 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: translate;
+}
+
+.world-stage::before {
+  position: absolute;
+  z-index: -4;
+  right: -16%;
+  bottom: -18%;
+  left: -22%;
+  height: 48%;
+  border-radius: 50% 50% 0 0 / 26% 26% 0 0;
+  background:
+    radial-gradient(circle at 12% 84%, rgba(139, 211, 255, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 25% 72%, rgba(255, 210, 138, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 38% 80%, rgba(139, 211, 255, 0.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 67%, rgba(255, 255, 255, 0.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 58% 79%, rgba(139, 211, 255, 0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 70%, rgba(255, 210, 138, 0.58) 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 81%, rgba(139, 211, 255, 0.72) 0 1px, transparent 2px),
+    linear-gradient(to top, rgba(7, 11, 18, 0.92), rgba(7, 11, 18, 0.22) 65%, transparent);
+  background-size: 74px 32px, 86px 36px, 92px 40px, 68px 34px, 80px 36px, 94px 42px, 72px 32px, auto;
+  box-shadow: 0 -22px 60px rgba(95, 195, 255, 0.06);
+  content: "";
+  opacity: 0.78;
+  filter: blur(0.25px);
+  transform: perspective(500px) rotateX(64deg) translateY(18%);
+  transform-origin: bottom;
+  animation: city-shimmer 9s ease-in-out infinite alternate;
+}
+
+.world-stage::after {
+  position: absolute;
+  z-index: -3;
+  inset: 47% -26% auto -30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 211, 255, 0.08), rgba(139, 211, 255, 0.7), rgba(255, 210, 138, 0.55), transparent);
+  box-shadow:
+    0 0 18px rgba(95, 195, 255, 0.22),
+    0 0 52px rgba(95, 195, 255, 0.1);
+  content: "";
+  opacity: 0.72;
+  animation: horizon-breathe 5.8s ease-in-out infinite;
+}
+
+.world-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.world-card::before {
+  box-shadow:
+    inset 0 0 18px rgba(95, 195, 255, 0.05),
+    0 0 42px rgba(95, 195, 255, 0.035);
+}
+
+.world-card::after {
+  box-shadow: 0 0 30px rgba(95, 195, 255, 0.08);
+}
+
+.world-card > .world-core::before {
+  position: absolute;
+  inset: -26px;
+  border: 1px solid rgba(139, 211, 255, 0.08);
+  border-radius: 50%;
+  content: "";
+  animation: core-ping 3.6s ease-out infinite;
+}
+
+.world-card > .world-core::after {
+  position: absolute;
+  inset: -58px;
+  border: 1px dashed rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  content: "";
+  animation: core-spin 22s linear infinite;
+}
+
+.hero::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 4px),
+    linear-gradient(105deg, transparent 0 38%, rgba(95, 195, 255, 0.018) 48%, transparent 58%);
+  content: "";
+  pointer-events: none;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+.hero-rays {
+  overflow: hidden;
+}
+
+.hero-rays::before {
+  position: absolute;
+  top: -28%;
+  right: 2%;
+  width: 46%;
+  height: 156%;
+  background: linear-gradient(90deg, transparent, rgba(139, 211, 255, 0.045), transparent);
+  content: "";
+  filter: blur(14px);
+  transform: rotate(18deg) translateX(var(--hero-ray-shift, 0));
+  animation: hero-light-sweep 11s ease-in-out infinite alternate;
+}
+
+.hero-copy {
+  position: relative;
+}
+
+.hero-copy::before {
+  position: absolute;
+  top: -42px;
+  left: -34px;
+  width: 110px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  content: "";
+  opacity: 0.5;
+}
+
+.hero-copy::after {
+  position: absolute;
+  top: -48px;
+  left: -34px;
+  color: rgba(255, 255, 255, 0.2);
+  content: "MV / 00";
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  transform: translateY(-100%);
+}
+
+.feature-card,
+.status-panel {
+  transform-style: preserve-3d;
+}
+
+.feature-card:hover,
+.status-panel:hover {
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.3),
+    0 0 38px rgba(95, 195, 255, 0.055);
+}
+
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.25);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.site-nav a.is-active {
+  color: var(--text);
+}
+
+.site-nav a.is-active::after {
+  opacity: 0.82;
+  transform: scaleX(1);
 }
 
 .opening-pending .hero-eyebrow,
@@ -130,19 +301,60 @@
   100% { transform: translateY(200%); }
 }
 
+@keyframes city-shimmer {
+  0% { opacity: 0.54; filter: brightness(0.86); }
+  50% { opacity: 0.82; }
+  100% { opacity: 0.66; filter: brightness(1.12); }
+}
+
+@keyframes horizon-breathe {
+  0%, 100% { opacity: 0.34; transform: scaleX(0.9); }
+  50% { opacity: 0.9; transform: scaleX(1.04); }
+}
+
+@keyframes core-ping {
+  0% { opacity: 0.55; transform: scale(0.72); }
+  75%, 100% { opacity: 0; transform: scale(1.48); }
+}
+
+@keyframes core-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-light-sweep {
+  from { transform: rotate(18deg) translateX(-8%); opacity: 0.32; }
+  to { transform: rotate(18deg) translateX(18%); opacity: 0.76; }
+}
+
 @media (max-width: 1100px) {
   .side-caption { display: none; }
+}
+
+@media (max-width: 900px) {
+  .world-stage::before {
+    right: -8%;
+    left: -8%;
+    bottom: -12%;
+  }
 }
 
 @media (max-width: 680px) {
   .interlude { padding: 18px 0; }
   .interlude-track { gap: 22px; }
   .interlude-track span { letter-spacing: 0.12em; }
+  .hero-copy::before,
+  .hero-copy::after { display: none; }
+  .world-stage::after { inset-inline: -10%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .interlude-track,
-  .side-caption i::after {
+  .side-caption i::after,
+  .world-stage::before,
+  .world-stage::after,
+  .world-card > .world-core::before,
+  .world-card > .world-core::after,
+  .hero-rays::before {
     animation: none !important;
   }
 
