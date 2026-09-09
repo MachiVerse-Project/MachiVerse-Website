@@ -62,8 +62,8 @@
       data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
       data-mio-alt="笑顔で案内する南雲澪"
       data-mio-kicker="SELF-HOSTING / ALPHA 1.0"
-      data-mio-title="自分の環境で動かすなら、まず現在のAlphaの範囲を押さえます。"
-      data-mio-text="いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点だけ注意してください。">
+      data-mio-title="自分の環境で動かす際に、まず現在のAlphaの範囲を紹介します。"
+      data-mio-text="いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点もあわせてご案内します。">
       <div class="container navigator-hero-grid">
         <div class="navigator-copy reveal">
           <div class="dev-breadcrumb"><a href="./developer.html">技術情報</a><span>/</span><span>自分で動かす</span></div>
@@ -104,7 +104,7 @@
       data-mio-alt="指差しながら説明する南雲澪"
       data-mio-kicker="SELF-HOSTING / BEFORE START"
       data-mio-title="いま動かせるのは、Alpha 1.0のローカルintegration profileです。"
-      data-mio-text="自宅サーバーやオンプレ機で試す場合も、まずは外部公開せず、管理下の環境で検証してください。">
+      data-mio-text="自宅サーバーやオンプレ機で試す場合も、外部公開を避け、管理下の環境での検証を推奨しています。">
       <div class="container story-shell">
         <div class="story-copy reveal">
           <p class="chapter-kicker">01 / BEFORE START</p>
@@ -114,7 +114,7 @@
             自分のPC、検証用端末、管理下のサーバーでMachiVerseの現在地を体験する用途には使えますが、production security profileの代替ではありません。
           </p>
           <div class="dev-callout">
-            <strong>現時点では外部公開を前提にしないでください</strong>
+            <strong>現時点では外部公開を想定していません</strong>
             <p>production OIDC / TLS deployment acceptanceはAlpha 1.0後の作業項目です。認証・TLS・公開構成を独自に補えばproduction-readyになる、という保証も現時点ではありません。</p>
           </div>
         </div>
@@ -137,7 +137,7 @@
       data-mio-alt="前のめりで説明する南雲澪"
       data-mio-kicker="SELF-HOSTING / QUICK START"
       data-mio-title="Windowsなら、start-alpha.batから始められます。"
-      data-mio-text="最新のdevelopと.NET SDK 10.0.400相当を用意し、起動スクリプトで4コンポーネントをまとめて立ち上げます。">
+      data-mio-text="最新のdevelopと.NET SDK 10.0.400相当があれば、起動スクリプトで4コンポーネントをまとめて立ち上げられます。">
       <div class="container quickstart-grid">
         <div class="reveal">
           <p class="chapter-kicker">02 / QUICK START — WINDOWS</p>
@@ -204,7 +204,7 @@ start-alpha.bat</code></pre>
           <div style="padding:22px 20px 26px">
             <p class="chapter-kicker">LOCAL DATA</p>
             <h3><code>.machiverse-alpha/</code></h3>
-            <p>ローカルのworld / Gateway永続データを保持します。検証環境を作り直すときは、このディレクトリも意識してください。</p>
+            <p>ローカルのworld / Gateway永続データを保持します。検証環境を作り直す際は、このディレクトリも確認対象になります。</p>
           </div>
         </aside>
         <div class="story-copy reveal" data-reveal-delay="100">
@@ -219,14 +219,14 @@ start-alpha.bat</code></pre>
       data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png"
       data-mio-alt="次のページを案内する南雲澪"
       data-mio-kicker="SELF-HOSTING / NEXT"
-      data-mio-title="動いたら、次は中身を見てみましょう。"
+      data-mio-title="動いた後は、中身の仕組みもご覧いただけます。"
       data-mio-text="コンポーネント構成や決定論、WorldStateの考え方は設計・仕様ページにまとめています。">
       <div class="container">
         <div class="join-card reveal">
           <div>
             <p class="chapter-kicker">NEXT STEP</p>
             <h2>動かした世界の、<br>仕組みを知る。</h2>
-            <p>細かな手動起動、Linux / macOS相当のコマンド、Golden Demo、既知制約は本体リポジトリのAlpha 1.0 Integration Runbookが正本です。全体構造を先に知りたい場合は設計・仕様ページへ進んでください。</p>
+            <p>細かな手動起動、Linux / macOS相当のコマンド、Golden Demo、既知制約は本体リポジトリのAlpha 1.0 Integration Runbookが正本です。全体構造を先に知りたい場合は、設計・仕様ページから確認できます。</p>
             <div class="hero-actions">
               <a class="button button-primary" href="./architecture.html">設計・仕様を見る</a>
               <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Integration Runbook</a>
@@ -243,8 +243,8 @@ start-alpha.bat</code></pre>
     <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="南雲澪" width="720" height="960">
     <div class="mio-dock-copy">
       <span class="mio-dock-kicker" data-mio-kicker>SELF-HOSTING / ALPHA 1.0</span>
-      <strong class="mio-dock-title" data-mio-title>自分の環境で動かすなら、まず現在のAlphaの範囲を押さえます。</strong>
-      <span class="mio-dock-text" data-mio-text>いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点だけ注意してください。</span>
+      <strong class="mio-dock-title" data-mio-title>自分の環境で動かす際に、まず現在のAlphaの範囲を紹介します。</strong>
+      <span class="mio-dock-text" data-mio-text>いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点もあわせてご案内します。</span>
     </div>
   </aside>
 
