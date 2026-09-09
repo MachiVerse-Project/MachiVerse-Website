@@ -9,6 +9,8 @@
   <link rel="canonical" href="https://machiverse.app/">
   <link rel="alternate" hreflang="ja" href="https://machiverse.app/">
   <link rel="alternate" hreflang="en" href="https://machiverse.app/index-en.html">
+  <link rel="alternate" hreflang="zh-TW" href="https://machiverse.app/index-zh-tw.html">
+  <link rel="alternate" hreflang="ko" href="https://machiverse.app/index-ko.html">
   <link rel="alternate" hreflang="x-default" href="https://machiverse.app/">
   <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
@@ -18,6 +20,8 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ko_KR">
   <meta property="og:site_name" content="MachiVerse">
   <meta property="og:title" content="MachiVerse | 世界がそうなった理由までシミュレーションする">
   <meta property="og:description" content="人・社会・経済・自然などの状態変化を同じ世界で扱う、エージェントベースのオープンソース大規模世界シミュレーター。Alpha 1.0では実コンポーネントを接続したvertical sliceが動作します。">
@@ -61,6 +65,8 @@
         <nav class="lang-switch" aria-label="言語切り替え">
           <a href="./" lang="ja" aria-current="page">日本語</a>
           <a href="./index-en.html" lang="en">EN</a>
+          <a href="./index-zh-tw.html" lang="zh-TW">繁中</a>
+          <a href="./index-ko.html" lang="ko">한국어</a>
         </nav>
       </div>
     </div>
@@ -87,7 +93,7 @@
             「なぜ現在の世界がこの状態になったのか」まで説明できる動的な世界を目指しています。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="./developer.html#quick-start">Alpha 1.0を動かす</a>
+            <a class="button button-primary" href="./self-hosting.html#quick-start">Alpha 1.0を動かす</a>
             <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
           </div>
           <ol class="hero-route" aria-label="ページの流れ">
@@ -102,7 +108,7 @@
           <div class="mio-hero-poster" aria-hidden="true"></div>
           <div class="mio-hero-bubble">
             <strong>MIO GUIDE 00</strong>
-            <p>構想だけではありません。<br>まず、今動いている一周を見せます。</p>
+            <p>構想だけではありません。<br>まず、今動いている一周をご覧いただけます。</p>
           </div>
           <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
           <div class="mio-hero-character">
@@ -227,7 +233,7 @@
           <p>
             現在のAlpha 1.0では、その将来像すべてではなく、参加操作が実コンポーネントを通ってauthoritative WorldStateへ反映される最小ループまでが接続済みです。
           </p>
-          <a class="button button-secondary" href="./developer.html#architecture">実装構成を見る</a>
+          <a class="button button-secondary" href="./architecture.html#operation-flow">実装構成を見る</a>
         </div>
       </div>
     </section>
@@ -236,17 +242,16 @@
       data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-alpha.png"
       data-mio-alt="Alpha 1.0の現在地を示す南雲澪"
       data-mio-kicker="MIO GUIDE / ALPHA 1.0"
-      data-mio-title="今できることと、まだできないことを分けて見せます。"
+      data-mio-title="今できることと、まだできないことを分けて紹介します。"
       data-mio-text="ローカルAlphaは再現可能ですが、production profileや大規模世界はまだ次の段階です。">
       <div class="container alpha-proof-grid">
-        <div class="alpha-copy reveal">
-          <p class="chapter-kicker">04 / WHERE WE ARE</p>
-          <h2>Alpha 1.0。<br>「動く基盤」はある。完成世界は、これから。</h2>
+        <div class="alpha-proof-copy reveal">
+          <p class="chapter-kicker">04 / CURRENT STATE</p>
+          <h2>Alpha 1.0。動く基盤はある。完成世界は、これから。</h2>
           <p>
-            Alpha 1.0は完成版ではありません。現在は、世界を動かす基礎コンポーネントが実接続され、
-            操作・状態更新・配信・永続化・復旧までをローカル環境で再現できる段階です。
+            現在のlocal Alpha profileは、開発・integration向けのloopback-only構成です。MachiVerseでは長期構想を完成済みとして見せず、実装済みの範囲と今後の作業を分けて公開しています。
           </p>
-          <div class="alpha-columns">
+          <div class="done-next">
             <article>
               <h3>✓ 今、実装済み</h3>
               <ul>
@@ -272,10 +277,10 @@
 
         <aside class="try-card reveal" data-reveal-delay="100">
           <span class="status-badge">PRIMARY ACTION</span>
-          <h3>まず、Alpha 1.0をローカルで動かす。</h3>
+          <h3>Alpha 1.0はローカルで動かせます。</h3>
           <p>Windows + .NET SDK 10.0.400相当で、<code>start-alpha.bat</code> から4コンポーネントをまとめて起動できます。</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="./developer.html#quick-start">Quick Startを見る</a>
+            <a class="button button-primary" href="./self-hosting.html#quick-start">Quick Startを見る</a>
           </div>
           <div class="try-secondary">
             <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
@@ -310,6 +315,8 @@
         <a href="./license.html">ライセンス</a>
         <a href="./trademarks.html">商標</a>
         <a href="./index-en.html" lang="en">English</a>
+        <a href="./index-zh-tw.html" lang="zh-TW">繁中</a>
+        <a href="./index-ko.html" lang="ko">한국어</a>
       </nav>
     </div>
   </footer>
