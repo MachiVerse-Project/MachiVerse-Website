@@ -1,0 +1,337 @@
+/* Japanese-first presentation and language-switch UI.
+   Loaded after the existing site styles to preserve the no-build static setup. */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  min-width: 0;
+}
+
+.developer-header-actions {
+  gap: 10px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(5, 8, 13, 0.54);
+  backdrop-filter: blur(10px);
+}
+
+.lang-switch a {
+  min-width: 40px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 760;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible {
+  color: var(--text);
+}
+
+.lang-switch a[aria-current="page"] {
+  background: rgba(139, 211, 255, 0.14);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(139, 211, 255, 0.1);
+}
+
+html[lang="ja"] body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", sans-serif;
+  line-height: 1.9;
+}
+
+html[lang="ja"] .eyebrow,
+html[lang="ja"] .section-label,
+html[lang="ja"] .status-badge,
+html[lang="ja"] .opening-logo p {
+  text-transform: none;
+}
+
+html[lang="ja"] .eyebrow {
+  letter-spacing: 0.08em;
+}
+
+html[lang="ja"] .eyebrow span {
+  margin-left: 0.7em;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.76em;
+  letter-spacing: 0.14em;
+}
+
+.hero-note {
+  max-width: 680px;
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: 0.035em;
+}
+
+html[lang="ja"] .hero h1,
+html[lang="ja"] .developer-hero h1,
+html[lang="ja"] .section h2 {
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+}
+
+html[lang="ja"] .hero h1 {
+  line-height: 1.18;
+}
+
+html[lang="ja"] .section-watermark {
+  color: rgba(255, 255, 255, 0.026);
+  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(5.5rem, 13vw, 11.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.section-label {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.section-label small {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.68em;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+}
+
+html[lang="ja"] .interlude-track {
+  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
+}
+
+html[lang="ja"] .interlude-track span {
+  letter-spacing: 0.12em;
+}
+
+html[lang="ja"] .opening-logo p {
+  letter-spacing: 0.13em;
+}
+
+.diver-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+  gap: 54px;
+}
+
+.diver-visual {
+  position: relative;
+  min-height: 620px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius);
+  background: #0d1119;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.32);
+}
+
+.diver-visual::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(5, 8, 13, 0.92), rgba(5, 8, 13, 0.04) 54%),
+    linear-gradient(135deg, rgba(139, 211, 255, 0.08), transparent 42%);
+  content: "";
+  pointer-events: none;
+}
+
+.diver-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.88) contrast(0.96);
+}
+
+.diver-visual figcaption {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+  z-index: 2;
+}
+
+.diver-visual figcaption strong,
+.diver-visual figcaption span {
+  display: block;
+}
+
+.diver-visual figcaption strong {
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.diver-visual figcaption span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+}
+
+.diver-copy {
+  align-self: center;
+}
+
+.diver-copy .prose {
+  margin-top: 26px;
+}
+
+.diver-status {
+  margin-top: 30px;
+}
+
+html[lang="ja"] .status-badge {
+  letter-spacing: 0.04em;
+}
+
+body:not(.developer-page) .section-cta {
+  background-image:
+    linear-gradient(90deg, rgba(7, 10, 16, 0.95) 0%, rgba(7, 10, 16, 0.82) 45%, rgba(7, 10, 16, 0.55) 100%),
+    linear-gradient(to bottom, rgba(7, 10, 16, 0.48), rgba(7, 10, 16, 0.9)),
+    url("../images/site/optional/landscape-alt.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+html[lang="ja"] .feature-card,
+html[lang="ja"] .status-panel,
+html[lang="ja"] .dev-card,
+html[lang="ja"] .site-visual-figure {
+  border-radius: 18px;
+}
+
+html[lang="ja"] .feature-card h3,
+html[lang="ja"] .status-panel h3,
+html[lang="ja"] .dev-card h3 {
+  letter-spacing: -0.01em;
+}
+
+html[lang="ja"] .feature-card {
+  min-height: 250px;
+}
+
+html[lang="ja"] .feature-card h3 {
+  margin-top: 46px;
+}
+
+html[lang="ja"] .developer-meta-row {
+  font-size: 0.86rem;
+}
+
+.language-en .section-label {
+  gap: 0.55rem;
+}
+
+.language-en .hero-note {
+  max-width: 720px;
+}
+
+@media (max-width: 1080px) {
+  .header-actions {
+    gap: 12px;
+  }
+
+  .site-nav {
+    gap: 8px 15px;
+  }
+
+  .site-nav a {
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .diver-showcase {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .diver-visual,
+  .diver-visual img {
+    min-height: 0;
+  }
+
+  .diver-visual img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 680px) {
+  .header-actions,
+  .developer-header-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .lang-switch {
+    align-self: flex-end;
+  }
+
+  .site-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .developer-header-actions .page-switch {
+    order: 0;
+  }
+
+  .diver-visual {
+    border-radius: 16px;
+  }
+
+  .diver-visual figcaption {
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .hero-note {
+    font-size: 0.8rem;
+  }
+
+  html[lang="ja"] .section-watermark {
+    font-size: 22vw;
+  }
+}
