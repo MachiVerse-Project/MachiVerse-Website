@@ -1,0 +1,102 @@
+/* Legal / policy pages */
+.legal-page { background:#f7fcff; color:#17324a; }
+.legal-page .site-header { position:sticky; top:12px; width:min(calc(100% - 28px),1220px); margin:12px auto 0; border:1px solid rgba(23,50,74,.08); border-radius:24px; background:rgba(255,255,255,.92); box-shadow:0 12px 38px rgba(56,116,153,.11); backdrop-filter:blur(22px) saturate(150%); }
+.legal-page .header-inner { min-height:64px; }
+.legal-page .brand { color:#17324a; font-weight:850; }
+.legal-page .brand-mark { width:36px; height:36px; padding:6px; border-radius:11px; background:linear-gradient(145deg,#17324a,#087fbd); box-shadow:0 8px 18px rgba(28,91,130,.18); }
+.legal-page .site-nav { gap:7px; }
+.legal-page .site-nav a { padding:8px 12px; border-radius:999px; color:#5e7485; font-size:.8rem; font-weight:800; text-decoration:none; }
+.legal-page .site-nav a:hover,.legal-page .site-nav a:focus-visible,.legal-page .site-nav a[aria-current="page"] { color:#12679b; background:#e6f7ff; }
+
+.legal-hero { padding:84px 0 28px; }
+.legal-hero .container {
+  position:relative;
+  min-height:318px;
+  padding-top:26px;
+  padding-right:360px;
+}
+.legal-hero .container::before {
+  position:absolute;
+  right:22px;
+  bottom:20px;
+  width:300px;
+  height:250px;
+  border-radius:48% 52% 44% 56% / 54% 44% 56% 46%;
+  background:radial-gradient(circle at 50% 42%,rgba(121,214,255,.28),rgba(199,183,255,.12) 58%,transparent 72%);
+  content:"";
+  filter:blur(2px);
+}
+.legal-hero .container::after {
+  position:absolute;
+  right:18px;
+  bottom:0;
+  width:320px;
+  height:304px;
+  background:url("../images/characters/nagumo-mio/web/mio-explain.png") center 18px / auto 520px no-repeat;
+  content:"";
+  pointer-events:none;
+  filter:drop-shadow(0 18px 24px rgba(42,84,113,.16));
+}
+.legal-hero .legal-kicker { position:relative; z-index:1; display:inline-flex; align-items:center; gap:8px; margin:0 0 16px; padding:8px 13px; border-radius:999px; background:#e8f8ff; color:#1288bf; font-size:.72rem; font-weight:900; letter-spacing:.08em; }
+.legal-hero .legal-kicker::before { width:9px; height:9px; border-radius:50%; background:#ffd86b; content:""; box-shadow:0 0 0 5px rgba(255,216,107,.2); }
+.legal-hero h1 { position:relative; z-index:1; margin:0; max-width:900px; color:#17324a; font-size:clamp(2.7rem,6vw,5.2rem); line-height:1.05; letter-spacing:-.045em; }
+.legal-hero p { position:relative; z-index:1; max-width:720px; margin:22px 0 0; color:#536f82; }
+
+.legal-layout { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; padding:18px 0 100px; }
+.legal-card { overflow:hidden; border:1px solid rgba(23,50,74,.08); border-radius:32px; background:#fff; box-shadow:0 22px 64px rgba(40,93,128,.10); }
+.legal-card-header { padding:24px 30px; border-bottom:1px solid rgba(23,50,74,.08); background:linear-gradient(135deg,#effaff,#fff8df); }
+.legal-card-header strong { color:#17324a; font-size:1rem; }
+.legal-card-header span { display:block; margin-top:4px; color:#6c8495; font-size:.8rem; }
+.legal-document { padding:34px 36px 42px; color:#3f5d71; }
+.legal-document h2 { margin:2.4em 0 .7em; color:#17324a; font-size:1.45rem; line-height:1.35; }
+.legal-document h2:first-child { margin-top:0; }
+.legal-document p,.legal-document li { line-height:1.9; }
+.legal-document ul { padding-left:1.35em; }
+.legal-pre { margin:0; overflow-x:auto; white-space:pre-wrap; word-break:normal; color:#334f62; font:0.88rem/1.8 "SFMono-Regular",Consolas,"Liberation Mono",monospace; }
+.legal-note { margin-top:24px; padding:18px 20px; border-radius:18px; background:#fff7d7; color:#66561d; font-size:.84rem; }
+
+/* Keep legal footers self-contained instead of inheriting the navigator page's
+   edge-aligned footer geometry. */
+.legal-page .site-footer {
+  position:relative;
+  margin:0 14px 14px;
+  padding:30px 0;
+  border:0;
+  border-radius:30px;
+  background:#17324a;
+  color:#fff;
+}
+.legal-page .footer-inner {
+  display:flex;
+  min-height:76px;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+.legal-page .footer-inner > div { min-width:0; }
+.legal-page .footer-inner strong { display:block; line-height:1.4; }
+.legal-page .footer-inner p { margin:6px 0 0; color:rgba(255,255,255,.68); line-height:1.6; }
+.legal-page .footer-links { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:6px; }
+.legal-page .footer-links a { padding:8px 10px; color:rgba(255,255,255,.72); white-space:nowrap; }
+.legal-page .footer-links a:hover,.legal-page .footer-links a:focus-visible { color:#fff; background:rgba(255,255,255,.08); }
+
+@media (max-width:900px) {
+  .legal-hero .container { min-height:290px; padding-right:300px; }
+  .legal-hero .container::before { right:8px; width:250px; height:220px; }
+  .legal-hero .container::after { right:0; width:280px; height:280px; background-position:center 14px; background-size:auto 470px; }
+}
+
+@media (max-width:680px) {
+  .legal-hero { padding-top:50px; padding-bottom:18px; }
+  .legal-hero .container { min-height:0; padding-top:12px; padding-right:0; padding-bottom:236px; }
+  .legal-hero .container::before { right:50%; bottom:4px; width:230px; height:188px; transform:translateX(50%); }
+  .legal-hero .container::after { right:50%; bottom:0; width:250px; height:226px; background-position:center 12px; background-size:auto 400px; transform:translateX(50%); }
+  .legal-document { padding:24px 20px 30px; }
+  .legal-card-header { padding:20px; }
+  .legal-page .header-inner { align-items:center; flex-direction:row; }
+  .legal-page .site-nav { width:auto; overflow-x:auto; flex-wrap:nowrap; justify-content:flex-end; }
+  .legal-page .site-nav a { flex:0 0 auto; }
+  .legal-page .site-footer { margin:0 8px 8px; padding:26px 0; border-radius:24px; }
+  .legal-page .footer-inner { min-height:0; align-items:flex-start; flex-direction:column; gap:18px; }
+  .legal-page .footer-links { width:100%; justify-content:flex-start; }
+}
