@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/cinematic.css">
   <link rel="stylesheet" href="./assets/css/developer.css">
+  <link rel="stylesheet" href="./assets/css/visual-assets.css">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
@@ -18,13 +19,15 @@
   <meta property="og:title" content="MachiVerse Developer | 開発者向け情報">
   <meta property="og:description" content="Alpha 1.0、アーキテクチャ、Quick Start、設計原則、開発参加情報をまとめたMachiVerse開発者向けページ。">
   <meta property="og:url" content="https://machiverse.app/developer.html">
-  <meta property="og:image" content="https://machiverse.app/assets/images/social/og-image.png">
-  <meta property="og:image:alt" content="MachiVerse">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MachiVerse Alpha 1.0の主要コンポーネントと開発者向け情報を示すビジュアル">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MachiVerse Developer">
   <meta name="twitter:description" content="MachiVerseのAlpha 1.0、アーキテクチャ、Quick Start、設計原則、開発参加情報。">
-  <meta name="twitter:image" content="https://machiverse.app/assets/images/social/og-image.png">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
   <script src="./assets/js/main.js" defer></script>
 </head>
 <body class="developer-page">
@@ -93,6 +96,14 @@
           <div class="architecture-node"><strong>General View</strong><span>Browser / Participation / Prediction</span></div>
           <div class="architecture-node"><strong>Administration View</strong><span>Health / Config / Operations</span></div>
         </div>
+
+        <figure class="site-visual-figure architecture-visual reveal" data-reveal-delay="100">
+          <img src="./assets/images/site/architecture-overview.webp" alt="Simulation Core、Gateway、General View、Administration ViewとWorldStateの関係を示すMachiVerseアーキテクチャビジュアル" width="1600" height="1200" loading="lazy">
+          <figcaption>
+            <strong>ARCHITECTURE OVERVIEW</strong>
+            <span>正本WorldStateと操作・配信の境界を、4コンポーネントの責務として分離する。</span>
+          </figcaption>
+        </figure>
 
         <div class="dev-grid">
           <article class="dev-card reveal" data-reveal-delay="0">
@@ -198,6 +209,21 @@ start-alpha.bat</code></pre>
             <li>大規模Resident / economy / governance scenario</li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <section class="development-update-banner" aria-label="Development Update">
+      <div class="container">
+        <div class="development-update-copy reveal">
+          <img class="brand-lockup" src="./assets/images/brand/logo-primary.png" alt="MachiVerse" width="680" height="240" loading="lazy">
+          <p class="section-label">DEVELOPMENT UPDATE</p>
+          <h2>実装の現在地を、<br>継続して公開する。</h2>
+          <p>Alpha 1.0の次に進むwork package、設計変更、実装状況はGitHubとRoadmapを正本として追跡できます。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHubを見る</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md">Roadmap</a>
+          </div>
+        </div>
       </div>
     </section>
 
