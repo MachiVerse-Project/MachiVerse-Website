@@ -1,0 +1,51 @@
+name: Release v1.0
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: contains(github.event.head_commit.message, '[release:v1.0]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create v1.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v1.0
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "$TAG already exists; nothing to do."
+            exit 0
+          fi
+
+          cat > release-notes.md <<'EOF'
+          # MachiVerse Website v1.0
+
+          MachiVerse公式Webサイトの初回正式リリースです。
+
+          ## Highlights
+          - 南雲澪を案内役にした MIO GUIDE ナビゲーション
+          - Alpha 1.0 の実接続フローを可視化した Product Proof
+          - STATE → CAUSE → STATE → HISTORY の世界モデル図解
+          - 一般向け / 開発者向けページの全面再設計
+          - Quick Start と開発参加導線の整理
+          - 公式インスタンス参加導線（準備中）
+          - スクロール / ホバー / パララックス等のモーション演出
+          - ライセンス / 商標ポリシーのWeb表示ページ
+          - 日本語 / 英語ページ、OGP、sitemapの整備
+
+          ## Notes
+          - General View の実スクリーンショットは今後差し替え予定です。
+          - 未確認の性能値やエージェント数は掲載していません。
+          EOF
+
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "MachiVerse Website v1.0" \
+            --notes-file release-notes.md
