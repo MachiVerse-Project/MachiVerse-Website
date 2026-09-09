@@ -143,22 +143,22 @@
 
 /*
  * The guide panel is conversational UI, not a standing-art gallery.
- * Enlarge the source art and crop it inside the visual column so Mio's face,
- * expression and gesture remain the focus. Full-body visibility is intentionally
- * not preserved here.
+ * The stage itself is stable on desktop, so the character can safely be
+ * bottom-anchored and cropped around the face/gesture without section-length
+ * dependent movement.
  */
 .mio-guide-character {
   position:absolute;
   z-index:2;
   left:50%;
-  top:-610px;
-  bottom:auto;
+  top:auto;
+  bottom:-310px;
   width:auto;
   height:900px;
   max-width:none;
   max-height:none;
   object-fit:contain;
-  object-position:center top;
+  object-position:center bottom;
   filter:drop-shadow(0 24px 26px rgba(34,78,108,.2));
   transform:translateX(-50%);
 }
@@ -284,12 +284,7 @@
 body.mio-guide-open { overflow:hidden; }
 body.mio-guide-open .mio-dock { opacity:0; pointer-events:none; transform:translateY(10px) scale(.95); }
 
-/*
- * Desktop guide panels keep one stable stage size. Previously the right-hand
- * content dictated the dialog height, which moved a bottom-anchored character
- * up and down between sections. A fixed stage plus top anchoring keeps Mio at
- * the same apparent scale and face position regardless of section detail length.
- */
+/* Stable desktop stage: content scrolls independently, character scale does not. */
 @media (min-width:821px) {
   .mio-guide-dialog {
     height:min(720px,calc(100svh - 56px));
@@ -320,13 +315,13 @@ body.mio-guide-open .mio-dock { opacity:0; pointer-events:none; transform:transl
   .mio-guide-character {
     left:auto;
     right:-18px;
-    top:-380px;
-    bottom:auto;
+    top:auto;
+    bottom:-190px;
     width:auto;
     height:420px;
     max-width:none;
     object-fit:contain;
-    object-position:center top;
+    object-position:center bottom;
     transform:none;
   }
   .mio-guide-visual-badge {
@@ -345,8 +340,8 @@ body.mio-guide-open .mio-dock { opacity:0; pointer-events:none; transform:transl
   .mio-guide-visual { min-height:190px; }
   .mio-guide-character {
     right:-22px;
-    top:-340px;
-    bottom:auto;
+    top:auto;
+    bottom:-170px;
     width:auto;
     height:360px;
   }
