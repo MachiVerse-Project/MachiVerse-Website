@@ -3,20 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MachiVerse Developer | 開発者向け情報</title>
-  <meta name="description" content="MachiVerseの開発者向けページです。Alpha 1.0の実装状況、4コンポーネント構成、Quick Start、設計原則、開発フロー、ドキュメントへの導線をまとめています。">
+  <title>MachiVerse 開発者向け | Alpha 1.0・設計・参加方法</title>
+  <meta name="description" content="MachiVerseの開発者向けページです。Alpha 1.0の実装状況、4コンポーネント構成、Quick Start、設計原則、開発参加情報をまとめています。">
   <meta name="theme-color" content="#090b11">
   <link rel="canonical" href="https://machiverse.app/developer.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html">
   <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/cinematic.css">
   <link rel="stylesheet" href="./assets/css/developer.css">
   <link rel="stylesheet" href="./assets/css/visual-assets.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="MachiVerse">
-  <meta property="og:title" content="MachiVerse Developer | 開発者向け情報">
+  <meta property="og:title" content="MachiVerse 開発者向け | Alpha 1.0・設計・参加方法">
   <meta property="og:description" content="Alpha 1.0、アーキテクチャ、Quick Start、設計原則、開発参加情報をまとめたMachiVerse開発者向けページ。">
   <meta property="og:url" content="https://machiverse.app/developer.html">
   <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
@@ -25,12 +30,12 @@
   <meta property="og:image:alt" content="MachiVerse Alpha 1.0の主要コンポーネントと開発者向け情報を示すビジュアル">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MachiVerse Developer">
-  <meta name="twitter:description" content="MachiVerseのAlpha 1.0、アーキテクチャ、Quick Start、設計原則、開発参加情報。">
+  <meta name="twitter:title" content="MachiVerse 開発者向け">
+  <meta name="twitter:description" content="Alpha 1.0、アーキテクチャ、Quick Start、設計原則、開発参加情報。">
   <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
   <script src="./assets/js/main.js" defer></script>
 </head>
-<body class="developer-page">
+<body class="developer-page localized-site">
   <a class="skip-link" href="#main">本文へ移動</a>
 
   <div class="page-atmosphere" aria-hidden="true">
@@ -45,10 +50,16 @@
         <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
         <span>MachiVerse</span>
       </a>
-      <nav class="page-switch" aria-label="ページ切り替え">
-        <a href="./">一般向け</a>
-        <a href="./developer.html" aria-current="page">開発者向け</a>
-      </nav>
+      <div class="header-actions developer-header-actions">
+        <nav class="page-switch" aria-label="ページ切り替え">
+          <a href="./">一般向け</a>
+          <a href="./developer.html" aria-current="page">開発者向け</a>
+        </nav>
+        <nav class="lang-switch" aria-label="言語切り替え">
+          <a href="./developer.html" lang="ja" aria-current="page">日本語</a>
+          <a href="./developer-en.html" lang="en">EN</a>
+        </nav>
+      </div>
     </div>
     <div class="scroll-progress" aria-hidden="true"></div>
   </header>
@@ -57,31 +68,31 @@
     <section class="developer-hero">
       <div class="container developer-hero-grid">
         <div>
-          <p class="eyebrow">MACHIVERSE / DEVELOPER</p>
+          <p class="eyebrow">開発者向け <span>MACHIVERSE / DEVELOPER</span></p>
           <h1>世界を動かす側の、<span>現在地と入口。</span></h1>
           <p>
             MachiVerseはC# / .NET 10で開発しているエージェントベースの大規模世界シミュレーターです。
             現在のdevelopには、Simulation Core / Gateway / General View / Administration Viewを実接続したAlpha 1.0の再現可能なvertical sliceがあります。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#quick-start">Quick Start</a>
-            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHub Repository</a>
+            <a class="button button-primary" href="#quick-start">まず動かしてみる</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse">GitHubを見る</a>
           </div>
         </div>
         <aside class="developer-meta" aria-label="開発環境概要">
-          <div class="developer-meta-row"><span>Status</span><strong>Alpha 1.0</strong></div>
+          <div class="developer-meta-row"><span>開発状況</span><strong>Alpha 1.0</strong></div>
           <div class="developer-meta-row"><span>Runtime</span><strong>.NET 10</strong></div>
-          <div class="developer-meta-row"><span>Language</span><strong>C#</strong></div>
-          <div class="developer-meta-row"><span>License</span><strong>Apache License 2.0</strong></div>
-          <div class="developer-meta-row"><span>Integration</span><strong>INT-01 Complete</strong></div>
+          <div class="developer-meta-row"><span>言語</span><strong>C#</strong></div>
+          <div class="developer-meta-row"><span>ライセンス</span><strong>Apache License 2.0</strong></div>
+          <div class="developer-meta-row"><span>結合状況</span><strong>INT-01 Complete</strong></div>
         </aside>
       </div>
     </section>
 
     <section id="architecture" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">RUNTIME</span>
+      <span class="section-watermark" aria-hidden="true">構成</span>
       <div class="container reveal">
-        <p class="section-label">ARCHITECTURE</p>
+        <p class="section-label">アーキテクチャ <small>ARCHITECTURE</small></p>
         <h2>4つの実行単位を、<br>Protocolでつなぐ。</h2>
         <div class="prose">
           <p>
@@ -100,7 +111,7 @@
         <figure class="site-visual-figure architecture-visual reveal" data-reveal-delay="100">
           <img src="./assets/images/site/architecture-overview.webp" alt="Simulation Core、Gateway、General View、Administration ViewとWorldStateの関係を示すMachiVerseアーキテクチャビジュアル" width="1600" height="1200" loading="lazy">
           <figcaption>
-            <strong>ARCHITECTURE OVERVIEW</strong>
+            <strong>アーキテクチャ全体像</strong>
             <span>正本WorldStateと操作・配信の境界を、4コンポーネントの責務として分離する。</span>
           </figcaption>
         </figure>
@@ -131,10 +142,10 @@
     </section>
 
     <section id="quick-start" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">BOOT</span>
+      <span class="section-watermark section-watermark-right" aria-hidden="true">起動</span>
       <div class="container status-layout">
         <div class="reveal">
-          <p class="section-label">QUICK START</p>
+          <p class="section-label">まず動かしてみる <small>QUICK START</small></p>
           <h2>まずはAlpha 1.0を、<br>ローカルで一周させる。</h2>
           <div class="prose">
             <p>現在READMEで案内しているQuick StartはWindows向けです。.NET SDK 10.0.400相当と最新のdevelopを前提に、起動スクリプトで4コンポーネントをまとめて立ち上げます。</p>
@@ -145,7 +156,7 @@ start-alpha.bat</code></pre>
           <pre class="code-block" data-label="NO BUILD"><code>start-alpha.bat --no-build</code></pre>
         </div>
         <aside class="status-panel reveal" data-reveal-delay="120">
-          <span class="status-badge">START-ALPHA</span>
+          <span class="status-badge">start-alpha.bat</span>
           <h3>スクリプトが行うこと</h3>
           <ul class="dev-list">
             <li>.NET SDKの確認</li>
@@ -159,9 +170,9 @@ start-alpha.bat</code></pre>
     </section>
 
     <section id="principles" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">CONTRACT</span>
+      <span class="section-watermark" aria-hidden="true">原則</span>
       <div class="container reveal">
-        <p class="section-label">ENGINEERING PRINCIPLES</p>
+        <p class="section-label">設計・実装の原則 <small>ENGINEERING PRINCIPLES</small></p>
         <h2>実装より先に、<br>世界の契約を壊さない。</h2>
         <div class="dev-grid">
           <article class="dev-card">
@@ -189,17 +200,17 @@ start-alpha.bat</code></pre>
     </section>
 
     <section id="current-limitations" class="section section-alt section-cinematic">
-      <span class="section-watermark section-watermark-right" aria-hidden="true">NEXT</span>
+      <span class="section-watermark section-watermark-right" aria-hidden="true">次へ</span>
       <div class="container status-layout">
         <div class="reveal">
-          <p class="section-label">CURRENT LIMITATIONS</p>
+          <p class="section-label">現在の制約 <small>CURRENT LIMITATIONS</small></p>
           <h2>Alpha 1.0は、<br>完成版ではない。</h2>
           <div class="prose">
             <p>現在のlocal Alpha profileはloopback-onlyの開発・integration用であり、production security profileの代替ではありません。</p>
           </div>
         </div>
         <aside class="status-panel reveal" data-reveal-delay="120">
-          <span class="status-badge">NEXT WORK</span>
+          <span class="status-badge">次の作業</span>
           <ul class="dev-list">
             <li>Core observability / telemetry</li>
             <li>Performance / soak harness</li>
@@ -212,11 +223,11 @@ start-alpha.bat</code></pre>
       </div>
     </section>
 
-    <section class="development-update-banner" aria-label="Development Update">
+    <section class="development-update-banner" aria-label="開発アップデート">
       <div class="container">
         <div class="development-update-copy reveal">
           <img class="brand-lockup" src="./assets/images/brand/logo-primary.png" alt="MachiVerse" width="680" height="240" loading="lazy">
-          <p class="section-label">DEVELOPMENT UPDATE</p>
+          <p class="section-label">開発アップデート <small>DEVELOPMENT UPDATE</small></p>
           <h2>実装の現在地を、<br>継続して公開する。</h2>
           <p>Alpha 1.0の次に進むwork package、設計変更、実装状況はGitHubとRoadmapを正本として追跡できます。</p>
           <div class="hero-actions">
@@ -228,9 +239,9 @@ start-alpha.bat</code></pre>
     </section>
 
     <section id="contribute" class="section section-cinematic">
-      <span class="section-watermark" aria-hidden="true">CONTRIBUTE</span>
+      <span class="section-watermark" aria-hidden="true">参加</span>
       <div class="container reveal">
-        <p class="section-label">CONTRIBUTING</p>
+        <p class="section-label">開発への参加 <small>CONTRIBUTING</small></p>
         <h2>Issue、Discussion、Pull Requestから、<br>世界の実装へ参加する。</h2>
         <div class="prose">
           <p>
@@ -250,10 +261,10 @@ develop              next integrated version
         <div class="dev-links">
           <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse"><strong>GitHub Repository</strong><span>ソースコードと最新のREADME</span></a>
           <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md"><strong>Alpha 1.0 Integration</strong><span>再現手順とacceptance</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs"><strong>Design Documents</strong><span>アーキテクチャ・Protocol・設計資料</span></a>
+          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs"><strong>設計ドキュメント</strong><span>アーキテクチャ・Protocol・設計資料</span></a>
           <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md"><strong>Roadmap</strong><span>実装順序と次のwork package</span></a>
           <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/CONTRIBUTING.md"><strong>Contribution Guide</strong><span>Issue・PR・Discussionの使い分け</span></a>
-          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/discussions"><strong>GitHub Discussions</strong><span>アイデア・Q&A・設計議論</span></a>
+          <a class="dev-link-card" href="https://github.com/MachiVerse-Project/MachiVerse/discussions"><strong>GitHub Discussions</strong><span>アイデア・Q&amp;A・設計議論</span></a>
         </div>
       </div>
     </section>
@@ -262,14 +273,15 @@ develop              next integrated version
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong>MachiVerse Developer</strong>
-        <p>Architecture / Alpha / Contribution</p>
+        <strong>MachiVerse 開発者向け</strong>
+        <p>Alpha 1.0 / アーキテクチャ / 開発参加</p>
       </div>
       <nav class="footer-links" aria-label="フッターナビゲーション">
         <a href="./">一般向け</a>
         <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
-        <a href="./LICENSE">License</a>
-        <a href="./TRADEMARKS.md">Trademarks</a>
+        <a href="./LICENSE">ライセンス</a>
+        <a href="./TRADEMARKS.md">商標</a>
+        <a href="./developer-en.html" lang="en">English</a>
       </nav>
     </div>
   </footer>
