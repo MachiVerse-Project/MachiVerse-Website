@@ -1,6 +1,8 @@
 /* Product-first proof layer for the public MachiVerse page. */
 .product-definition {
-  display:inline-flex;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
   max-width:760px;
   margin:20px 0 0;
   padding:12px 16px;
@@ -13,7 +15,8 @@
   font-weight:780;
   line-height:1.65;
 }
-.product-definition strong { color:#0c86c1; }
+.product-definition strong { color:#17324a; font-size:1.02em; }
+.product-definition span { color:#5a7385; font-size:.88em; font-weight:700; }
 
 /* Keep small body copy readable against the soft visual system. */
 .navigator-site .hero-lead,
