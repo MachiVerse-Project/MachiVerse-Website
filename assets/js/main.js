@@ -1,6 +1,8 @@
 (() => {
   const root = document.documentElement;
+  const body = document.body;
   const isJapanese = (root.lang || '').toLowerCase().startsWith('ja');
+  const isNagumoSite = body.classList.contains('nagumo-site');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const opening = document.querySelector('.opening');
   const progress = document.querySelector('.scroll-progress');
@@ -8,13 +10,28 @@
   const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
   const observedSections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
 
+  const nagumoStyles = document.createElement('link');
+  nagumoStyles.rel = 'stylesheet';
+  nagumoStyles.href = './assets/css/nagumo.css';
+  document.head.appendChild(nagumoStyles);
+
   const teaserStyles = document.createElement('link');
   teaserStyles.rel = 'stylesheet';
   teaserStyles.href = './assets/css/teaser.css';
   document.head.appendChild(teaserStyles);
 
+  const developerHero = document.querySelector('.developer-page .developer-hero-grid > div:first-child');
+  if (developerHero) {
+    const note = document.createElement('p');
+    note.className = 'developer-nagumo-note';
+    note.innerHTML = isJapanese
+      ? '<strong>南雲 澪 / システム開発者</strong><br>ここから先は、MachiVerseを実際に動かしている仕組みの話をします。'
+      : '<strong>Mio Nagumo / System Developer</strong><br>From here, I’ll focus on the implementation that actually makes MachiVerse run.';
+    developerHero.prepend(note);
+  }
+
   const statusSection = document.querySelector('#status');
-  if (statusSection) {
+  if (statusSection && !isNagumoSite) {
     const teaserCopy = isJapanese ? {
       aria: 'MachiVerse 特報',
       label: 'MachiVerse 特報 / SPECIAL TEASER',
@@ -116,11 +133,11 @@
   if (!opening || reduceMotion || openingSeen) {
     finishOpening();
   } else {
-    window.setTimeout(() => root.classList.remove('opening-pending'), 1350);
+    window.setTimeout(() => root.classList.remove('opening-pending'), 1100);
     window.setTimeout(() => {
       opening.classList.add('is-finished');
       try { window.sessionStorage.setItem('machiverse-opening-seen', '1'); } catch {}
-    }, 1850);
+    }, 1550);
   }
 
   const revealTargets = [...document.querySelectorAll('.reveal')];
