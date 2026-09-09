@@ -19,7 +19,40 @@
       polishStyles.href = './assets/css/public-polish.css';
       document.head.appendChild(polishStyles);
 
+      const instanceStyles = document.createElement('link');
+      instanceStyles.rel = 'stylesheet';
+      instanceStyles.href = './assets/css/instance-cta.css';
+      document.head.appendChild(instanceStyles);
+
       const isJapanese = document.documentElement.lang === 'ja';
+      const heroActions = document.querySelector('.navigator-hero .hero-actions');
+      if (heroActions && !heroActions.querySelector('[data-instance-action]')) {
+        const instanceButton = document.createElement('button');
+        instanceButton.type = 'button';
+        instanceButton.disabled = true;
+        instanceButton.className = 'instance-cta';
+        instanceButton.dataset.instanceAction = 'join-official-instance';
+        instanceButton.setAttribute('aria-disabled', 'true');
+        instanceButton.setAttribute('aria-label', isJapanese
+          ? '公式インスタンスに参加、現在準備中'
+          : 'Join the official instance, coming soon');
+        instanceButton.title = isJapanese
+          ? '公式インスタンスは現在準備中です'
+          : 'The official instance is not open yet';
+
+        const label = document.createElement('span');
+        label.className = 'instance-cta-label';
+        const title = document.createElement('strong');
+        const state = document.createElement('small');
+        title.textContent = isJapanese ? '公式インスタンスに参加' : 'Join Official Instance';
+        state.textContent = isJapanese ? '準備中' : 'Coming Soon';
+        label.append(title, state);
+        instanceButton.appendChild(label);
+
+        const primary = heroActions.querySelector('.button-primary');
+        primary ? primary.after(instanceButton) : heroActions.prepend(instanceButton);
+      }
+
       const diverFigure = document.querySelector('#diver .diver-photo-main');
       if (diverFigure && !diverFigure.querySelector('.viewer-visual-label')) {
         const label = document.createElement('figcaption');
