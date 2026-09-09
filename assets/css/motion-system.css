@@ -1,0 +1,267 @@
+/* Dynamic motion layer for MachiVerse navigator pages.
+   Motion supports the information hierarchy: world -> proof -> state change -> participation.
+   Everything is disabled for prefers-reduced-motion. */
+
+.navigator-site {
+  --motion-x:0px;
+  --motion-y:0px;
+  --hero-scroll:0px;
+}
+
+/* Hero: layered depth instead of a static poster. */
+.navigator-site .navigator-hero::after {
+  position:absolute;
+  top:8%;
+  right:-10%;
+  width:44vw;
+  max-width:680px;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(121,214,255,.20),rgba(199,183,255,.08) 46%,transparent 72%);
+  content:"";
+  pointer-events:none;
+  filter:blur(8px);
+  transform:translate3d(calc(var(--motion-x) * -.35),calc(var(--motion-y) * -.35),0);
+  animation:mv-hero-orbit 10s ease-in-out infinite alternate;
+}
+
+.navigator-site .mio-hero-poster {
+  transform:translate3d(calc(var(--motion-x) * .14),calc(var(--motion-y) * .14 + var(--hero-scroll)),0) rotate(1deg);
+  transition:transform .18s ease-out,box-shadow .35s ease;
+}
+
+.navigator-site .mio-hero-character {
+  transform:translate3d(calc(var(--motion-x) * -.22),calc(var(--motion-y) * -.18 + var(--hero-scroll) * -.3),0);
+  transition:transform .18s ease-out;
+  animation:mv-character-breathe 4.8s ease-in-out infinite;
+}
+
+.navigator-site .mio-hero-bubble {
+  animation:mv-bubble-float 4.4s ease-in-out infinite;
+}
+
+.navigator-site .mio-name-sticker {
+  animation:mv-sticker-wiggle 6s ease-in-out infinite;
+}
+
+.navigator-site .navigator-kicker::before,
+.navigator-site .chapter-kicker::before {
+  animation:mv-kicker-pulse 2.4s ease-in-out infinite;
+}
+
+/* Buttons and small navigation feel tactile. */
+.navigator-site .button,
+.navigator-site .hero-route a,
+.navigator-site .viewer-proof-strip span,
+.navigator-site .done-next article,
+.navigator-site .proof-fact,
+.navigator-site .principle-card,
+.navigator-site .dev-hero-fact {
+  transition:transform .24s cubic-bezier(.2,.8,.2,1),box-shadow .24s ease,border-color .24s ease,background .24s ease;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .navigator-site .button:hover,
+  .navigator-site .button:focus-visible { transform:translateY(-4px) scale(1.015); }
+  .navigator-site .hero-route a:hover,
+  .navigator-site .hero-route a:focus-visible { transform:translateY(-3px) rotate(-1deg); box-shadow:0 10px 22px rgba(45,97,131,.12); }
+  .navigator-site .viewer-proof-strip span:hover,
+  .navigator-site .done-next article:hover,
+  .navigator-site .principle-card:hover,
+  .navigator-site .dev-hero-fact:hover { transform:translateY(-5px); box-shadow:0 18px 38px rgba(45,97,131,.13); }
+  .navigator-site .story-card:hover,
+  .navigator-site .diver-photo-main:hover { transform:translateY(-5px) rotate(.25deg); }
+}
+
+.navigator-site .story-card,
+.navigator-site .diver-photo-main {
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease;
+}
+
+/* Technical proof: make the connected loop visibly run. */
+.navigator-site .product-proof-section::after {
+  position:absolute;
+  top:-30%;
+  left:-18%;
+  width:26%;
+  height:160%;
+  background:linear-gradient(90deg,transparent,rgba(121,214,255,.08),transparent);
+  content:"";
+  pointer-events:none;
+  transform:skewX(-14deg) translateX(-220%);
+}
+
+.navigator-site .product-proof-section.is-motion-active::after {
+  animation:mv-proof-scan 5.8s ease-in-out infinite;
+}
+
+.navigator-site .proof-node {
+  transition:transform .32s ease,border-color .32s ease,background .32s ease,box-shadow .32s ease;
+}
+
+.navigator-site .product-proof-section.is-motion-active .proof-node {
+  animation:mv-proof-node 5.2s ease-in-out infinite;
+}
+.navigator-site .product-proof-section.is-motion-active .proof-node:nth-child(1){animation-delay:0s}
+.navigator-site .product-proof-section.is-motion-active .proof-node:nth-child(2){animation-delay:.45s}
+.navigator-site .product-proof-section.is-motion-active .proof-node:nth-child(3){animation-delay:.9s}
+.navigator-site .product-proof-section.is-motion-active .proof-node:nth-child(4){animation-delay:1.35s}
+
+.navigator-site .proof-node:not(:last-child)::after {
+  box-shadow:0 0 0 0 rgba(32,174,243,.35);
+}
+.navigator-site .product-proof-section.is-motion-active .proof-node:not(:last-child)::after {
+  animation:mv-flow-arrow 1.8s ease-out infinite;
+}
+
+.navigator-site .proof-return {
+  position:relative;
+  overflow:hidden;
+}
+.navigator-site .proof-return::after {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(100deg,transparent 15%,rgba(255,255,255,.16) 48%,transparent 78%);
+  content:"";
+  transform:translateX(-120%);
+}
+.navigator-site .product-proof-section.is-motion-active .proof-return::after {
+  animation:mv-return-flow 3.4s ease-in-out infinite 1.5s;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .navigator-site .proof-node:hover {
+    z-index:4;
+    transform:translateY(-7px) scale(1.018);
+    border-color:rgba(121,214,255,.34);
+    background:rgba(255,255,255,.09);
+    box-shadow:0 20px 44px rgba(0,0,0,.18);
+  }
+  .navigator-site .proof-fact:hover {
+    transform:translateY(-4px);
+    border-color:rgba(121,214,255,.24);
+    background:rgba(255,255,255,.075);
+  }
+}
+
+/* World model: state transitions activate in sequence when the section is on screen. */
+.navigator-site .causal-track {
+  isolation:isolate;
+}
+.navigator-site .causal-track::after {
+  position:absolute;
+  top:44px;
+  bottom:44px;
+  left:56px;
+  z-index:-1;
+  width:3px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#20aef3,#8fe2ca,#ff8fbd,#ffd86b);
+  content:"";
+  opacity:.24;
+  transform-origin:top;
+}
+.navigator-site .world-model-section.is-motion-active .causal-track::after {
+  animation:mv-causal-line 2s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.navigator-site .causal-step {
+  transition:transform .3s ease,box-shadow .3s ease,filter .3s ease;
+}
+.navigator-site .world-model-section.is-motion-active .causal-step {
+  animation:mv-causal-step 4.8s ease-in-out infinite;
+}
+.navigator-site .world-model-section.is-motion-active .causal-step:nth-child(1){animation-delay:0s}
+.navigator-site .world-model-section.is-motion-active .causal-step:nth-child(2){animation-delay:.55s}
+.navigator-site .world-model-section.is-motion-active .causal-step:nth-child(3){animation-delay:1.1s}
+.navigator-site .world-model-section.is-motion-active .causal-step:nth-child(4){animation-delay:1.65s}
+
+.navigator-site .model-domains span {
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.navigator-site .world-model-section.is-motion-active .model-domains span:nth-child(odd){animation:mv-domain-float 4s ease-in-out infinite}
+.navigator-site .world-model-section.is-motion-active .model-domains span:nth-child(even){animation:mv-domain-float 4s ease-in-out infinite .7s}
+
+/* Viewer / Diver: gently pull the concept visual into the page. */
+.navigator-site .diver-stage.is-motion-active .diver-photo-main {
+  animation:mv-photo-settle .9s cubic-bezier(.16,.84,.2,1) both;
+}
+.navigator-site .diver-stage.is-motion-active .diver-mio {
+  animation:mv-mio-pop .85s cubic-bezier(.16,.84,.2,1) .18s both;
+}
+.navigator-site .diver-stage.is-motion-active .diver-note {
+  animation:mv-note-pop .75s cubic-bezier(.16,.84,.2,1) .34s both;
+}
+
+/* Alpha / CTA gets one clear pulse instead of constant noise. */
+.navigator-site .alpha-proof-section.is-motion-active .try-card,
+.navigator-site .join-stage.is-motion-active .join-card {
+  animation:mv-cta-arrive .8s cubic-bezier(.16,.84,.2,1) both;
+}
+
+.navigator-site .try-card .button-primary {
+  position:relative;
+}
+.navigator-site .try-card .button-primary::after {
+  position:absolute;
+  inset:-2px;
+  z-index:-1;
+  border-radius:inherit;
+  border:2px solid rgba(32,174,243,.25);
+  content:"";
+  opacity:0;
+}
+.navigator-site .alpha-proof-section.is-motion-active .try-card .button-primary::after {
+  animation:mv-cta-ring 2.5s ease-out infinite 1s;
+}
+
+/* Persistent Mio guide becomes a living UI, not a static sticker. */
+.navigator-site .mio-dock:not(.is-footer-clear) {
+  animation:mv-dock-idle 5.5s ease-in-out infinite;
+}
+.navigator-site .mio-dock.is-changing {
+  animation:none;
+}
+
+@keyframes mv-hero-orbit {
+  from { transform:translate3d(calc(var(--motion-x) * -.35),calc(var(--motion-y) * -.35),0) scale(.94); opacity:.65; }
+  to { transform:translate3d(calc(var(--motion-x) * -.35 - 24px),calc(var(--motion-y) * -.35 + 16px),0) scale(1.05); opacity:1; }
+}
+@keyframes mv-character-breathe { 0%,100%{filter:drop-shadow(0 18px 20px rgba(34,78,108,.18))} 50%{filter:drop-shadow(0 25px 26px rgba(34,78,108,.24))} }
+@keyframes mv-bubble-float { 0%,100%{translate:0 0} 50%{translate:0 -7px} }
+@keyframes mv-sticker-wiggle { 0%,100%{rotate:0deg} 35%{rotate:-1.2deg} 70%{rotate:.8deg} }
+@keyframes mv-kicker-pulse { 0%,100%{box-shadow:0 0 0 5px rgba(255,216,107,.20)} 50%{box-shadow:0 0 0 9px rgba(255,216,107,.06)} }
+@keyframes mv-proof-scan { 0%,18%{transform:skewX(-14deg) translateX(-220%)} 72%,100%{transform:skewX(-14deg) translateX(620%)} }
+@keyframes mv-proof-node { 0%,20%,100%{border-color:rgba(255,255,255,.10);background:rgba(255,255,255,.055);box-shadow:none} 8%{border-color:rgba(121,214,255,.42);background:rgba(121,214,255,.10);box-shadow:0 0 34px rgba(32,174,243,.12)} }
+@keyframes mv-flow-arrow { 0%{box-shadow:0 0 0 0 rgba(32,174,243,.42)} 70%{box-shadow:0 0 0 10px rgba(32,174,243,0)} 100%{box-shadow:0 0 0 0 rgba(32,174,243,0)} }
+@keyframes mv-return-flow { 0%,20%{transform:translateX(-120%)} 70%,100%{transform:translateX(120%)} }
+@keyframes mv-causal-line { from{transform:scaleY(0);opacity:0} to{transform:scaleY(1);opacity:.36} }
+@keyframes mv-causal-step { 0%,18%,100%{transform:translateX(0);filter:saturate(1);box-shadow:none} 8%{transform:translateX(7px);filter:saturate(1.16);box-shadow:0 12px 26px rgba(45,97,131,.10)} }
+@keyframes mv-domain-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+@keyframes mv-photo-settle { from{opacity:.25;transform:translate3d(-24px,18px,0) rotate(-3deg) scale(.97)} to{opacity:1;transform:translate3d(0,0,0) rotate(-1.2deg) scale(1)} }
+@keyframes mv-mio-pop { from{opacity:0;transform:translate3d(24px,30px,0) scale(.9)} to{opacity:1;transform:translate3d(0,0,0) scale(1.08)} }
+@keyframes mv-note-pop { from{opacity:0;transform:translate3d(-12px,12px,0) rotate(-2deg)} to{opacity:1;transform:translate3d(0,0,0) rotate(1.5deg)} }
+@keyframes mv-cta-arrive { from{opacity:.45;transform:translateY(20px) scale(.985)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes mv-cta-ring { 0%{opacity:.5;transform:scale(1)} 70%,100%{opacity:0;transform:scale(1.08)} }
+@keyframes mv-dock-idle { 0%,100%{translate:0 0} 50%{translate:0 -5px} }
+
+@media (max-width:760px) {
+  .navigator-site .causal-track::after { left:40px; }
+  .navigator-site .mio-dock:not(.is-footer-clear) { animation:none; }
+  .navigator-site .mio-hero-character,
+  .navigator-site .mio-hero-poster { transform:none; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .navigator-site *,
+  .navigator-site *::before,
+  .navigator-site *::after {
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.001ms !important;
+  }
+  .navigator-site .mio-hero-character,
+  .navigator-site .mio-hero-poster,
+  .navigator-site .navigator-hero::after { transform:none !important; }
+}
