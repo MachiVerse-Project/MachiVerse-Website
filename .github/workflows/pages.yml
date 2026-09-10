@@ -42,6 +42,94 @@ jobs:
             exit 1
           fi
 
+      - name: Validate SEO metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import xml.etree.ElementTree as ET
+
+          root = Path('www')
+          origin = 'https://machiverse.app'
+          families = {
+              'index': {
+                  'ja': ('index.html', '/'),
+                  'en': ('index-en.html', '/index-en.html'),
+                  'zh-TW': ('index-zh-tw.html', '/index-zh-tw.html'),
+                  'ko': ('index-ko.html', '/index-ko.html'),
+              },
+              'developer': {
+                  'ja': ('developer.html', '/developer.html'),
+                  'en': ('developer-en.html', '/developer-en.html'),
+                  'zh-TW': ('developer-zh-tw.html', '/developer-zh-tw.html'),
+                  'ko': ('developer-ko.html', '/developer-ko.html'),
+              },
+              'self-hosting': {
+                  'ja': ('self-hosting.html', '/self-hosting.html'),
+                  'en': ('self-hosting-en.html', '/self-hosting-en.html'),
+                  'zh-TW': ('self-hosting-zh-tw.html', '/self-hosting-zh-tw.html'),
+                  'ko': ('self-hosting-ko.html', '/self-hosting-ko.html'),
+              },
+              'architecture': {
+                  'ja': ('architecture.html', '/architecture.html'),
+                  'en': ('architecture-en.html', '/architecture-en.html'),
+                  'zh-TW': ('architecture-zh-tw.html', '/architecture-zh-tw.html'),
+                  'ko': ('architecture-ko.html', '/architecture-ko.html'),
+              },
+          }
+
+          expected_urls = set()
+          for family in families.values():
+              for filename, path in family.values():
+                  text = (root / filename).read_text(encoding='utf-8')
+                  canonical = f'{origin}{path}'
+                  expected_urls.add(canonical)
+                  checks = {
+                      'meta description': r'<meta\s+name=["\']description["\']\s+content=["\'][^"\']+["\']',
+                      'self canonical': rf'<link\s+rel=["\']canonical["\']\s+href=["\']{re.escape(canonical)}["\']',
+                      'favicon': r'<link\s+rel=["\']icon["\'][^>]+href=["\'][^"\']+favicon\.png["\']',
+                      'og:image': r'<meta\s+property=["\']og:image["\']\s+content=["\']https://machiverse\.app/[^"\']+["\']',
+                  }
+                  for label, pattern in checks.items():
+                      if not re.search(pattern, text, flags=re.I):
+                          raise SystemExit(f'{filename}: missing or invalid {label}')
+
+          robots = (root / 'robots.txt').read_text(encoding='utf-8')
+          if 'Sitemap: https://machiverse.app/sitemap.xml' not in robots:
+              raise SystemExit('robots.txt: sitemap declaration is missing')
+
+          ns = {
+              'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9',
+              'xhtml': 'http://www.w3.org/1999/xhtml',
+          }
+          sitemap = ET.parse(root / 'sitemap.xml').getroot()
+          url_nodes = {}
+          for node in sitemap.findall('sm:url', ns):
+              loc = node.findtext('sm:loc', default='', namespaces=ns)
+              url_nodes[loc] = node
+
+          missing = expected_urls - set(url_nodes)
+          if missing:
+              raise SystemExit(f'sitemap.xml: missing URLs: {sorted(missing)}')
+
+          for family in families.values():
+              expected_alternates = {lang: f'{origin}{path}' for lang, (_, path) in family.items()}
+              expected_alternates['x-default'] = expected_alternates['ja']
+              for _, path in family.values():
+                  loc = f'{origin}{path}'
+                  node = url_nodes[loc]
+                  actual = {
+                      link.attrib.get('hreflang'): link.attrib.get('href')
+                      for link in node.findall('xhtml:link', ns)
+                      if link.attrib.get('rel') == 'alternate'
+                  }
+                  if actual != expected_alternates:
+                      raise SystemExit(f'sitemap.xml: hreflang mismatch for {loc}: {actual}')
+
+          print('SEO metadata validation passed.')
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
