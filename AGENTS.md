@@ -34,9 +34,11 @@
 2. 公式ブランドアセットの原本は、本体リポジトリの `promotion` ブランチ配下にある `assets/images/` を基準とすること。
 3. Websiteリポジトリには、Web配信で実際に必要なアセットのみを保持し、原本や大型の中間素材を不要に複製しないこと。
 4. 南雲澪の公開用画像は、原則として `www/assets/images/characters/nagumo-mio/web/` にあるWeb参照用ファイルだけを配信対象とし、ポーズ原本一式を `www/` に複製しないこと。
-5. ロゴの縦横比、色、形状、シンボルとワードマークの構成や間隔を任意に変更しないこと。
-6. 公式SymbolやWordmarkが用意されている用途では、フルロゴから独自に切り出した画像を作らないこと。
-7. favicon、OG画像、SNS共有画像等を変更する場合は、サイト本体の参照とメタデータも合わせて確認すること。
+5. 南雲澪はMachiVerseの案内キャラクター（Guide Character）として扱う。実在の開発者、著者、運営主体であるかのような `SYSTEM DEVELOPMENT` 等の肩書きを付与しないこと。
+6. Webサイト上の開発・運営主体は `MachiVerse Project` として本体リポジトリへ結び付け、案内キャラクターとプロジェクト主体を混同しないこと。
+7. ロゴの縦横比、色、形状、シンボルとワードマークの構成や間隔を任意に変更しないこと。
+8. 公式SymbolやWordmarkが用意されている用途では、フルロゴから独自に切り出した画像を作らないこと。
+9. favicon、OG画像、SNS共有画像等を変更する場合は、サイト本体の参照とメタデータも合わせて確認すること。
 
 ## コンテンツ制作ルール
 
@@ -46,6 +48,7 @@
 4. ページ内で同じ概念を説明する場合、用語、トーン、MachiVerseの位置づけを一貫させること。
 5. 日本語を主要言語として扱う。多言語対応を追加する場合は、ユーザーの明示的な方針決定なしに既存の日本語コンテンツを置き換えないこと。
 6. 外部向けページでは、「世界を作る」のではなく「世界がそうなった理由までシミュレーションする」という方向性を損なわないこと。
+7. 案内キャラクターによる演出と、プロジェクトの一次情報・開発主体・著者性が混同されない表現を維持すること。
 
 ## Web実装ルール
 
@@ -66,6 +69,10 @@
 4. `www/404.html`、`www/.nojekyll`、`www/CNAME` はGitHub Pages運用に関わるため、削除・移動する前に公開方式への影響を確認すること。
 5. 現在の本番公開先はGitHub Pagesとし、`main` を本番状態として扱うこと。
 6. GitHub Pagesは `.github/workflows/pages.yml` から `www/` のみをartifactとして公開すること。branch sourceの `/ (root)` や `/docs` を公開元として扱わないこと。
+7. `index`、`developer`、`self-hosting`、`architecture` の各言語セットでは、各URLをself-canonicalとし、日本語URLへ一括canonicalしないこと。
+8. 多言語ページは `ja` / `en` / `zh-TW` / `ko` / `x-default` の対応関係を維持し、`www/sitemap.xml` の相互 `hreflang` とページ側の実行時headが矛盾しないこと。
+9. JSON-LDで著者・開発主体を表現する場合は `MachiVerse Project` を主体とし、南雲澪を実在開発者・著者として構造化しないこと。
+10. `.github/workflows/pages.yml` のSEO検証を維持し、meta description、self-canonical、favicon、OGP、robots、sitemapの欠落をデプロイ前に検出すること。
 
 ## ブランチ運用ルール
 
@@ -104,6 +111,8 @@ main
 - favicon、OG画像、canonical URL等の参照が有効であること
 - `machiverse.app` を前提とする公開設定と矛盾していないこと
 - 実装済み機能と長期構想の表現が混同されていないこと
+- 案内キャラクターとMachiVerse Projectの役割が混同されていないこと
+- 多言語ページのself-canonicalと `hreflang` 対応が崩れていないこと
 - `LICENSE` および `TRADEMARKS.md` の扱いと矛盾していないこと
 - `.github/workflows/pages.yml` が `www/` だけをPages artifactとして扱っていること
 
