@@ -1,0 +1,37 @@
+/* Keep the floating sticky header visually stable and anchor scroll progress to its rounded shell. */
+
+.navigator-site .site-header {
+  top:12px !important;
+}
+
+.navigator-site .scroll-progress {
+  position:absolute;
+  right:24px;
+  bottom:0;
+  left:24px;
+  width:auto !important;
+  height:3px;
+  margin:0;
+  border-radius:999px;
+  transform-origin:left center;
+  pointer-events:none;
+}
+
+@media (max-width:900px) {
+  .navigator-site .site-header {
+    top:8px !important;
+  }
+
+  .navigator-site .scroll-progress {
+    right:18px;
+    left:18px;
+  }
+}
+
+@media (max-width:560px) {
+  .navigator-site .scroll-progress {
+    right:14px;
+    left:14px;
+    height:2px;
+  }
+}
