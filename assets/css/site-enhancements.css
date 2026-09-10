@@ -1,0 +1,139 @@
+/* Product trust, release guidance, and documentation usability enhancements. */
+.audience-note {
+  margin:12px 0 0;
+  max-width:760px;
+  color:#516c7e;
+  font-size:.84rem;
+  font-weight:700;
+  line-height:1.7;
+}
+
+.release-trust-bar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 0;
+}
+.release-trust-bar a,
+.release-trust-bar span {
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 11px;
+  border:1px solid rgba(18,111,162,.12);
+  border-radius:999px;
+  background:rgba(255,255,255,.78);
+  color:#456478;
+  box-shadow:0 7px 18px rgba(44,101,139,.055);
+  font-size:.69rem;
+  font-weight:850;
+  line-height:1;
+  text-decoration:none;
+}
+.release-trust-bar a:hover,
+.release-trust-bar a:focus-visible {
+  color:#087fbd;
+  border-color:rgba(8,127,189,.24);
+  background:#fff;
+  transform:translateY(-1px);
+}
+.release-trust-bar b { color:#087fbd; }
+
+.product-focus-section {
+  position:relative;
+  overflow:hidden;
+  padding:72px 0 82px;
+  background:linear-gradient(135deg,#f8fcff,#fffaf0 52%,#fff5fa);
+}
+.product-focus-section::before {
+  position:absolute;
+  inset:0;
+  content:"";
+  pointer-events:none;
+  background:radial-gradient(circle at 16% 18%,rgba(32,174,243,.08),transparent 32%),radial-gradient(circle at 84% 70%,rgba(255,154,191,.08),transparent 34%);
+}
+.product-focus-inner { position:relative; z-index:1; }
+.product-focus-heading { max-width:780px; }
+.product-focus-heading .chapter-kicker { margin-bottom:10px; }
+.product-focus-heading h2 {
+  margin:0;
+  color:#17324a;
+  font-size:clamp(2rem,4vw,3.55rem);
+  line-height:1.12;
+  letter-spacing:-.04em;
+  text-wrap:balance;
+}
+.product-focus-heading p { max-width:720px; color:#526d7f; line-height:1.8; }
+.product-focus-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:30px;
+}
+.product-focus-card {
+  padding:24px;
+  border:1px solid rgba(27,89,126,.08);
+  border-radius:26px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 16px 38px rgba(44,101,139,.08);
+}
+.product-focus-card small { display:block; margin-bottom:11px; color:#1591c9; font-size:.66rem; font-weight:950; letter-spacing:.08em; }
+.product-focus-card strong { display:block; color:#17324a; font-size:1.05rem; }
+.product-focus-card p { margin:9px 0 0; color:#526d7f; font-size:.84rem; line-height:1.72; }
+
+.release-quickstart {
+  margin:22px 0 26px;
+  padding:20px;
+  border:1px solid rgba(18,111,162,.13);
+  border-radius:24px;
+  background:linear-gradient(145deg,#edfaff,#fff9e6);
+  box-shadow:0 14px 36px rgba(44,101,139,.08);
+}
+.release-quickstart .release-kicker { display:block; margin-bottom:8px; color:#087fbd; font-size:.67rem; font-weight:950; letter-spacing:.08em; }
+.release-quickstart h3 { margin:0; color:#17324a; font-size:1.14rem; }
+.release-quickstart p { margin:8px 0 13px; color:#526d7f; font-size:.84rem; line-height:1.7; }
+.release-quickstart a { color:#087fbd; font-weight:850; }
+.latest-develop-note {
+  margin:18px 0 10px;
+  padding-top:18px;
+  border-top:1px dashed rgba(27,89,126,.16);
+  color:#526d7f;
+  font-size:.82rem;
+  line-height:1.65;
+}
+.latest-develop-note strong { display:block; margin-bottom:4px; color:#17324a; }
+
+.code-block { position:relative; }
+.code-copy-button {
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:3;
+  min-height:32px;
+  padding:6px 10px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;
+  background:rgba(255,255,255,.1);
+  color:inherit;
+  cursor:pointer;
+  font:inherit;
+  font-size:.68rem;
+  font-weight:850;
+  backdrop-filter:blur(8px);
+}
+.code-copy-button:hover,
+.code-copy-button:focus-visible { background:rgba(255,255,255,.18); }
+.code-block code { display:block; padding-right:72px; }
+
+.footer-resource-link { opacity:.88; }
+
+@media (max-width:820px) {
+  .product-focus-grid { grid-template-columns:1fr; }
+  .product-focus-section { padding:58px 0 66px; }
+}
+
+@media (max-width:560px) {
+  .release-trust-bar { gap:6px; }
+  .release-trust-bar a,.release-trust-bar span { font-size:.64rem; padding:7px 9px; }
+  .product-focus-card { padding:20px; }
+}
