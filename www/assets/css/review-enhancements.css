@@ -1,0 +1,270 @@
+/* Follow-up improvements based on external review: product proof, positioning, and trust. */
+
+.navigator-hero .product-preview-stage {
+  display:flex;
+  align-items:center;
+  min-width:0;
+  padding:12px 0 8px;
+}
+
+.hero-product-preview {
+  width:100%;
+  margin:0;
+}
+
+.hero-preview-window {
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(19,104,151,.14);
+  border-radius:30px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 26px 66px rgba(25,92,132,.16);
+  transform:rotate(.45deg);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.hero-preview-window::before {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  content:"";
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);
+}
+.hero-preview-window img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.hero-product-preview:hover .hero-preview-window {
+  transform:rotate(0deg) translateY(-2px);
+  box-shadow:0 32px 74px rgba(25,92,132,.2);
+}
+.hero-preview-badge {
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+  padding:7px 11px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:rgba(13,49,72,.9);
+  color:#fff;
+  font-size:.64rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  backdrop-filter:blur(8px);
+}
+.hero-product-preview figcaption {
+  display:grid;
+  gap:6px;
+  margin:17px 8px 0;
+}
+.hero-product-preview figcaption > span {
+  color:#1591c9;
+  font-size:.67rem;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+.hero-product-preview figcaption strong {
+  color:#17324a;
+  font-size:clamp(1rem,1.5vw,1.28rem);
+}
+.hero-product-preview figcaption p {
+  max-width:660px;
+  margin:0;
+  color:#526d7f;
+  font-size:.78rem;
+  line-height:1.7;
+}
+
+.product-compare {
+  margin-top:42px;
+  padding-top:34px;
+  border-top:1px solid rgba(27,89,126,.1);
+}
+.product-compare-heading {
+  max-width:760px;
+}
+.product-compare-heading small {
+  display:block;
+  margin-bottom:8px;
+  color:#1591c9;
+  font-size:.66rem;
+  font-weight:950;
+  letter-spacing:.09em;
+}
+.product-compare-heading h3 {
+  margin:0;
+  color:#17324a;
+  font-size:clamp(1.45rem,2.7vw,2.25rem);
+  line-height:1.2;
+  letter-spacing:-.025em;
+}
+.product-compare-heading p {
+  margin:10px 0 0;
+  color:#607789;
+  font-size:.8rem;
+  line-height:1.75;
+}
+.product-compare-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+  margin-top:22px;
+}
+.product-compare-card {
+  position:relative;
+  min-width:0;
+  padding:20px;
+  border:1px solid rgba(27,89,126,.09);
+  border-radius:22px;
+  background:rgba(255,255,255,.74);
+}
+.product-compare-card.is-machiverse {
+  border-color:rgba(21,145,201,.24);
+  background:linear-gradient(150deg,rgba(232,249,255,.96),rgba(255,250,229,.94));
+  box-shadow:0 16px 34px rgba(27,98,137,.08);
+}
+.product-compare-card > span {
+  display:block;
+  margin-bottom:10px;
+  color:#86a0af;
+  font-size:.58rem;
+  font-weight:950;
+  letter-spacing:.1em;
+}
+.product-compare-card.is-machiverse > span { color:#158fc8; }
+.product-compare-card strong {
+  display:block;
+  color:#17324a;
+  font-size:1rem;
+}
+.product-compare-card b {
+  display:block;
+  margin-top:9px;
+  color:#315a72;
+  font-size:.78rem;
+}
+.product-compare-card p {
+  margin:8px 0 0;
+  color:#61798a;
+  font-size:.76rem;
+  line-height:1.68;
+}
+.product-compare-note {
+  margin:13px 2px 0;
+  color:#758a98;
+  font-size:.69rem;
+  line-height:1.65;
+}
+
+.roadmap-context-note {
+  display:grid;
+  gap:7px;
+  margin-top:28px;
+  padding:20px 22px;
+  border:1px solid rgba(18,111,162,.13);
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(237,250,255,.9),rgba(255,249,230,.88));
+  box-shadow:0 14px 32px rgba(44,101,139,.07);
+}
+.roadmap-context-note > span {
+  color:#1591c9;
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.09em;
+}
+.roadmap-context-note strong {
+  color:#17324a;
+  font-size:1rem;
+}
+.roadmap-context-note p {
+  max-width:860px;
+  margin:0;
+  color:#536f80;
+  font-size:.8rem;
+  line-height:1.72;
+}
+.roadmap-context-note a {
+  width:max-content;
+  margin-top:2px;
+  color:#087fbd;
+  font-size:.76rem;
+  font-weight:850;
+  text-decoration:none;
+}
+.roadmap-context-note a:hover,
+.roadmap-context-note a:focus-visible { text-decoration:underline; text-underline-offset:3px; }
+
+.first-contribution-card {
+  margin-top:30px;
+  padding:24px;
+  border:1px solid rgba(18,111,162,.12);
+  border-radius:24px;
+  background:linear-gradient(145deg,#f2fbff,#fff9e8);
+  box-shadow:0 16px 38px rgba(44,101,139,.07);
+}
+.first-contribution-card > span {
+  display:block;
+  margin-bottom:8px;
+  color:#1591c9;
+  font-size:.64rem;
+  font-weight:950;
+  letter-spacing:.09em;
+}
+.first-contribution-card h3 {
+  margin:0;
+  color:#17324a;
+  font-size:1.16rem;
+}
+.first-contribution-card p {
+  max-width:800px;
+  margin:9px 0 0;
+  color:#536f80;
+  font-size:.82rem;
+  line-height:1.72;
+}
+.first-contribution-card > div {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:15px;
+}
+.first-contribution-card a {
+  display:inline-flex;
+  align-items:center;
+  min-height:36px;
+  padding:8px 12px;
+  border:1px solid rgba(18,111,162,.13);
+  border-radius:999px;
+  background:#fff;
+  color:#087fbd;
+  font-size:.72rem;
+  font-weight:850;
+  text-decoration:none;
+}
+.first-contribution-card a:hover,
+.first-contribution-card a:focus-visible {
+  border-color:rgba(8,127,189,.28);
+  transform:translateY(-1px);
+}
+
+@media (max-width:900px) {
+  .navigator-hero .product-preview-stage { padding-top:8px; }
+  .product-compare-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width:560px) {
+  .hero-preview-window { border-radius:20px; }
+  .hero-preview-badge { right:10px; bottom:10px; font-size:.56rem; }
+  .hero-product-preview figcaption { margin-inline:2px; }
+  .roadmap-context-note,.first-contribution-card { padding:18px; border-radius:18px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .hero-preview-window,.first-contribution-card a { transition:none; }
+  .hero-product-preview:hover .hero-preview-window,.first-contribution-card a:hover { transform:none; }
+}
