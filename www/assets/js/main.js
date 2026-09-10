@@ -196,6 +196,34 @@
     footerSummary.appendChild(identity);
   }
 
+  if (supportedPage && !document.querySelector('#machiverse-project-leadership-data')) {
+    const organizationId = `${siteOrigin}/#organization`;
+    const directorId = `${siteOrigin}/#kazuto-hashimoto`;
+    const leadershipData = document.createElement('script');
+    leadershipData.id = 'machiverse-project-leadership-data';
+    leadershipData.type = 'application/ld+json';
+    leadershipData.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Person',
+          '@id': directorId,
+          name: 'Kazuto Hashimoto',
+          jobTitle: 'Co-Founder / Project Director',
+          affiliation: { '@id': organizationId }
+        },
+        {
+          '@type': 'Organization',
+          '@id': organizationId,
+          name: 'MachiVerse Project',
+          url: `${siteOrigin}/`,
+          founder: { '@id': directorId }
+        }
+      ]
+    });
+    document.head.appendChild(leadershipData);
+  }
+
   let current = null;
   if (filename.startsWith('developer')) current = 'technical';
   else if (filename.startsWith('self-hosting')) current = 'selfHosting';
