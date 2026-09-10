@@ -148,6 +148,30 @@
 
 .footer-resource-link { opacity:.88; }
 
+.mio-role-name,
+.mio-role-label { display:block; }
+.mio-role-label {
+  margin-top:2px;
+  font-size:.82em;
+  font-weight:900;
+  letter-spacing:.055em;
+  text-transform:none;
+}
+
+.site-identity {
+  display:grid;
+  gap:3px;
+  margin-top:10px;
+  color:rgba(255,255,255,.68);
+  font-size:.72rem;
+  line-height:1.55;
+}
+.site-identity span { display:block; }
+.site-identity b { color:rgba(255,255,255,.9); font-weight:850; }
+.site-identity a { color:#fff; font-weight:850; text-decoration:underline; text-decoration-color:rgba(255,255,255,.3); text-underline-offset:3px; }
+.site-identity a:hover,
+.site-identity a:focus-visible { text-decoration-color:#fff; }
+
 @media (max-width:1080px) {
   .developer-page .developer-header-actions { width:100%; justify-content:space-between; }
   .developer-page .site-nav { padding:0; }
