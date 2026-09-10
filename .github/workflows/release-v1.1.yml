@@ -1,0 +1,54 @@
+name: Release v1.1
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: contains(github.event.head_commit.message, '[release:v1.1]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create v1.1 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v1.1
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "$TAG already exists; nothing to do."
+            exit 0
+          fi
+
+          cat > release-notes.md <<'EOF'
+          # MachiVerse Website v1.1
+
+          公式Webサイトの情報設計・多言語SEO・信頼性表示・ナビゲーションを強化したアップデートです。
+
+          ## Highlights
+          - GitHub Pagesの公開ルートを `www/` に整理し、Actions経由のデプロイへ移行
+          - 日本語 / English / 繁中 / 한국어 の4言語で一般・技術ページを整備
+          - canonical / hreflang / OGP / JSON-LD / robots.txt / sitemap.xml を整理
+          - MachiVerse Project、Kazuto Hashimoto、南雲澪の役割表示を明確化
+          - Kazuto Hashimoto: Co-Founder / Project Director
+          - 南雲澪: Co-Founder / System Development Lead / Official MachiVerse Character / MIO GUIDE
+          - フッターのページ一覧をカテゴリ別ナビゲーションへ再設計
+          - Alpha 1.0、Roadmap、Security、Contributionへの導線を強化
+          - General Viewの実キャプチャ掲載枠を追加し、取得前は明示的な Coming Soon placeholder を表示
+          - ヒーローで南雲澪とGeneral View掲載枠を共存
+          - stickyヘッダー最上部の位置ズレとスクロール進捗バーの角丸干渉を修正
+
+          ## Notes
+          - General Viewの現在の画像は実画面ではなく、実キャプチャへ差し替えるためのplaceholderです。
+          - 実キャプチャ取得後は Issue #12 の方針に従って置き換えます。
+          - 未確認の性能値やエージェント数は掲載していません。
+          EOF
+
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "MachiVerse Website v1.1" \
+            --notes-file release-notes.md
