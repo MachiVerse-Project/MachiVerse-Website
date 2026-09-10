@@ -38,12 +38,11 @@ MachiVerse公式サイトの検索流入を、誇張せず技術的に正確な�
 
 ## 構造化データ
 
-次の段階で、表示内容と完全に一致する範囲に限定して導入する。
+一般向けページでは `WebSite` と `SoftwareSourceCode`、技術ページでは `WebSite` と `BreadcrumbList` を出力する。現在は `assets/js/site-enhancements.js` が表示中ページのcanonical・言語・meta descriptionに合わせてJSON-LDを生成する。
 
-- トップページ: `WebSite` / `SoftwareApplication`
-- 技術ページ: `BreadcrumbList`
+`SoftwareApplication` のリッチリザルトだけを目的に、存在しないレビュー、評価、価格、実績などを追加しない。構造化データはページ上で確認できる事実に限定し、Alpha 1.0のバージョン、公開日、コードリポジトリ、Apache-2.0ライセンス、C# / .NET 10といった検証可能な情報のみを扱う。
 
-存在しないレビュー、評価、価格、実績、組織情報などを構造化データだけに追加しない。SoftwareApplicationのリッチリザルト要件を満たさない場合でも、検索エンジンによる意味理解を目的としてSchema.orgの範囲で正確な情報のみを記述する。
+新しいページ種別を追加する場合は、既存のJSON-LDへ無理に当てはめず、そのページに対応するSchema.org型が本当に必要かを先に確認する。
 
 ## Search Console 公開後チェック
 

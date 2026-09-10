@@ -69,6 +69,9 @@
     siteNav.replaceChildren(...links);
   }
 
+  import('./site-enhancements.js')
+    .catch((error) => console.error('MachiVerse site enhancements failed to load.', error));
+
   import('./main-runtime.js')
     .then(() => {
       if ((locale === 'zh-TW' || locale === 'ko') && document.querySelector('[data-instance-action]')) {
