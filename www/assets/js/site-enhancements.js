@@ -1,3 +1,11 @@
+if (!document.querySelector('link[data-header-shell-fix]')) {
+  const headerShellStyle = document.createElement('link');
+  headerShellStyle.rel = 'stylesheet';
+  headerShellStyle.href = './assets/css/header-shell-fix.css';
+  headerShellStyle.dataset.headerShellFix = 'true';
+  document.head.appendChild(headerShellStyle);
+}
+
 Promise.all([
   import('./site-enhancements-runtime.js'),
   import('./footer-layout.js')
