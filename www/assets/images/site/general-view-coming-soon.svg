@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">MachiVerse General View preview placeholder</title>
+  <desc id="desc">A stylized browser-window placeholder indicating that a real Alpha 1.0 General View capture will replace this image later.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eefaff"/>
+      <stop offset="0.5" stop-color="#fff8e8"/>
+      <stop offset="1" stop-color="#fff1f7"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#163d58"/>
+      <stop offset="1" stop-color="#0f2e45"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#1d7399" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" rx="42" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1104" height="664" rx="30" fill="#ffffff" stroke="#cde7f4" stroke-width="2"/>
+  <rect x="48" y="48" width="1104" height="58" rx="30" fill="#f7fbfd"/>
+  <rect x="48" y="82" width="1104" height="24" fill="#f7fbfd"/>
+  <circle cx="82" cy="77" r="7" fill="#ff9db6"/>
+  <circle cx="105" cy="77" r="7" fill="#ffd36d"/>
+  <circle cx="128" cy="77" r="7" fill="#83d9c4"/>
+  <rect x="178" y="65" width="420" height="24" rx="12" fill="#e7f4fa"/>
+  <text x="194" y="82" font-family="Arial, sans-serif" font-size="14" fill="#5c7d90">machiverse.app / alpha-preview</text>
+
+  <rect x="82" y="136" width="790" height="530" rx="24" fill="url(#panel)"/>
+  <rect x="82" y="136" width="790" height="530" rx="24" fill="url(#grid)"/>
+  <path d="M132 548C222 450 300 500 368 392S514 242 624 332s128 86 198 30" fill="none" stroke="#79d8ff" stroke-opacity=".55" stroke-width="5"/>
+  <path d="M124 474c90-72 144-88 214-56s124 16 182-56 164-74 278-18" fill="none" stroke="#ffd978" stroke-opacity=".36" stroke-width="4"/>
+  <g fill="#d9f4ff" fill-opacity=".92">
+    <circle cx="192" cy="464" r="10"/><circle cx="304" cy="426" r="9"/><circle cx="420" cy="378" r="11"/>
+    <circle cx="548" cy="302" r="9"/><circle cx="662" cy="344" r="10"/><circle cx="758" cy="350" r="9"/>
+  </g>
+  <g fill="#ffffff" fill-opacity=".08" stroke="#ffffff" stroke-opacity=".16">
+    <rect x="126" y="176" width="182" height="82" rx="14"/>
+    <rect x="326" y="176" width="236" height="82" rx="14"/>
+    <rect x="582" y="176" width="242" height="82" rx="14"/>
+  </g>
+  <text x="144" y="205" font-family="Arial, sans-serif" font-size="13" fill="#91cce7">WORLD STATE</text>
+  <text x="144" y="234" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">FULL / DELTA</text>
+  <text x="346" y="205" font-family="Arial, sans-serif" font-size="13" fill="#91cce7">SESSION</text>
+  <text x="346" y="234" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">CONFIRMED</text>
+  <text x="602" y="205" font-family="Arial, sans-serif" font-size="13" fill="#91cce7">VIEW</text>
+  <text x="602" y="234" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">GENERAL</text>
+
+  <rect x="902" y="136" width="218" height="250" rx="24" fill="#f5fbfe" stroke="#d8edf6"/>
+  <text x="930" y="174" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#3f7a99">ALPHA 1.0</text>
+  <text x="930" y="210" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#163d58">General View</text>
+  <rect x="930" y="238" width="132" height="31" rx="15" fill="#dff5ff"/>
+  <text x="946" y="259" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1574a2">REAL UI CAPTURE</text>
+  <text x="930" y="302" font-family="Arial, sans-serif" font-size="14" fill="#597b8e">Browser UI evidence</text>
+  <text x="930" y="327" font-family="Arial, sans-serif" font-size="14" fill="#597b8e">will be placed here.</text>
+
+  <rect x="902" y="408" width="218" height="258" rx="24" fill="#163d58"/>
+  <text x="930" y="454" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#94d7f5">PREVIEW STATUS</text>
+  <text x="930" y="506" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#ffffff">COMING</text>
+  <text x="930" y="544" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#ffffff">SOON</text>
+  <line x1="930" y1="575" x2="1084" y2="575" stroke="#ffffff" stroke-opacity=".18"/>
+  <text x="930" y="609" font-family="Arial, sans-serif" font-size="13" fill="#bed9e7">Not a product screenshot.</text>
+  <text x="930" y="633" font-family="Arial, sans-serif" font-size="13" fill="#bed9e7">Replace with real capture.</text>
+</svg>
