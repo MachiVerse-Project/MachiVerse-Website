@@ -149,7 +149,8 @@
 .footer-resource-link { opacity:.88; }
 
 .mio-role-name,
-.mio-role-label { display:block; }
+.mio-role-label,
+.mio-role-meta { display:block; }
 .mio-role-label {
   margin-top:2px;
   font-size:.82em;
@@ -157,20 +158,71 @@
   letter-spacing:.055em;
   text-transform:none;
 }
+.mio-role-meta {
+  margin-top:3px;
+  font-size:.66em;
+  font-weight:800;
+  letter-spacing:.045em;
+  opacity:.72;
+}
 
 .site-identity {
   display:grid;
-  gap:3px;
-  margin-top:10px;
+  gap:8px;
+  margin-top:12px;
   color:rgba(255,255,255,.68);
   font-size:.72rem;
   line-height:1.55;
 }
 .site-identity span { display:block; }
-.site-identity b { color:rgba(255,255,255,.9); font-weight:850; }
+.site-identity b { color:rgba(255,255,255,.92); font-weight:850; }
 .site-identity a { color:#fff; font-weight:850; text-decoration:underline; text-decoration-color:rgba(255,255,255,.3); text-underline-offset:3px; }
 .site-identity a:hover,
 .site-identity a:focus-visible { text-decoration-color:#fff; }
+.site-identity-project { margin-bottom:1px; }
+.site-cofounders {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  max-width:760px;
+}
+.site-cofounders-label {
+  grid-column:1 / -1;
+  color:rgba(255,255,255,.55);
+  font-size:.64rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.site-cofounder {
+  min-width:0;
+  padding:9px 11px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  background:rgba(255,255,255,.035);
+}
+.site-cofounder b,
+.site-cofounder small,
+.site-cofounder em { display:block; }
+.site-cofounder b { font-size:.76rem; }
+.site-cofounder small {
+  margin-top:2px;
+  color:rgba(255,255,255,.68);
+  font-size:.64rem;
+  font-weight:750;
+}
+.site-cofounder em {
+  margin-top:3px;
+  color:rgba(255,255,255,.52);
+  font-size:.6rem;
+  font-style:normal;
+  font-weight:700;
+}
+.site-identity-note {
+  max-width:760px;
+  color:rgba(255,255,255,.48);
+  font-size:.62rem;
+}
 
 @media (max-width:1080px) {
   .developer-page .developer-header-actions { width:100%; justify-content:space-between; }
@@ -189,6 +241,8 @@
   .developer-page .site-nav::-webkit-scrollbar { display:none; }
   .developer-page .site-nav a { min-height:40px; flex:0 0 auto; padding:8px 11px; white-space:nowrap; }
   .developer-page .lang-switch { width:auto; justify-content:flex-start; padding:4px; }
+  .site-cofounders { grid-template-columns:1fr; }
+  .site-cofounders-label { grid-column:auto; }
 }
 
 @media (max-width:560px) {
