@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MachiVerse 技術情報 | 動かす・設計を知る・開発に参加する</title>
+  <meta name="description" content="MachiVerseの技術情報入口です。自分の環境でAlpha 1.0を動かすための案内、設計思想と大まかな仕様、開発参加情報へ目的別に案内します。">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/developer.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/developer.html">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/developer-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/developer.html">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/developer.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="MachiVerse 技術情報 | 動かす・設計を知る・開発に参加する">
+  <meta property="og:description" content="MachiVerseの技術情報を、セルフホスト、設計・仕様、開発参加の目的別に案内します。">
+  <meta property="og:url" content="https://machiverse.app/developer.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse 技術情報">
+  <meta name="twitter:description" content="セルフホスト、設計・仕様、開発参加の入口。">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body class="navigator-site navigator-developer developer-page localized-site">
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="MachiVerse トップページ">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
+      <div class="header-actions developer-header-actions">
+        <nav class="site-nav" aria-label="技術情報ナビゲーション">
+          <a href="./developer.html" aria-current="page">技術情報</a>
+          <a href="./self-hosting.html">自分で動かす</a>
+          <a href="./architecture.html">設計・仕様</a>
+          <a href="#contribute">開発参加</a>
+          <a href="./">一般向け</a>
+        </nav>
+        <nav class="lang-switch" aria-label="言語切り替え">
+          <a href="./developer.html" lang="ja" aria-current="page">日本語</a>
+          <a href="./developer-en.html" lang="en">EN</a>
+        </nav>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="navigator-hero" id="developer-intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-excited.png"
+      data-mio-alt="前のめりで説明する南雲澪"
+      data-mio-kicker="SYSTEM DEVELOPMENT / TECHNICAL GUIDE"
+      data-mio-title="目的に合わせて選べます。動かす話と、設計の話は分けました。"
+      data-mio-text="セルフホストしたい人、仕組みを知りたい人、開発へ参加したい人。それぞれの入口を用意しています。">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <p class="navigator-kicker">MACHIVERSE / TECHNICAL GUIDE</p>
+          <h1>知りたいことから、<br><span class="marker">中へ入る。</span></h1>
+          <p class="hero-lead">
+            MachiVerseの技術情報を、用途ごとに分けました。
+            「自分のPCやサーバーで動かしてみたい」と「設計思想や全体構造を理解したい」では、必要な情報の深さが違います。
+            ここでは最初に進むページを選べます。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./self-hosting.html">自分で動かす</a>
+            <a class="button button-secondary" href="./architecture.html">設計・仕様を見る</a>
+          </div>
+          <div class="dev-hero-facts" aria-label="現在の技術概要">
+            <div class="dev-hero-fact"><span>STATUS</span><strong>Alpha 1.0</strong></div>
+            <div class="dev-hero-fact"><span>RUNTIME</span><strong>.NET 10</strong></div>
+            <div class="dev-hero-fact"><span>LANGUAGE</span><strong>C#</strong></div>
+            <div class="dev-hero-fact"><span>LICENSE</span><strong>Apache 2.0</strong></div>
+          </div>
+        </div>
+
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerseシステム開発者 南雲澪">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>TECHNICAL GUIDE</strong>
+            <p>全部を一気に読む必要はありません。<br>「動かす」と「仕組みを知る」、気になる方からご覧いただけます。</p>
+          </div>
+          <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-excited.png" alt="技術情報の入口を案内する南雲澪" width="720" height="960">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section world-playground" id="routes"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="指差しながら説明する南雲澪"
+      data-mio-kicker="TECHNICAL GUIDE / ROUTES"
+      data-mio-title="最初の分岐は、利用と設計です。"
+      data-mio-text="セルフホスト側は手順と注意事項を中心に、設計側はコンポーネント境界や決定論などの考え方を中心にまとめています。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">CHOOSE YOUR ROUTE</p>
+          <h2>読む人に合わせて、<br>ページを分けました。</h2>
+          <p>専門用語を追う前に動かしてみたい人と、実装へ入る前に設計上の契約を理解したい人を、同じページに押し込まない構成です。</p>
+        </div>
+
+        <div class="dev-route-grid">
+          <a class="dev-route-card reveal" href="./self-hosting.html">
+            <span class="route-number">ROUTE 01 / SELF-HOSTING</span>
+            <h3>自分の環境で、MachiVerseを動かす。</h3>
+            <p>Alpha 1.0をローカルまたは管理下の環境で起動してみたい人向け。WindowsのQuick Start、必要環境、保存データ、現在の制約をまとめています。</p>
+            <span class="route-meta"><span>一般利用者向け</span><span>Quick Start</span><span>オンプレ・ローカル</span></span>
+          </a>
+
+          <a class="dev-route-card reveal" data-reveal-delay="80" href="./architecture.html">
+            <span class="route-number">ROUTE 02 / ARCHITECTURE &amp; DESIGN</span>
+            <h3>なぜ、こういう構成なのかを知る。</h3>
+            <p>世界の正本、4コンポーネント、Protocol境界、決定論、Simulation Stepなど、MachiVerseの設計思想と大まかな仕様をまとめています。</p>
+            <span class="route-meta"><span>技術者向け</span><span>設計思想</span><span>大まかな仕様</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section status-stage" id="current-status"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="腕を組んで考える南雲澪"
+      data-mio-kicker="TECHNICAL GUIDE / CURRENT STATUS"
+      data-mio-title="まず、現在地だけ共有します。"
+      data-mio-text="Alpha 1.0では4コンポーネントの実接続が成立していますが、production向け完成形ではありません。">
+      <div class="container story-shell">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">CURRENT STATUS / ALPHA 1.0</p>
+          <h2>設計だけではない。<br>でも、完成版でもない。</h2>
+          <p>
+            現在の<code>develop</code>には、Simulation Core / Gateway / General View / Administration Viewを実接続した、再現可能なAlpha 1.0 vertical sliceがあります。
+            Core–Gateway間の実gRPC、ブラウザView、confirmed WorldStateのFULL / DELTA配信、最小Operation、永続化・再起動・recoveryなどが接続されています。
+          </p>
+          <div class="dev-callout">
+            <strong>公開用途について</strong>
+            <p>現在のlocal Alpha profileはloopback-onlyの開発・integration用です。production OIDC / TLS deployment acceptanceなどは今後の作業であり、現時点のAlphaはインターネット公開用のproduction profileとしては想定していません。</p>
+          </div>
+        </div>
+        <aside class="story-card reveal" data-reveal-delay="100">
+          <div style="padding:22px 20px 26px">
+            <p class="chapter-kicker">WHAT WORKS NOW</p>
+            <ul class="dev-list">
+              <li>Simulation Core ↔ Gateway の実gRPC接続</li>
+              <li>General View / Administration View の実ブラウザセッション</li>
+              <li>confirmed world の FULL / DELTA publication</li>
+              <li>Diverの最小OperationとCoreでの状態更新</li>
+              <li>Core / Gatewayの永続化、restart、recovery、resync</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contribute" class="join-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png"
+      data-mio-alt="大喜びする南雲澪"
+      data-mio-kicker="TECHNICAL GUIDE / CONTRIBUTE"
+      data-mio-title="実装へ入りたい場合は、本体リポジトリの開発資料へ。"
+      data-mio-text="Contribution Guide、設計ドキュメント、Roadmapを起点に、IssueやDiscussion、Pull Requestへ進めます。">
+      <div class="container">
+        <div class="join-card reveal">
+          <div>
+            <p class="chapter-kicker">CONTRIBUTING</p>
+            <h2>さらに深く、<br>実装へ入る。</h2>
+            <p>
+              この公式サイトでは全設計書を複製せず、全体像と入口を提供します。
+              実装・Protocol・個別シミュレーション領域の詳細は、本体リポジトリの現行ドキュメントを正本として案内しています。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/MachiVerse-Project/MachiVerse">Repository</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/CONTRIBUTING.md">Contribution Guide</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/discussions">Discussions</a>
+            </div>
+            <div class="hero-route" aria-label="主要資料">
+              <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md"><b>RUN</b> Alpha 1.0 Integration</a>
+              <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/architecture/overview.md"><b>DESIGN</b> Architecture Overview</a>
+              <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/ROADMAP.md"><b>PLAN</b> Roadmap</a>
+            </div>
+          </div>
+          <img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="開発参加を歓迎する南雲澪" width="720" height="960" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="南雲澪による技術情報案内">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-excited.png" alt="南雲澪" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>SYSTEM DEVELOPMENT / TECHNICAL GUIDE</span>
+      <strong class="mio-dock-title" data-mio-title>目的に合わせて選べます。動かす話と、設計の話は分けました。</strong>
+      <span class="mio-dock-text" data-mio-text>セルフホストしたい人、仕組みを知りたい人、開発へ参加したい人。それぞれの入口を用意しています。</span>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>MachiVerse 技術情報</strong><p>Self-hosting / Architecture / Contributing</p></div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="./">一般向け</a>
+        <a href="./self-hosting.html">自分で動かす</a>
+        <a href="./architecture.html">設計・仕様</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./license.html">ライセンス</a>
+        <a href="./trademarks.html">商標</a>
+        <a href="./developer-en.html" lang="en">English</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

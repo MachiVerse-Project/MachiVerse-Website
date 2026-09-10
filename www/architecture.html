@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MachiVerse 設計思想・全体仕様 | Architecture & Design</title>
+  <meta name="description" content="MachiVerseの設計思想と大まかな仕様を紹介します。4コンポーネント構成、正本WorldState、Protocol境界、Simulation Step、決定論、GatewayとViewの役割をまとめています。">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/architecture.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/architecture.html">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/architecture-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/architecture.html">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/developer.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="MachiVerse 設計思想・全体仕様 | Architecture & Design">
+  <meta property="og:description" content="世界の正本、4コンポーネント、Protocol境界、決定論など、MachiVerseの大まかな設計を紹介します。">
+  <meta property="og:url" content="https://machiverse.app/architecture.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse Architecture & Design">
+  <meta name="twitter:description" content="設計思想と大まかな全体仕様。">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body class="navigator-site navigator-developer developer-page localized-site">
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="MachiVerse トップページ">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
+      <div class="header-actions developer-header-actions">
+        <nav class="site-nav" aria-label="技術情報ナビゲーション">
+          <a href="./developer.html">技術情報</a>
+          <a href="./self-hosting.html">自分で動かす</a>
+          <a href="./architecture.html" aria-current="page">設計・仕様</a>
+          <a href="./developer.html#contribute">開発参加</a>
+          <a href="./">一般向け</a>
+        </nav>
+        <nav class="lang-switch" aria-label="言語切り替え">
+          <a href="./architecture.html" lang="ja" aria-current="page">日本語</a>
+          <a href="./architecture-en.html" lang="en">EN</a>
+        </nav>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="navigator-hero" id="architecture-intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="腕を組んで考える南雲澪"
+      data-mio-kicker="ARCHITECTURE &amp; DESIGN"
+      data-mio-title="仕様の一覧より先に、なぜそう設計しているのかを紹介します。"
+      data-mio-text="正本を一つにする理由、コンポーネントを分離する理由、決定論を守る理由。その考え方が全体構成につながっています。">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <div class="dev-breadcrumb"><a href="./developer.html">技術情報</a><span>/</span><span>設計・仕様</span></div>
+          <p class="navigator-kicker">MACHIVERSE / ARCHITECTURE &amp; DESIGN</p>
+          <h1>世界をつなぐために、<br><span class="marker">境界をはっきり分ける。</span></h1>
+          <p class="hero-lead">
+            MachiVerseは、世界を状態の集合ではなく、因果と歴史を持つ動的なシステムとして扱います。
+            そのために、世界状態の正本、外部接続、利用者向け表示、運用管理の責務を分け、Protocolで接続する構成を採っています。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#principles">設計思想から読む</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/architecture/overview.md">設計書の正本</a>
+          </div>
+          <div class="dev-hero-facts" aria-label="アーキテクチャ概要">
+            <div class="dev-hero-fact"><span>AUTHORITY</span><strong>Simulation Core</strong></div>
+            <div class="dev-hero-fact"><span>TOPOLOGY</span><strong>Core 1 / Gateway 1:N</strong></div>
+            <div class="dev-hero-fact"><span>TIME</span><strong>Simulation Step</strong></div>
+            <div class="dev-hero-fact"><span>CONTRACT</span><strong>Versioned Protocol</strong></div>
+          </div>
+        </div>
+
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerseシステム開発者 南雲澪">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>DESIGN / OVERVIEW</strong>
+            <p>ここはAPIリファレンスではなく、<br>「MachiVerseをMachiVerseらしく保つ契約」を紹介するページです。</p>
+          </div>
+          <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-thinking.png" alt="MachiVerseの設計思想を案内する南雲澪" width="720" height="960">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles" class="story-section world-playground"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="指差しながら説明する南雲澪"
+      data-mio-kicker="ARCHITECTURE / PRINCIPLES"
+      data-mio-title="現在の世界には、そこへ至った理由がある。"
+      data-mio-text="状態、因果、相互作用、時間、歴史、自然環境、社会的関係を、別々の飾りではなく一つの動的な世界としてつなぐことを目指します。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">01 / DESIGN PRINCIPLES</p>
+          <h2>世界の「今」だけでなく、<br>「なぜ今こうなのか」を扱う。</h2>
+          <p>
+            MachiVerseの中心にあるのは、表面的な機能数を増やすことではなく、世界の要素同士を因果でつなぐ考え方です。
+            都市、住民、自然環境、社会関係を固定された完成物として置くのではなく、過去の状態と選択の積み重ねから現在が形成され、現在の変化が未来へ残る世界を志向します。
+          </p>
+        </div>
+        <div class="dev-grid reveal" data-reveal-delay="80">
+          <article class="dev-card"><span class="dev-card-tag">CAUSALITY &amp; HISTORY</span><h3>現在には履歴がある</h3><p>世界状態を時点ごとの見た目だけでなく、過去から続く変化の結果として扱います。</p></article>
+          <article class="dev-card"><span class="dev-card-tag">DETERMINISM</span><h3>再現可能性を契約にする</h3><p>同じWorld Seed、同じsimulation-affecting Config、同じ有効Operation集合・順序・適用Stepから、同じ論理的な世界結果を得ることを基本契約にします。</p></article>
+          <article class="dev-card"><span class="dev-card-tag">SEPARATION</span><h3>責務を分離する</h3><p>Core、Gateway、General View、Admin Viewを独立した実行・ビルド・配布単位として扱います。</p></article>
+          <article class="dev-card"><span class="dev-card-tag">PROTOCOL FIRST</span><h3>境界はProtocolにする</h3><p>内部型や共通DTO DLLを通信契約として共有せず、versioned Protocol / schemaをコンポーネント間の境界にします。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="components" class="story-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-excited.png"
+      data-mio-alt="前のめりで説明する南雲澪"
+      data-mio-kicker="ARCHITECTURE / COMPONENTS"
+      data-mio-title="4つの最上位コンポーネントに、責務を分けます。"
+      data-mio-text="標準構成ではSimulation Coreだけが世界状態の正本を保持し、ViewはCoreへ直接接続しません。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">02 / TOP-LEVEL COMPONENTS</p>
+          <h2>4つに分ける。<br>でも、世界はひとつ。</h2>
+          <p>コード、build、配布、実行単位まで独立させ、他コンポーネント内部への直接method callを行わず、Protocolだけを通じて連携します。</p>
+        </div>
+        <div class="architecture-flow reveal" data-reveal-delay="80" aria-label="MachiVerseの4コンポーネント">
+          <div class="architecture-node"><strong>Simulation Core</strong><span>正本WorldState / Simulation Step / Operation / Persistence</span></div>
+          <div class="architecture-node"><strong>Gateway</strong><span>Auth / Cache / Mediation / Publication / Resync</span></div>
+          <div class="architecture-node"><strong>General View</strong><span>Diver / Spectator / Browser UI / Prediction</span></div>
+          <div class="architecture-node"><strong>Admin View</strong><span>Health / Log / Metrics / Config / Operations</span></div>
+        </div>
+        <div class="story-shell reverse">
+          <figure class="story-card reveal">
+            <img src="./assets/images/site/architecture-overview.webp" alt="Simulation Core、Gateway、General View、Administration Viewの関係を示すアーキテクチャビジュアル" width="1600" height="1200" loading="lazy">
+            <figcaption>標準構成ではViewはGatewayを経由し、Simulation Coreが権威ある世界状態を保持する。</figcaption>
+          </figure>
+          <div class="story-copy reveal" data-reveal-delay="100">
+            <span class="big-line">正本はCore。Gateway cacheやView表示状態は派生状態です。</span>
+            <p>General ViewとAdmin ViewはCoreへ直接接続しません。Gatewayが外部接続・認証認可・cache・Operation集約・publication・再同期などを担い、Coreの責務を外側へ漏らさない構成です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specs" class="story-section status-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="腕を組んで考える南雲澪"
+      data-mio-kicker="ARCHITECTURE / HIGH-LEVEL SPEC"
+      data-mio-title="大まかな仕様を、設計上の契約として並べます。"
+      data-mio-text="ここに載せるのは実装APIの細目ではなく、複数設計書にまたがる最上位の前提です。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">03 / HIGH-LEVEL SPECIFICATION</p>
+          <h2>まず押さえるべき、<br>全体仕様。</h2>
+          <p>以下は現行の全体アーキテクチャで定義されている標準構成の要点です。個別Protocolや各シミュレーション領域の詳細は、本体リポジトリの設計書が正本です。</p>
+        </div>
+        <div class="spec-table-wrap reveal" data-reveal-delay="80">
+          <table class="spec-table">
+            <thead><tr><th>項目</th><th>標準設計</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td>世界状態の正本</td><td>Simulation Coreのみ</td><td>Gateway cache、View表示状態、予測状態は非権威な派生状態。</td></tr>
+              <tr><td>標準トポロジ</td><td>Simulation Core 1 / Gateway 1:N</td><td>General View / Admin ViewはGateway経由で接続。標準ProtocolにCore↔Core通信はない。</td></tr>
+              <tr><td>権威ある時間</td><td>整数ベースのSimulation Step</td><td>社会的な暦・時計とは別概念。標準計算頻度は30Hzで外部Configから変更可能。</td></tr>
+              <tr><td>決定論</td><td>同じ再現条件から同じ論理結果</td><td>処理速度、OS scheduling、thread完了順、Gateway数、network到着競争などをworld outcomeへ持ち込まない。</td></tr>
+              <tr><td>通信境界</td><td>Versioned Protocol / schema</td><td>Major不一致は接続拒否。同一Major内の新Minorは後方互換を維持する設計。</td></tr>
+              <tr><td>Config</td><td>各componentが自身の外部Configを所有</td><td>simulation-affecting Configとdisplay / ops-only Configを区別し、安全な明示境界で適用する。</td></tr>
+              <tr><td>View prediction</td><td>非権威・presentation-only</td><td>Diver操作ではlocal prediction / correctionを許容しても、最終的にはCore確定状態へreconcileする。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="operation-flow" class="story-section diver-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="指差しながら説明する南雲澪"
+      data-mio-kicker="ARCHITECTURE / OPERATION FLOW"
+      data-mio-title="利用者の操作も、直接Coreを書き換えません。"
+      data-mio-text="General View由来OperationはGatewayで認証・認可・調停され、Coreが最終的な適用Stepと世界状態不変条件を確定します。">
+      <div class="container story-shell">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">04 / AUTHORITATIVE OPERATION FLOW</p>
+          <h2>操作は予測できる。<br>確定するのはCore。</h2>
+          <p>General View側では、利用者にリアルタイムに感じられるようlocal prediction / correctionを許容します。ただし予測状態は正本ではなく、Gatewayを経由してSimulation Coreで確定した状態へreconcileします。</p>
+          <pre class="code-block" data-label="CONCEPTUAL FLOW"><code>General View
+   ↓
+Gateway
+   ↓ auth / authorization / mediation
+Simulation Core
+   ↓ authoritative apply
+confirmed WorldState
+   ↓
+Gateway → View reconciliation</code></pre>
+        </div>
+        <aside class="story-card reveal" data-reveal-delay="110">
+          <div style="padding:22px 20px 26px">
+            <p class="chapter-kicker">BOUNDARIES</p>
+            <ul class="dev-list">
+              <li>未認可OperationをCoreへ送らない</li>
+              <li>Operation IDはretryやreconnectを跨いで維持</li>
+              <li>同じOperationを世界へ二重適用しない</li>
+              <li>Coreが最終的な有効適用Stepを確定</li>
+              <li>Viewのpredictionは正本ではない</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="alpha-vs-design" class="story-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-tsukkomi.png"
+      data-mio-alt="重要な違いを指摘する南雲澪"
+      data-mio-kicker="ARCHITECTURE / STATUS"
+      data-mio-title="設計済みと、Alpha 1.0で実接続済みは分けて読みます。"
+      data-mio-text="全体アーキテクチャは将来の標準構成まで含みます。一方、現在のAlpha 1.0は最初の再現可能なvertical sliceです。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">05 / DESIGN VS CURRENT ALPHA</p>
+          <h2>仕様書の全体像と、<br>現在動く範囲は同じではない。</h2>
+          <p>このページでは長期的な標準設計も含めて説明しています。現在の<code>develop</code>で実接続済みなのはAlpha 1.0のvertical sliceであり、multi-Gateway failover、production OIDC / TLS deployment acceptance、大規模Resident / economy / governance scenarioなどは今後のwork packageです。</p>
+        </div>
+        <div class="dev-grid reveal" data-reveal-delay="80">
+          <article class="dev-card"><span class="dev-card-tag">IMPLEMENTED / ALPHA 1.0</span><h3>いま実際につながるもの</h3><p>Core–Gateway実gRPC、General / Administration Viewの実browser session、FULL / DELTA publication、最小Operation、Config read / change、persistence / recoveryなど。</p></article>
+          <article class="dev-card"><span class="dev-card-tag">DESIGN / NEXT WORK</span><h3>設計・今後の実装を含むもの</h3><p>Core 1 : Gateway 1:Nの標準トポロジ全体、multi-Gateway failover、production deployment acceptance、性能・soak、大規模世界シナリオなど。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="deep-dive" class="join-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png"
+      data-mio-alt="詳細資料へ案内する南雲澪"
+      data-mio-kicker="ARCHITECTURE / DEEP DIVE"
+      data-mio-title="ここから先は、正本の設計書へ。"
+      data-mio-text="全体アーキテクチャ、世界シミュレーション、Simulation Core、Gateway、Protocolの個別資料へ進めます。">
+      <div class="container">
+        <div class="join-card reveal">
+          <div>
+            <p class="chapter-kicker">DEEP DIVE</p>
+            <h2>大まかな構造から、<br>個別設計へ。</h2>
+            <p>公式サイトは理解の入口に留め、変更される技術仕様の正本は本体リポジトリへ集約しています。実装判断やProtocol変更に関する最新情報は、現行の設計書で確認できます。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/architecture/overview.md">Architecture Overview</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs/architecture">Architecture Docs</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/tree/develop/docs/protocols">Protocol Docs</a>
+            </div>
+            <div class="hero-route" aria-label="次のページ">
+              <a href="./self-hosting.html"><b>RUN</b> 自分の環境で動かす</a>
+              <a href="./developer.html#contribute"><b>JOIN</b> 開発に参加する</a>
+              <a href="./developer.html"><b>TOP</b> 技術情報トップ</a>
+            </div>
+          </div>
+          <img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="詳細な設計資料へ案内する南雲澪" width="720" height="960" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="南雲澪による設計情報案内">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-thinking.png" alt="南雲澪" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>ARCHITECTURE &amp; DESIGN</span>
+      <strong class="mio-dock-title" data-mio-title>仕様の一覧より先に、なぜそう設計しているのかを紹介します。</strong>
+      <span class="mio-dock-text" data-mio-text>正本を一つにする理由、コンポーネントを分離する理由、決定論を守る理由。その考え方が全体構成につながっています。</span>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>MachiVerse Architecture &amp; Design</strong><p>Principles / Components / High-level specification</p></div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="./developer.html">技術情報</a>
+        <a href="./self-hosting.html">自分で動かす</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./license.html">ライセンス</a>
+        <a href="./architecture-en.html" lang="en">English</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

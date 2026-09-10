@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MachiVerseを自分の環境で動かす | Self-hosting Alpha 1.0</title>
+  <meta name="description" content="MachiVerse Alpha 1.0を自分のPCや管理下の環境で動かしたい人向けの案内です。Windows Quick Start、必要環境、保存データ、現在の制約をまとめています。">
+  <meta name="theme-color" content="#f7fcff">
+  <link rel="canonical" href="https://machiverse.app/self-hosting.html">
+  <link rel="alternate" hreflang="ja" href="https://machiverse.app/self-hosting.html">
+  <link rel="alternate" hreflang="en" href="https://machiverse.app/self-hosting-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://machiverse.app/self-hosting.html">
+  <link rel="icon" type="image/png" href="./assets/images/icons/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/developer.css">
+  <link rel="stylesheet" href="./assets/css/localized.css">
+  <link rel="stylesheet" href="./assets/css/navigator-layout.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="MachiVerse">
+  <meta property="og:title" content="MachiVerseを自分の環境で動かす | Self-hosting Alpha 1.0">
+  <meta property="og:description" content="Alpha 1.0を自分のPCや管理下の環境で起動するためのQuick Startと注意事項。">
+  <meta property="og:url" content="https://machiverse.app/self-hosting.html">
+  <meta property="og:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MachiVerse Self-hosting Alpha 1.0">
+  <meta name="twitter:description" content="自分の環境でAlpha 1.0を動かすための入口。">
+  <meta name="twitter:image" content="https://machiverse.app/assets/images/site/social-developer.png">
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body class="navigator-site navigator-developer developer-page localized-site">
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="MachiVerse トップページ">
+        <img class="brand-mark" src="./assets/images/brand/logo-symbol.png" alt="" width="34" height="34">
+        <span>MachiVerse</span>
+      </a>
+      <div class="header-actions developer-header-actions">
+        <nav class="site-nav" aria-label="技術情報ナビゲーション">
+          <a href="./developer.html">技術情報</a>
+          <a href="./self-hosting.html" aria-current="page">自分で動かす</a>
+          <a href="./architecture.html">設計・仕様</a>
+          <a href="./developer.html#contribute">開発参加</a>
+          <a href="./">一般向け</a>
+        </nav>
+        <nav class="lang-switch" aria-label="言語切り替え">
+          <a href="./self-hosting.html" lang="ja" aria-current="page">日本語</a>
+          <a href="./self-hosting-en.html" lang="en">EN</a>
+        </nav>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="navigator-hero" id="self-hosting-intro"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-welcome.png"
+      data-mio-alt="笑顔で案内する南雲澪"
+      data-mio-kicker="SELF-HOSTING / ALPHA 1.0"
+      data-mio-title="自分の環境で動かす際に、まず現在のAlphaの範囲を紹介します。"
+      data-mio-text="いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点もあわせてご案内します。">
+      <div class="container navigator-hero-grid">
+        <div class="navigator-copy reveal">
+          <div class="dev-breadcrumb"><a href="./developer.html">技術情報</a><span>/</span><span>自分で動かす</span></div>
+          <p class="navigator-kicker">MACHIVERSE / SELF-HOSTING</p>
+          <h1>まず、自分の環境で<br><span class="marker">世界を起動する。</span></h1>
+          <p class="hero-lead">
+            このページは、MachiVerseを「開発へ参加する前にまず動かしたい」「自分のPCや管理下のマシンで試したい」という人向けです。
+            現在のAlpha 1.0は、4コンポーネントが接続したローカルintegration profileとして実際に起動できます。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#quick-start">Quick Startへ</a>
+            <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">公式Runbook</a>
+          </div>
+          <div class="dev-hero-facts" aria-label="起動条件概要">
+            <div class="dev-hero-fact"><span>PROFILE</span><strong>Local Alpha</strong></div>
+            <div class="dev-hero-fact"><span>RECOMMENDED</span><strong>Windows</strong></div>
+            <div class="dev-hero-fact"><span>SDK</span><strong>.NET 10.0.400相当</strong></div>
+            <div class="dev-hero-fact"><span>NETWORK</span><strong>Loopback only</strong></div>
+          </div>
+        </div>
+
+        <div class="mio-hero-stage reveal" data-reveal-delay="100" aria-label="MachiVerseシステム開発者 南雲澪">
+          <div class="mio-hero-poster" aria-hidden="true"></div>
+          <div class="mio-hero-bubble">
+            <strong>SELF-HOST / START</strong>
+            <p>Alpha 1.0は起動できます。<br>ただし「ローカルで動く」と「本番公開できる」は別です。</p>
+          </div>
+          <div class="mio-name-sticker">南雲 澪 / Mio Nagumo<br>SYSTEM DEVELOPMENT</div>
+          <div class="mio-hero-character">
+            <img src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="セルフホスト手順を案内する南雲澪" width="720" height="960">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="before-start" class="story-section world-playground"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="指差しながら説明する南雲澪"
+      data-mio-kicker="SELF-HOSTING / BEFORE START"
+      data-mio-title="いま動かせるのは、Alpha 1.0のローカルintegration profileです。"
+      data-mio-text="自宅サーバーやオンプレ機で試す場合も、外部公開を避け、管理下の環境での検証を推奨しています。">
+      <div class="container story-shell">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">01 / BEFORE START</p>
+          <h2>「オンプレで試す」と<br>「production運用する」を分ける。</h2>
+          <p>
+            現在のlocal Alpha profileは、開発・integration向けのloopback-only構成です。
+            自分のPC、検証用端末、管理下のサーバーでMachiVerseの現在地を体験する用途には使えますが、production security profileの代替ではありません。
+          </p>
+          <div class="dev-callout">
+            <strong>現時点では外部公開を想定していません</strong>
+            <p>production OIDC / TLS deployment acceptanceはAlpha 1.0後の作業項目です。認証・TLS・公開構成を独自に補えばproduction-readyになる、という保証も現時点ではありません。</p>
+          </div>
+        </div>
+        <aside class="story-card reveal" data-reveal-delay="100">
+          <div style="padding:22px 20px 26px">
+            <p class="chapter-kicker">SUITABLE FOR</p>
+            <ul class="dev-list">
+              <li>手元のWindows PCでAlpha 1.0を起動してみる</li>
+              <li>自分の管理下にある検証機で動作を確認する</li>
+              <li>4コンポーネントの接続やUIを実際に見る</li>
+              <li>restart / recovery / resyncを試す</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="quick-start" class="story-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-excited.png"
+      data-mio-alt="前のめりで説明する南雲澪"
+      data-mio-kicker="SELF-HOSTING / QUICK START"
+      data-mio-title="Windowsなら、start-alpha.batから始められます。"
+      data-mio-text="最新のdevelopと.NET SDK 10.0.400相当があれば、起動スクリプトで4コンポーネントをまとめて立ち上げられます。">
+      <div class="container quickstart-grid">
+        <div class="reveal">
+          <p class="chapter-kicker">02 / QUICK START — WINDOWS</p>
+          <div class="story-copy">
+            <h2>3行で、<br>起動まで進む。</h2>
+            <p>本体リポジトリの現在のQuick StartはWindows向けです。.NET SDK 10.0.400相当と最新の<code>develop</code>を前提にします。</p>
+          </div>
+          <pre class="code-block" data-label="WINDOWS"><code>git checkout develop
+git pull
+start-alpha.bat</code></pre>
+          <p>すでにビルド済みなら、次回以降はビルドを省略できます。</p>
+          <pre class="code-block" data-label="NO BUILD"><code>start-alpha.bat --no-build</code></pre>
+        </div>
+        <aside class="story-card reveal" data-reveal-delay="120">
+          <div style="padding:22px 20px 26px">
+            <p class="chapter-kicker">START-ALPHA.BAT</p>
+            <h3>スクリプトが行うこと</h3>
+            <ul class="dev-list">
+              <li>.NET SDKを確認</li>
+              <li>4コンポーネントをRelease build</li>
+              <li>Simulation Coreを起動してhealthを待機</li>
+              <li>Gatewayを起動してCoreのSyncedを待機</li>
+              <li>General View / Administration Viewを起動</li>
+              <li>2つのViewをブラウザで開く</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="what-starts" class="story-section status-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-thinking.png"
+      data-mio-alt="腕を組んで考える南雲澪"
+      data-mio-kicker="SELF-HOSTING / COMPONENTS"
+      data-mio-title="起動するのは、Coreだけではありません。"
+      data-mio-text="Alpha 1.0ではSimulation Core、Gateway、General View、Administration Viewを一式で起動します。">
+      <div class="container">
+        <div class="story-copy reveal">
+          <p class="chapter-kicker">03 / WHAT STARTS</p>
+          <h2>世界本体と、<br>接続口と、2つの画面。</h2>
+          <p>標準のAlpha 1.0起動では、次の4コンポーネントを接続して使います。</p>
+        </div>
+        <div class="architecture-flow reveal" data-reveal-delay="80" aria-label="起動する4コンポーネント">
+          <div class="architecture-node"><strong>Simulation Core</strong><span>正本WorldState / Simulation / Persistence</span></div>
+          <div class="architecture-node"><strong>Gateway</strong><span>Auth / Cache / Operation / Publication</span></div>
+          <div class="architecture-node"><strong>General View</strong><span>一般利用者向けブラウザUI</span></div>
+          <div class="architecture-node"><strong>Administration View</strong><span>運用・Config向けブラウザUI</span></div>
+        </div>
+        <div class="dev-section-links">
+          <a href="./architecture.html">4コンポーネント構成を詳しく見る</a>
+          <a href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/architecture/overview.md">設計書の正本を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="persistence" class="story-section"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-explain.png"
+      data-mio-alt="指差しながら説明する南雲澪"
+      data-mio-kicker="SELF-HOSTING / DATA"
+      data-mio-title="ローカルのworldとGateway永続データは残ります。"
+      data-mio-text="Alpha profileでは.machiverse-alpha/に保持されるため、停止・再起動後のrecoveryも試せます。">
+      <div class="container story-shell reverse">
+        <aside class="story-card reveal">
+          <div style="padding:22px 20px 26px">
+            <p class="chapter-kicker">LOCAL DATA</p>
+            <h3><code>.machiverse-alpha/</code></h3>
+            <p>ローカルのworld / Gateway永続データを保持します。検証環境を作り直す際は、このディレクトリも確認対象になります。</p>
+          </div>
+        </aside>
+        <div class="story-copy reveal" data-reveal-delay="100">
+          <p class="chapter-kicker">04 / PERSISTENCE &amp; RECOVERY</p>
+          <h2>起動して終わりではなく、<br>再起動も試せる。</h2>
+          <p>Alpha 1.0ではCore / Gatewayの永続化、停止、再起動、recovery、resyncまで接続されています。単発デモだけでなく、現在の復旧経路も確認できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="next" class="join-stage"
+      data-mio-pose="./assets/images/characters/nagumo-mio/web/mio-join.png"
+      data-mio-alt="次のページを案内する南雲澪"
+      data-mio-kicker="SELF-HOSTING / NEXT"
+      data-mio-title="動いた後は、中身の仕組みもご覧いただけます。"
+      data-mio-text="コンポーネント構成や決定論、WorldStateの考え方は設計・仕様ページにまとめています。">
+      <div class="container">
+        <div class="join-card reveal">
+          <div>
+            <p class="chapter-kicker">NEXT STEP</p>
+            <h2>動かした世界の、<br>仕組みを知る。</h2>
+            <p>細かな手動起動、Linux / macOS相当のコマンド、Golden Demo、既知制約は本体リポジトリのAlpha 1.0 Integration Runbookが正本です。全体構造を先に知りたい場合は、設計・仕様ページから確認できます。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="./architecture.html">設計・仕様を見る</a>
+              <a class="button button-secondary" href="https://github.com/MachiVerse-Project/MachiVerse/blob/develop/docs/alpha-1.0-integration.md">Integration Runbook</a>
+              <a class="button button-secondary" href="./developer.html">技術情報トップへ</a>
+            </div>
+          </div>
+          <img src="./assets/images/characters/nagumo-mio/web/mio-join.png" alt="次の技術情報へ案内する南雲澪" width="720" height="960" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="mio-dock" data-mio-dock aria-live="polite" aria-label="南雲澪によるセルフホスト案内">
+    <img data-mio-image src="./assets/images/characters/nagumo-mio/web/mio-welcome.png" alt="南雲澪" width="720" height="960">
+    <div class="mio-dock-copy">
+      <span class="mio-dock-kicker" data-mio-kicker>SELF-HOSTING / ALPHA 1.0</span>
+      <strong class="mio-dock-title" data-mio-title>自分の環境で動かす際に、まず現在のAlphaの範囲を紹介します。</strong>
+      <span class="mio-dock-text" data-mio-text>いま一番簡単なのはWindows上のローカル起動です。production向け公開手順ではない点もあわせてご案内します。</span>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>MachiVerse Self-hosting</strong><p>Alpha 1.0 / Quick Start / Local operation</p></div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="./developer.html">技術情報</a>
+        <a href="./architecture.html">設計・仕様</a>
+        <a href="https://github.com/MachiVerse-Project/MachiVerse">GitHub</a>
+        <a href="./license.html">ライセンス</a>
+        <a href="./self-hosting-en.html" lang="en">English</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
