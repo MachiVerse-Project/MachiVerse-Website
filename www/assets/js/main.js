@@ -7,6 +7,8 @@
   const locale = lang === 'ja' ? 'ja' : lang === 'zh-TW' ? 'zh-TW' : lang === 'ko' ? 'ko' : 'en';
   const suffix = locale === 'ja' ? '' : locale === 'en' ? '-en' : locale === 'zh-TW' ? '-zh-tw' : '-ko';
   const home = locale === 'ja' ? './' : `./index${suffix}.html`;
+  const siteOrigin = 'https://machiverse.app';
+  const repoUrl = 'https://github.com/MachiVerse-Project/MachiVerse';
 
   const labels = {
     ja: {
@@ -14,30 +16,213 @@
       overview: '一般向け',
       technical: '技術情報',
       selfHosting: '自分で動かす',
-      architecture: '設計・仕様'
+      architecture: '設計・仕様',
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse公式キャラクター / MIO GUIDE',
+      developmentCredit: '開発・運営',
+      coFounders: '共同創設者',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '南雲澪はMachiVerse公式キャラクターです。実際の開発・運営主体はMachiVerse Projectです。'
     },
     en: {
       aria: 'Global navigation',
       overview: 'Overview',
       technical: 'Technical',
       selfHosting: 'Self-hosting',
-      architecture: 'Architecture'
+      architecture: 'Architecture',
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'Official MachiVerse Character / MIO GUIDE',
+      developmentCredit: 'Development & stewardship',
+      coFounders: 'Co-Founders',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: 'Mio Nagumo is an official MachiVerse character. Real-world development and stewardship are carried out by MachiVerse Project.'
     },
     'zh-TW': {
       aria: '全站導覽',
       overview: '一般介紹',
       technical: '技術資訊',
       selfHosting: '自行執行',
-      architecture: '架構・規格'
+      architecture: '架構・規格',
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse 官方角色 / MIO GUIDE',
+      developmentCredit: '開發・營運',
+      coFounders: '共同創辦人',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '南雲澪是 MachiVerse 官方角色。現實中的開發與營運主體為 MachiVerse Project。'
     },
     ko: {
       aria: '전체 사이트 내비게이션',
       overview: '일반 소개',
       technical: '기술 정보',
       selfHosting: '직접 실행',
-      architecture: '설계・구조'
+      architecture: '설계・구조',
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse 공식 캐릭터 / MIO GUIDE',
+      developmentCredit: '개발・운영',
+      coFounders: '공동 창립자',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '미오 나구모는 MachiVerse 공식 캐릭터입니다. 실제 개발과 운영 주체는 MachiVerse Project입니다.'
     }
   }[locale];
+
+  const pageMatch = filename.match(/^(index|developer|self-hosting|architecture)(?:-(en|zh-tw|ko))?\.html$/);
+  if (pageMatch) {
+    const family = pageMatch[1];
+    const localizedPaths = {
+      index: {
+        ja: '/',
+        en: '/index-en.html',
+        'zh-TW': '/index-zh-tw.html',
+        ko: '/index-ko.html'
+      },
+      developer: {
+        ja: '/developer.html',
+        en: '/developer-en.html',
+        'zh-TW': '/developer-zh-tw.html',
+        ko: '/developer-ko.html'
+      },
+      'self-hosting': {
+        ja: '/self-hosting.html',
+        en: '/self-hosting-en.html',
+        'zh-TW': '/self-hosting-zh-tw.html',
+        ko: '/self-hosting-ko.html'
+      },
+      architecture: {
+        ja: '/architecture.html',
+        en: '/architecture-en.html',
+        'zh-TW': '/architecture-zh-tw.html',
+        ko: '/architecture-ko.html'
+      }
+    }[family];
+
+    const canonicalUrl = `${siteOrigin}${localizedPaths[locale]}`;
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => link.remove());
+    const alternates = [
+      ['ja', localizedPaths.ja],
+      ['en', localizedPaths.en],
+      ['zh-TW', localizedPaths['zh-TW']],
+      ['ko', localizedPaths.ko],
+      ['x-default', localizedPaths.ja]
+    ];
+    alternates.forEach(([hreflang, path]) => {
+      const link = document.createElement('link');
+      link.rel = 'alternate';
+      link.hreflang = hreflang;
+      link.href = `${siteOrigin}${path}`;
+      document.head.appendChild(link);
+    });
+
+    const ogLocales = { ja: 'ja_JP', en: 'en_US', 'zh-TW': 'zh_TW', ko: 'ko_KR' };
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta');
+      ogUrl.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.content = canonicalUrl;
+
+    document.querySelectorAll('meta[property="og:locale"], meta[property="og:locale:alternate"]').forEach((meta) => meta.remove());
+    const ogLocale = document.createElement('meta');
+    ogLocale.setAttribute('property', 'og:locale');
+    ogLocale.content = ogLocales[locale];
+    document.head.appendChild(ogLocale);
+    Object.entries(ogLocales).forEach(([key, value]) => {
+      if (key === locale) return;
+      const alternate = document.createElement('meta');
+      alternate.setAttribute('property', 'og:locale:alternate');
+      alternate.content = value;
+      document.head.appendChild(alternate);
+    });
+
+    const defaultOgImage = family === 'index'
+      ? `${siteOrigin}/assets/images/site/social-general.png`
+      : `${siteOrigin}/assets/images/site/social-developer.png`;
+    let ogImage = document.querySelector('meta[property="og:image"]');
+    if (!ogImage) {
+      ogImage = document.createElement('meta');
+      ogImage.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImage);
+    }
+    if (!ogImage.content) ogImage.content = defaultOgImage;
+
+    if (!document.querySelector('link[rel~="icon"]')) {
+      const favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.type = 'image/png';
+      favicon.href = './assets/images/icons/favicon.png';
+      document.head.appendChild(favicon);
+    }
+  }
+
+  document.querySelectorAll('.mio-name-sticker').forEach((sticker) => {
+    sticker.innerHTML = `
+      <span class="mio-role-name">南雲 澪 / Mio Nagumo</span>
+      <span class="mio-role-label">${labels.mioRole}</span>
+      <span class="mio-role-meta">${labels.mioGuide}</span>`;
+    sticker.setAttribute('aria-label', `Mio Nagumo — ${labels.mioRole}; ${labels.mioGuide}`);
+  });
+
+  const footerSummary = document.querySelector('.site-footer .footer-inner > div:first-child');
+  if (footerSummary && !footerSummary.querySelector('.site-identity')) {
+    const identity = document.createElement('div');
+    identity.className = 'site-identity';
+    identity.innerHTML = `
+      <span class="site-identity-project"><b>${labels.developmentCredit}:</b> <a href="${repoUrl}">MachiVerse Project</a></span>
+      <div class="site-cofounders" aria-label="${labels.coFounders}">
+        <span class="site-cofounders-label">${labels.coFounders}</span>
+        <span class="site-cofounder">
+          <b>Kazuto Hashimoto</b>
+          <small>${labels.directorRole}</small>
+        </span>
+        <span class="site-cofounder">
+          <b>南雲 澪 / Mio Nagumo</b>
+          <small>${labels.systemRole}</small>
+          <em>${labels.mioGuide}</em>
+        </span>
+      </div>
+      <span class="site-identity-note">${labels.identityNote}</span>`;
+    footerSummary.appendChild(identity);
+  }
+
+  if (supportedPage && !document.querySelector('#machiverse-project-leadership-data')) {
+    const organizationId = `${siteOrigin}/#organization`;
+    const directorId = `${siteOrigin}/#kazuto-hashimoto`;
+    const leadershipData = document.createElement('script');
+    leadershipData.id = 'machiverse-project-leadership-data';
+    leadershipData.type = 'application/ld+json';
+    leadershipData.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Person',
+          '@id': directorId,
+          name: 'Kazuto Hashimoto',
+          jobTitle: 'Co-Founder / Project Director',
+          affiliation: { '@id': organizationId }
+        },
+        {
+          '@type': 'Organization',
+          '@id': organizationId,
+          name: 'MachiVerse Project',
+          url: `${siteOrigin}/`,
+          founder: { '@id': directorId }
+        }
+      ]
+    });
+    document.head.appendChild(leadershipData);
+  }
 
   let current = null;
   if (filename.startsWith('developer')) current = 'technical';
@@ -51,7 +236,7 @@
       ['technical', labels.technical, `./developer${suffix}.html`],
       ['selfHosting', labels.selfHosting, `./self-hosting${suffix}.html`],
       ['architecture', labels.architecture, `./architecture${suffix}.html`],
-      ['github', 'GitHub', 'https://github.com/MachiVerse-Project/MachiVerse']
+      ['github', 'GitHub', repoUrl]
     ];
 
     const links = destinations.map(([key, label, href]) => {

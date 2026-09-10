@@ -229,12 +229,35 @@
 
   const canonical = document.querySelector('link[rel="canonical"]')?.href;
   if (canonical && !document.querySelector('#machiverse-structured-data')) {
-    const graph = [{
-      '@type': 'WebSite',
-      '@id': 'https://machiverse.app/#website',
-      url: 'https://machiverse.app/',
-      name: 'MachiVerse'
-    }];
+    const organizationId = 'https://machiverse.app/#organization';
+    const websiteId = 'https://machiverse.app/#website';
+    const graph = [
+      {
+        '@type': 'Organization',
+        '@id': organizationId,
+        name: 'MachiVerse Project',
+        url: 'https://machiverse.app/',
+        sameAs: [repoUrl]
+      },
+      {
+        '@type': 'WebSite',
+        '@id': websiteId,
+        url: 'https://machiverse.app/',
+        name: 'MachiVerse',
+        publisher: { '@id': organizationId },
+        inLanguage: lang
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${canonical}#webpage`,
+        url: canonical,
+        name: document.title,
+        description: document.querySelector('meta[name="description"]')?.content || '',
+        isPartOf: { '@id': websiteId },
+        publisher: { '@id': organizationId },
+        inLanguage: lang
+      }
+    ];
 
     if (isPublic) {
       graph.push({
@@ -248,7 +271,8 @@
         runtimePlatform: '.NET 10',
         license: licenseUrl,
         version: 'v1.0.0-alpha.1',
-        datePublished: '2026-09-08'
+        datePublished: '2026-09-08',
+        creator: { '@id': organizationId }
       });
     }
 
