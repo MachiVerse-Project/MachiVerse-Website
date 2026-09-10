@@ -17,9 +17,13 @@
       technical: '技術情報',
       selfHosting: '自分で動かす',
       architecture: '設計・仕様',
-      guideRole: 'MachiVerse 案内キャラクター',
-      guideCredit: '案内キャラクター',
-      developmentCredit: '開発・運営'
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse公式キャラクター / MIO GUIDE',
+      developmentCredit: '開発・運営',
+      coFounders: '共同創設者',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '南雲澪はMachiVerse公式キャラクターです。実際の開発・運営主体はMachiVerse Projectです。'
     },
     en: {
       aria: 'Global navigation',
@@ -27,9 +31,13 @@
       technical: 'Technical',
       selfHosting: 'Self-hosting',
       architecture: 'Architecture',
-      guideRole: 'MachiVerse Guide Character',
-      guideCredit: 'Guide Character',
-      developmentCredit: 'Development & stewardship'
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'Official MachiVerse Character / MIO GUIDE',
+      developmentCredit: 'Development & stewardship',
+      coFounders: 'Co-Founders',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: 'Mio Nagumo is an official MachiVerse character. Real-world development and stewardship are carried out by MachiVerse Project.'
     },
     'zh-TW': {
       aria: '全站導覽',
@@ -37,9 +45,13 @@
       technical: '技術資訊',
       selfHosting: '自行執行',
       architecture: '架構・規格',
-      guideRole: 'MachiVerse 導覽角色',
-      guideCredit: '導覽角色',
-      developmentCredit: '開發・營運'
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse 官方角色 / MIO GUIDE',
+      developmentCredit: '開發・營運',
+      coFounders: '共同創辦人',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '南雲澪是 MachiVerse 官方角色。現實中的開發與營運主體為 MachiVerse Project。'
     },
     ko: {
       aria: '전체 사이트 내비게이션',
@@ -47,9 +59,13 @@
       technical: '기술 정보',
       selfHosting: '직접 실행',
       architecture: '설계・구조',
-      guideRole: 'MachiVerse 안내 캐릭터',
-      guideCredit: '안내 캐릭터',
-      developmentCredit: '개발・운영'
+      mioRole: 'Co-Founder / System Development Lead',
+      mioGuide: 'MachiVerse 공식 캐릭터 / MIO GUIDE',
+      developmentCredit: '개발・운영',
+      coFounders: '공동 창립자',
+      directorRole: 'Co-Founder / Project Director',
+      systemRole: 'Co-Founder / System Development Lead',
+      identityNote: '미오 나구모는 MachiVerse 공식 캐릭터입니다. 실제 개발과 운영 주체는 MachiVerse Project입니다.'
     }
   }[locale];
 
@@ -151,15 +167,11 @@
   }
 
   document.querySelectorAll('.mio-name-sticker').forEach((sticker) => {
-    sticker.innerHTML = `<span class="mio-role-name">南雲 澪 / Mio Nagumo</span><span class="mio-role-label">${labels.guideRole}</span>`;
-    sticker.setAttribute('aria-label', `Mio Nagumo — ${labels.guideRole}`);
-  });
-
-  document.querySelectorAll('[data-mio-kicker]').forEach((element) => {
-    const kicker = element.getAttribute('data-mio-kicker');
-    if (kicker && /^SYSTEM DEVELOPMENT\s*\/\s*/i.test(kicker)) {
-      element.setAttribute('data-mio-kicker', kicker.replace(/^SYSTEM DEVELOPMENT\s*\/\s*/i, ''));
-    }
+    sticker.innerHTML = `
+      <span class="mio-role-name">南雲 澪 / Mio Nagumo</span>
+      <span class="mio-role-label">${labels.mioRole}</span>
+      <span class="mio-role-meta">${labels.mioGuide}</span>`;
+    sticker.setAttribute('aria-label', `Mio Nagumo — ${labels.mioRole}; ${labels.mioGuide}`);
   });
 
   const footerSummary = document.querySelector('.site-footer .footer-inner > div:first-child');
@@ -167,8 +179,20 @@
     const identity = document.createElement('div');
     identity.className = 'site-identity';
     identity.innerHTML = `
-      <span><b>${labels.guideCredit}:</b> 南雲 澪 / Mio Nagumo</span>
-      <span><b>${labels.developmentCredit}:</b> <a href="${repoUrl}">MachiVerse Project</a></span>`;
+      <span class="site-identity-project"><b>${labels.developmentCredit}:</b> <a href="${repoUrl}">MachiVerse Project</a></span>
+      <div class="site-cofounders" aria-label="${labels.coFounders}">
+        <span class="site-cofounders-label">${labels.coFounders}</span>
+        <span class="site-cofounder">
+          <b>Kazuto Hashimoto</b>
+          <small>${labels.directorRole}</small>
+        </span>
+        <span class="site-cofounder">
+          <b>南雲 澪 / Mio Nagumo</b>
+          <small>${labels.systemRole}</small>
+          <em>${labels.mioGuide}</em>
+        </span>
+      </div>
+      <span class="site-identity-note">${labels.identityNote}</span>`;
     footerSummary.appendChild(identity);
   }
 
