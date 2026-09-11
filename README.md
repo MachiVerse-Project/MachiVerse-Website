@@ -40,7 +40,8 @@ MachiVerse本体の開発については、以下のリポジトリを参照し�
 │       ├── js/                # 現在の公開ページで使用するJavaScriptのみ
 │       └── images/            # 現在の公開ページで使用する画像のみ
 ├── AGENTS.md                  # 制作・運用ルール
-├── LICENSE                    # リポジトリのライセンス
+├── LICENSE                    # Apache-2.0ライセンス本文
+├── RIGHTS.md                  # Creative Asset・二次創作・利用方針
 ├── TRADEMARKS.md              # MachiVerse商標ポリシー
 └── README.md
 ```
@@ -106,8 +107,10 @@ MachiVerseの紹介では、長期的に目指している世界像と、現在�
 
 トップページでは、MachiVerseの中心的な考え方である「世界の現在だけではなく、そこへ至った因果と歴史も扱う」という方向性を中心に紹介しています。
 
-## ライセンス
+## ライセンスと権利
 
-このリポジトリのソースコードおよびその他の資料は、特に明記されていない限り [Apache License 2.0](./LICENSE) のもとで提供されます。
+このリポジトリの**ソフトウェアコード（HTML / CSS / JavaScript等）**は、特に明記されていない限り [Apache License 2.0](./LICENSE) のもとで提供されます。
 
-MachiVerseの名称、ロゴ、その他のブランド識別子の利用については、[TRADEMARKS.md](./TRADEMARKS.md) を参照してください。
+キャラクター、イラスト、ロゴ、画像、3Dモデル、音声、音楽、動画その他のCreative Assetは、Apache-2.0の対象であると明示されていない限り、[RIGHTS.md](./RIGHTS.md) の **MachiVerse Rights, Fan Works & Asset Use Policy** に従います。
+
+MachiVerseの名称、ロゴ、その他のブランド識別子の利用については、[TRADEMARKS.md](./TRADEMARKS.md) も参照してください。
