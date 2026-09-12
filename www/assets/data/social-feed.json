@@ -1,0 +1,148 @@
+{
+  "_note": "WORLD FEEDはこのファイルだけ編集すれば更新できます。enabled=falseで非表示、maxPostsで表示件数を変更できます。postsは上から新しい順に並べてください。",
+  "enabled": true,
+  "maxPosts": 4,
+  "section": {
+    "kicker": {
+      "ja": "WORLD FEED / STATIC DEMO",
+      "en": "WORLD FEED / STATIC DEMO",
+      "zh-TW": "WORLD FEED / STATIC DEMO",
+      "ko": "WORLD FEED / STATIC DEMO"
+    },
+    "title": {
+      "ja": "世界の中から、タイムラインを覗く。",
+      "en": "Peek into the timeline from inside the world.",
+      "zh-TW": "從世界之中，窺看時間軸。",
+      "ko": "세계 안에서 타임라인을 들여다봅니다."
+    },
+    "lead": {
+      "ja": "MachiVerseの世界で起きている出来事を、公式・開発・住民の投稿として見せるための疑似SNSです。現在は静的デモで、将来はWorldStateと接続できる構成を想定しています。",
+      "en": "A mock social feed for showing events in MachiVerse through project, development, and resident posts. It is static for now, with a structure intended to connect to WorldState later.",
+      "zh-TW": "以官方、開發與居民貼文呈現 MachiVerse 世界事件的模擬社群動態。目前是靜態展示，未來可再接上 WorldState。",
+      "ko": "MachiVerse 세계의 사건을 공식·개발·주민 게시물로 보여 주는 모의 소셜 피드입니다. 현재는 정적 데모이며, 향후 WorldState 연동을 염두에 둔 구조입니다."
+    },
+    "note": {
+      "ja": "DEMO: 投稿・反応数はサイト演出用のサンプルです。実在SNSの埋め込みではありません。",
+      "en": "DEMO: Posts and reaction counts are presentation samples, not embedded content from a real social network.",
+      "zh-TW": "DEMO：貼文與互動數字皆為網站展示用範例，並非真實社群平台嵌入內容。",
+      "ko": "DEMO: 게시물과 반응 수치는 사이트 연출용 예시이며 실제 SNS 임베드가 아닙니다."
+    }
+  },
+  "posts": [
+    {
+      "id": "alpha-1-connected-flow",
+      "tone": "project",
+      "author": "MachiVerse Project",
+      "handle": "@MachiVerse_Project",
+      "avatar": "./assets/images/brand/logo-symbol.png",
+      "date": "2026-09-12T07:30:00+09:00",
+      "badge": {
+        "ja": "開発アップデート",
+        "en": "Development update",
+        "zh-TW": "開發更新",
+        "ko": "개발 업데이트"
+      },
+      "body": {
+        "ja": "Alpha 1.0では、Simulation Core / Gateway / General View / Administration Viewの4コンポーネントが実接続されています。まずは“世界が一周して戻ってくる”ところから。",
+        "en": "Alpha 1.0 connects Simulation Core, Gateway, General View, and Administration View as a working vertical slice. We are starting with a world state that can make the round trip and come back confirmed.",
+        "zh-TW": "Alpha 1.0 已實際串接 Simulation Core、Gateway、General View 與 Administration View 四個元件。先從讓世界狀態完整走一圈並確認回傳開始。",
+        "ko": "Alpha 1.0에서는 Simulation Core, Gateway, General View, Administration View 네 컴포넌트가 실제로 연결되어 있습니다. 우선 세계 상태가 한 바퀴 돌아 확정되어 돌아오는 흐름부터 시작합니다."
+      },
+      "media": {
+        "src": "./assets/images/site/social-general.png",
+        "alt": {
+          "ja": "MachiVerseの紹介ビジュアル",
+          "en": "MachiVerse overview visual",
+          "zh-TW": "MachiVerse 介紹視覺",
+          "ko": "MachiVerse 소개 비주얼"
+        }
+      },
+      "link": "https://github.com/MachiVerse-Project/MachiVerse",
+      "linkLabel": {
+        "ja": "GitHubで見る",
+        "en": "View on GitHub",
+        "zh-TW": "在 GitHub 查看",
+        "ko": "GitHub에서 보기"
+      },
+      "metrics": { "reply": 12, "repost": 34, "like": 128 }
+    },
+    {
+      "id": "mio-gateway-note",
+      "tone": "mio",
+      "author": {
+        "ja": "南雲 澪",
+        "en": "Mio Nagumo",
+        "zh-TW": "南雲 澪",
+        "ko": "미오 나구모"
+      },
+      "handle": "@Mio_MachiVerse",
+      "avatar": "./assets/images/characters/nagumo-mio/web/mio-welcome.png",
+      "date": "2026-09-11T20:10:00+09:00",
+      "badge": {
+        "ja": "SYSTEM DEVELOPMENT",
+        "en": "SYSTEM DEVELOPMENT",
+        "zh-TW": "SYSTEM DEVELOPMENT",
+        "ko": "SYSTEM DEVELOPMENT"
+      },
+      "body": {
+        "ja": "今日はGateway側。confirmed WorldStateをViewへ返す流れを追いかけています。ログの行数は増えたけど、分かることも増えました。",
+        "en": "Gateway day today. I am tracing the path that returns confirmed WorldState to the View. The logs got longer, but so did the list of things we understand.",
+        "zh-TW": "今天處理 Gateway。正在追蹤 confirmed WorldState 回到 View 的流程。Log 變長了，但能理解的事情也更多了。",
+        "ko": "오늘은 Gateway 쪽입니다. confirmed WorldState가 View로 돌아가는 흐름을 추적하고 있습니다. 로그는 길어졌지만 이해한 것도 늘었습니다."
+      },
+      "metrics": { "reply": 18, "repost": 41, "like": 226 }
+    },
+    {
+      "id": "world-transit-delay",
+      "tone": "resident",
+      "author": {
+        "ja": "中央交通案内",
+        "en": "Central Transit Info",
+        "zh-TW": "中央交通資訊",
+        "ko": "중앙 교통 안내"
+      },
+      "handle": "@central_transit",
+      "avatarText": "CT",
+      "date": "2026-09-11T18:42:00+09:00",
+      "badge": {
+        "ja": "WORLD SAMPLE",
+        "en": "WORLD SAMPLE",
+        "zh-TW": "WORLD SAMPLE",
+        "ko": "WORLD SAMPLE"
+      },
+      "body": {
+        "ja": "中央線は河川沿い区間の混雑により約8分遅れています。東岸方面へ向かう方は環状バスもご利用ください。",
+        "en": "Central Line services are running about eight minutes late due to congestion along the riverside section. Ring buses are also available for east-bank trips.",
+        "zh-TW": "中央線因河岸區段壅塞，目前約延誤 8 分鐘。前往東岸方向的旅客也可改搭環狀巴士。",
+        "ko": "중앙선은 강변 구간 혼잡으로 약 8분 지연되고 있습니다. 동안 방면은 순환버스도 이용할 수 있습니다."
+      },
+      "metrics": { "reply": 7, "repost": 63, "like": 91 }
+    },
+    {
+      "id": "resident-rent",
+      "tone": "resident",
+      "author": {
+        "ja": "水辺地区の住民",
+        "en": "Riverside Resident",
+        "zh-TW": "河岸地區居民",
+        "ko": "수변 지구 주민"
+      },
+      "handle": "@riverside_041",
+      "avatarText": "R",
+      "date": "2026-09-11T17:05:00+09:00",
+      "badge": {
+        "ja": "WORLD SAMPLE",
+        "en": "WORLD SAMPLE",
+        "zh-TW": "WORLD SAMPLE",
+        "ko": "WORLD SAMPLE"
+      },
+      "body": {
+        "ja": "駅前の空き地、いつの間にか工事が始まってた。人が増えて便利になるのは嬉しいけど、最近この辺の家賃も少し上がってる気がする。",
+        "en": "Construction suddenly started on the vacant lot by the station. More people and shops would be nice, though it feels like rents around here have been creeping up too.",
+        "zh-TW": "車站前的空地不知不覺開始施工了。人變多、生活更方便當然不錯，不過最近這附近的房租好像也慢慢上漲。",
+        "ko": "역 앞 공터에 어느새 공사가 시작됐다. 사람이 늘고 편리해지는 건 좋지만, 요즘 이 주변 집세도 조금씩 오르는 느낌이다."
+      },
+      "metrics": { "reply": 21, "repost": 16, "like": 143 }
+    }
+  ]
+}
