@@ -14,25 +14,21 @@
     ja: {
       embedded: 'SITE EMBED / CHARACTER DEVLOG',
       latest: 'LATEST NOTES',
-      footer: 'MIO DEVLOGは assets/data/mio-devlog.json から表示しています。',
       actions: ['返信', '再投稿', 'いいね']
     },
     en: {
       embedded: 'SITE EMBED / CHARACTER DEVLOG',
       latest: 'LATEST NOTES',
-      footer: 'MIO DEVLOG is rendered from assets/data/mio-devlog.json.',
       actions: ['Reply', 'Repost', 'Like']
     },
     'zh-TW': {
       embedded: 'SITE EMBED / CHARACTER DEVLOG',
       latest: 'LATEST NOTES',
-      footer: 'MIO DEVLOG 由 assets/data/mio-devlog.json 顯示。',
       actions: ['回覆', '轉發', '喜歡']
     },
     ko: {
       embedded: 'SITE EMBED / CHARACTER DEVLOG',
       latest: 'LATEST NOTES',
-      footer: 'MIO DEVLOG는 assets/data/mio-devlog.json에서 표시됩니다.',
       actions: ['답글', '재게시', '좋아요']
     }
   }[locale];
@@ -183,11 +179,7 @@
     profileCopy.append(profileName, profileRole, profileHandle);
     profile.append(profileImage, profileCopy);
 
-    const note = document.createElement('p');
-    note.className = 'mio-devlog-note';
-    note.textContent = localize(data.section?.note);
-
-    intro.append(kicker, title, lead, profile, note);
+    intro.append(kicker, title, lead, profile);
 
     const embed = document.createElement('div');
     embed.className = 'mio-devlog-embed';
@@ -212,14 +204,40 @@
     const maxPosts = Math.max(1, Number(data.maxPosts) || data.posts.length);
     data.posts.slice(0, maxPosts).forEach((post) => stream.appendChild(buildPost(post, data.profile || {})));
 
-    const footer = document.createElement('div');
-    footer.className = 'mio-devlog-footer';
-    footer.textContent = copy.footer;
-
-    embed.append(appbar, stream, footer);
+    embed.append(appbar, stream);
     shell.append(intro, embed);
     section.appendChild(shell);
     proofSection.insertAdjacentElement('afterend', section);
+
+    const posts = [...stream.querySelectorAll('.mio-devlog-post')];
+    if (posts.length > 1) {
+      stream.classList.add('is-scrollable');
+
+      let resizeFrame = 0;
+      const syncStreamHeight = () => {
+        resizeFrame = 0;
+        const firstPost = posts[0];
+        if (!firstPost) return;
+
+        const peek = window.innerWidth <= 600 ? 64 : 84;
+        const minHeight = window.innerWidth <= 600 ? 360 : 420;
+        const maxHeight = window.innerWidth <= 600 ? 520 : 620;
+        const firstPostHeight = Math.ceil(firstPost.getBoundingClientRect().height);
+        const targetHeight = Math.min(maxHeight, Math.max(minHeight, firstPostHeight + peek));
+        stream.style.setProperty('--mio-devlog-stream-height', `${targetHeight}px`);
+      };
+
+      const scheduleStreamHeight = () => {
+        if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(syncStreamHeight);
+      };
+
+      scheduleStreamHeight();
+      stream.querySelectorAll('img').forEach((img) => {
+        if (!img.complete) img.addEventListener('load', scheduleStreamHeight, { once: true });
+      });
+      window.addEventListener('resize', scheduleStreamHeight, { passive: true });
+    }
   };
 
   fetch('./assets/data/mio-devlog.json', { cache: 'no-store' })
