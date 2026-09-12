@@ -1,8 +1,10 @@
 # WORLD FEED 更新方法
 
-トップページの疑似SNS「WORLD FEED」は、HTMLを編集せずに次のファイルだけで更新できます。
+公式インスタンス参加ページの疑似SNS「WORLD FEED」は、HTMLを編集せずに次のファイルだけで更新できます。
 
 `www/assets/data/social-feed.json`
+
+WORLD FEEDはトップページには表示せず、`instance*.html` にある `data-world-feed-anchor` の位置へだけ描画します。
 
 ## よく触る項目
 
@@ -48,6 +50,7 @@
 - データ: `www/assets/data/social-feed.json`
 - 描画: `www/assets/js/social-feed.js`
 - スタイル: `www/assets/css/social-feed.css`
+- 配置先: `www/instance.html` / `instance-en.html` / `instance-zh-tw.html` / `instance-ko.html`
 - 読み込み: `www/assets/js/site-enhancements.js`
 
 投稿内容を更新するだけであれば、描画・スタイル・HTML側を変更する必要はありません。
