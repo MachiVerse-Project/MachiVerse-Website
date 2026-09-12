@@ -11,7 +11,8 @@ Promise.all([
   import('./footer-layout.js'),
   import('./social-feed.js'),
   import('./mio-devlog.js'),
-  import('./instance-link.js')
+  import('./instance-link.js'),
+  import('./instance-page-nav.js')
 ])
   .then(() => import('./review-enhancements.js'))
   .then(() => import('./hero-mio-overlay.js'))
