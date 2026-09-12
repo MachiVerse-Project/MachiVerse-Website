@@ -184,7 +184,7 @@
     container.className = 'container world-feed-shell';
 
     const intro = document.createElement('div');
-    intro.className = 'world-feed-copy reveal';
+    intro.className = 'world-feed-copy';
     const kicker = document.createElement('p');
     kicker.className = 'chapter-kicker';
     kicker.textContent = localize(data.section?.kicker);
@@ -198,8 +198,7 @@
     intro.append(kicker, title, lead, note);
 
     const app = document.createElement('div');
-    app.className = 'world-feed-app reveal';
-    app.dataset.revealDelay = '80';
+    app.className = 'world-feed-app';
 
     const appbar = document.createElement('div');
     appbar.className = 'world-feed-appbar';
