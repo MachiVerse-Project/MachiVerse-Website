@@ -1,8 +1,14 @@
 # WORLD FEED 更新方法
 
-公式インスタンス参加ページの疑似SNS「WORLD FEED」は、HTMLを編集せずに次のファイルだけで更新できます。
+公式インスタンス参加ページの疑似SNS「WORLD FEED」は、Websiteリポジトリではなく `MachiVerse-Content` からJSONを取得して表示します。
 
-`www/assets/data/social-feed.json`
+更新元:
+
+`MachiVerse-Project/MachiVerse-Content/root/feeds/world-feed.json`
+
+公開URL:
+
+`https://content.machiverse.app/feeds/world-feed.json`
 
 WORLD FEEDはトップページには表示せず、`instance*.html` にある `data-world-feed-anchor` の位置へだけ描画します。
 
@@ -21,7 +27,7 @@ WORLD FEEDはトップページには表示せず、`instance*.html` にある `
 - `tone`: `project` / `mio` / `resident` を指定すると表示色が変わります。
 - `author`: 投稿者名。文字列または `ja` / `en` / `zh-TW` / `ko` の多言語オブジェクトを指定できます。
 - `handle`: 表示用ハンドル。
-- `avatar`: 既存画像への相対パス。省略時は `avatarText` を表示できます。
+- `avatar`: 公開画像の絶対URL。省略時は `avatarText` を表示できます。
 - `date`: ISO 8601形式の日時。
 - `badge`: 投稿種別ラベル。
 - `body`: 本文。
@@ -29,6 +35,8 @@ WORLD FEEDはトップページには表示せず、`instance*.html` にある `
 - `link`: 任意。外部リンク。
 - `linkLabel`: 任意。外部リンクの表示名。
 - `metrics`: `reply` / `repost` / `like` のデモ数値。
+
+画像URLは、Content JSON単体でも解決できるよう `https://machiverse.app/...` の絶対URLを使用します。
 
 ## 多言語
 
@@ -47,10 +55,11 @@ WORLD FEEDはトップページには表示せず、`instance*.html` にある `
 
 ## 実装ファイル
 
-- データ: `www/assets/data/social-feed.json`
+- データ: `MachiVerse-Content/root/feeds/world-feed.json`
+- 公開URL: `https://content.machiverse.app/feeds/world-feed.json`
 - 描画: `www/assets/js/social-feed.js`
 - スタイル: `www/assets/css/social-feed.css`
 - 配置先: `www/instance.html` / `instance-en.html` / `instance-zh-tw.html` / `instance-ko.html`
 - 読み込み: `www/assets/js/site-enhancements.js`
 
-投稿内容を更新するだけであれば、描画・スタイル・HTML側を変更する必要はありません。
+投稿内容を更新するだけであればWebsiteリポジトリを変更する必要はありません。`MachiVerse-Content` のJSONだけを更新してください。
