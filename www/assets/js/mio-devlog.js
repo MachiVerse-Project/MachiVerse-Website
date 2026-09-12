@@ -154,7 +154,7 @@
     shell.className = 'container mio-devlog-shell';
 
     const intro = document.createElement('div');
-    intro.className = 'mio-devlog-intro reveal';
+    intro.className = 'mio-devlog-intro';
 
     const kicker = document.createElement('p');
     kicker.className = 'chapter-kicker';
@@ -190,8 +190,7 @@
     intro.append(kicker, title, lead, profile, note);
 
     const embed = document.createElement('div');
-    embed.className = 'mio-devlog-embed reveal';
-    embed.dataset.revealDelay = '80';
+    embed.className = 'mio-devlog-embed';
 
     const appbar = document.createElement('div');
     appbar.className = 'mio-devlog-appbar';
