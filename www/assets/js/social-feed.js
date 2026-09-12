@@ -17,7 +17,7 @@
       reply: '返信',
       repost: '再投稿',
       like: 'いいね',
-      footer: 'このフィードは assets/data/social-feed.json から生成されています。'
+      footer: 'WORLD FEEDは content.machiverse.app から配信されています。'
     },
     en: {
       appSubline: 'MACHIVERSE SOCIAL LAYER / DEMO',
@@ -25,7 +25,7 @@
       reply: 'Replies',
       repost: 'Reposts',
       like: 'Likes',
-      footer: 'This feed is generated from assets/data/social-feed.json.'
+      footer: 'WORLD FEED is served from content.machiverse.app.'
     },
     'zh-TW': {
       appSubline: 'MACHIVERSE SOCIAL LAYER / DEMO',
@@ -33,7 +33,7 @@
       reply: '回覆',
       repost: '轉發',
       like: '喜歡',
-      footer: '此動態由 assets/data/social-feed.json 產生。'
+      footer: 'WORLD FEED 由 content.machiverse.app 提供。'
     },
     ko: {
       appSubline: 'MACHIVERSE SOCIAL LAYER / DEMO',
@@ -41,7 +41,7 @@
       reply: '답글',
       repost: '재게시',
       like: '좋아요',
-      footer: '이 피드는 assets/data/social-feed.json에서 생성됩니다.'
+      footer: 'WORLD FEED는 content.machiverse.app에서 제공됩니다.'
     }
   }[locale];
 
@@ -236,7 +236,7 @@
     anchor.replaceWith(section);
   };
 
-  fetch('./assets/data/social-feed.json', { cache: 'no-store' })
+  fetch('https://content.machiverse.app/feeds/world-feed.json', { cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();

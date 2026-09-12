@@ -240,7 +240,7 @@
     }
   };
 
-  fetch('./assets/data/mio-devlog.json', { cache: 'no-store' })
+  fetch('https://content.machiverse.app/feeds/mio-devlog.json', { cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
