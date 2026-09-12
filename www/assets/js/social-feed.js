@@ -1,6 +1,6 @@
 (() => {
-  const worldSection = document.querySelector('#world');
-  if (!worldSection || document.querySelector('#world-feed')) return;
+  const anchor = document.querySelector('[data-world-feed-anchor]');
+  if (!anchor || document.querySelector('#world-feed')) return;
 
   const locale = document.documentElement.lang === 'ja'
     ? 'ja'
@@ -98,7 +98,6 @@
     name.textContent = label;
     const count = document.createElement('b');
     count.textContent = String(value ?? 0);
-
     metric.append(name, count);
     return metric;
   };
@@ -108,27 +107,22 @@
     article.className = 'world-feed-post';
     article.dataset.tone = post.tone || 'resident';
     article.dataset.postId = post.id || '';
-    article.setAttribute('role', 'article');
 
     const main = document.createElement('div');
     main.className = 'world-feed-main';
 
     const meta = document.createElement('div');
     meta.className = 'world-feed-meta';
-
     const author = document.createElement('span');
     author.className = 'world-feed-author';
     author.textContent = localize(post.author);
-
     const handle = document.createElement('span');
     handle.className = 'world-feed-handle';
     handle.textContent = post.handle || '';
-
     const time = document.createElement('time');
     time.className = 'world-feed-time';
     time.dateTime = post.date || '';
     time.textContent = formatDate(post.date);
-
     meta.append(author, handle, time);
 
     if (post.badge) {
@@ -141,7 +135,6 @@
     const body = document.createElement('p');
     body.className = 'world-feed-body';
     body.textContent = localize(post.body);
-
     main.append(meta, body);
 
     if (post.media?.src) {
@@ -181,7 +174,6 @@
 
   const render = (data) => {
     if (!data?.enabled || !Array.isArray(data.posts) || data.posts.length === 0) return;
-
     addStylesheet();
 
     const section = document.createElement('section');
@@ -191,31 +183,25 @@
     const container = document.createElement('div');
     container.className = 'container world-feed-shell';
 
-    const copy = document.createElement('div');
-    copy.className = 'world-feed-copy';
-
+    const intro = document.createElement('div');
+    intro.className = 'world-feed-copy';
     const kicker = document.createElement('p');
     kicker.className = 'chapter-kicker';
     kicker.textContent = localize(data.section?.kicker);
-
     const title = document.createElement('h2');
     title.textContent = localize(data.section?.title);
-
     const lead = document.createElement('p');
     lead.textContent = localize(data.section?.lead);
-
     const note = document.createElement('p');
     note.className = 'world-feed-note';
     note.textContent = localize(data.section?.note);
-
-    copy.append(kicker, title, lead, note);
+    intro.append(kicker, title, lead, note);
 
     const app = document.createElement('div');
     app.className = 'world-feed-app';
 
     const appbar = document.createElement('div');
     appbar.className = 'world-feed-appbar';
-
     const brand = document.createElement('div');
     brand.className = 'world-feed-appbrand';
     const brandImage = document.createElement('img');
@@ -228,7 +214,6 @@
     brandSubline.textContent = ui.appSubline;
     brandCopy.append(brandName, brandSubline);
     brand.append(brandImage, brandCopy);
-
     const live = document.createElement('span');
     live.className = 'world-feed-live';
     live.textContent = ui.live;
@@ -238,7 +223,6 @@
     stream.className = 'world-feed-stream';
     stream.setAttribute('role', 'feed');
     stream.setAttribute('aria-label', localize(data.section?.title));
-
     const maxPosts = Math.max(1, Number(data.maxPosts) || data.posts.length);
     data.posts.slice(0, maxPosts).forEach((post) => stream.appendChild(buildPost(post)));
 
@@ -247,9 +231,9 @@
     appFooter.textContent = ui.footer;
 
     app.append(appbar, stream, appFooter);
-    container.append(copy, app);
+    container.append(intro, app);
     section.appendChild(container);
-    worldSection.insertAdjacentElement('afterend', section);
+    anchor.replaceWith(section);
   };
 
   fetch('./assets/data/social-feed.json', { cache: 'no-store' })
