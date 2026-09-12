@@ -89,16 +89,6 @@
   font-size: .72rem;
 }
 
-.mio-devlog-note {
-  margin: 16px 0 0;
-  padding: 12px 14px;
-  border-left: 3px solid #ff8fbd;
-  background: rgba(255,255,255,.68);
-  color: #72899a;
-  font-size: .78rem;
-  line-height: 1.7;
-}
-
 .mio-devlog-embed {
   overflow: hidden;
   border: 1px solid rgba(28,67,96,.11);
@@ -151,12 +141,34 @@
   display: grid;
 }
 
+.mio-devlog-stream.is-scrollable {
+  height: var(--mio-devlog-stream-height, 560px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-snap-type: y proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23,50,74,.28) transparent;
+}
+
+.mio-devlog-stream.is-scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mio-devlog-stream.is-scrollable::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(23,50,74,.28);
+  background-clip: padding-box;
+}
+
 .mio-devlog-post {
   display: grid;
   grid-template-columns: 50px minmax(0,1fr);
   gap: 13px;
   padding: 22px;
   border-bottom: 1px solid rgba(28,67,96,.09);
+  scroll-snap-align: start;
   transition: background .2s ease;
 }
 
@@ -273,14 +285,6 @@
   border: 1.5px solid currentColor;
   border-radius: 50%;
   content: "";
-}
-
-.mio-devlog-footer {
-  padding: 13px 20px;
-  background: #f7fbfd;
-  color: #8a9ba8;
-  font-size: .68rem;
-  text-align: center;
 }
 
 @media (max-width: 900px) {
