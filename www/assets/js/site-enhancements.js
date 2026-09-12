@@ -9,7 +9,9 @@ if (!document.querySelector('link[data-header-shell-fix]')) {
 Promise.all([
   import('./site-enhancements-runtime.js'),
   import('./footer-layout.js'),
-  import('./social-feed.js')
+  import('./social-feed.js'),
+  import('./mio-devlog.js'),
+  import('./instance-link.js')
 ])
   .then(() => import('./review-enhancements.js'))
   .then(() => import('./hero-mio-overlay.js'))
