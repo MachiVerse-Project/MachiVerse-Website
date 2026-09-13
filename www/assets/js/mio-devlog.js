@@ -201,8 +201,7 @@
     stream.className = 'mio-devlog-stream';
     stream.setAttribute('role', 'feed');
     stream.setAttribute('aria-label', localize(data.section?.title));
-    const maxPosts = Math.max(1, Number(data.maxPosts) || data.posts.length);
-    data.posts.slice(0, maxPosts).forEach((post) => stream.appendChild(buildPost(post, data.profile || {})));
+    data.posts.forEach((post) => stream.appendChild(buildPost(post, data.profile || {})));
 
     embed.append(appbar, stream);
     shell.append(intro, embed);
