@@ -1,0 +1,52 @@
+name: Release v1.2
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: contains(github.event.head_commit.message, '[release:v1.2]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create v1.2 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v1.2
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "$TAG already exists; nothing to do."
+            exit 0
+          fi
+
+          cat > release-notes.md <<'EOF'
+          # MachiVerse Website v1.2
+
+          MIO DEVLOGと公式インスタンス導線を中心に、サイト内の継続更新コンテンツを強化したアップデートです。
+
+          ## Highlights
+          - トップページに「MIO DEVLOG / 南雲の開発日記」を追加
+          - DEVLOGを1投稿分＋次の投稿が少し見える高さに抑え、内部スクロールで全件閲覧できるUIへ調整
+          - MIO DEVLOGは投稿件数の上限を廃止し、Content側JSONの全投稿を表示
+          - 公式インスタンス参加ページを追加し、WORLD FEEDを同ページへ移動
+          - MIO DEVLOG / WORLD FEEDの投稿JSONを `MachiVerse-Content` へ分離
+          - Website側のデータ取得先を `https://content.machiverse.app/feeds/` に切り替え
+          - Website内の旧ローカル投稿JSONを削除し、コンテンツ更新とサイト実装を分離
+          - WORLD FEEDがトップページへ残存しないよう読み込み条件を整理
+          - 日本語 / English / 繁中 / 한국어 の4言語構成を維持したまま新規導線を追加
+
+          ## Notes
+          - 公式インスタンスは引き続き準備中です。
+          - DEVLOG / WORLD FEEDの投稿内容は `MachiVerse-Content` 側で更新します。
+          - 未確認の性能値やエージェント数は掲載していません。
+          EOF
+
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "MachiVerse Website v1.2" \
+            --notes-file release-notes.md
