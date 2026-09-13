@@ -1,0 +1,332 @@
+.mio-devlog-section {
+  position: relative;
+  padding: 92px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(255,143,189,.16), transparent 24rem),
+    radial-gradient(circle at 92% 80%, rgba(32,174,243,.14), transparent 26rem),
+    linear-gradient(180deg, #fff, #fff8fc 48%, #f5fbff);
+}
+
+.mio-devlog-section::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: .34;
+  background-image: radial-gradient(circle, rgba(23,50,74,.14) 1px, transparent 1.2px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(90deg, transparent, black 14%, black 86%, transparent);
+}
+
+.mio-devlog-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr);
+  gap: 54px;
+  align-items: start;
+}
+
+.mio-devlog-intro h2 {
+  margin: 0;
+  max-width: 620px;
+  font-size: clamp(2.45rem, 4.4vw, 4.45rem);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+
+.mio-devlog-lead {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: var(--muted, #678094);
+  line-height: 1.9;
+}
+
+.mio-devlog-profile {
+  display: grid;
+  grid-template-columns: 86px minmax(0,1fr);
+  gap: 15px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 14px 18px 14px 14px;
+  border: 1px solid rgba(28,67,96,.10);
+  border-radius: 24px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 16px 38px rgba(43,101,139,.10);
+  backdrop-filter: blur(12px);
+}
+
+.mio-devlog-profile img {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 20px;
+  background: linear-gradient(180deg,#e9f8ff,#fff1f7);
+}
+
+.mio-devlog-profile strong,
+.mio-devlog-profile span,
+.mio-devlog-profile small {
+  display: block;
+}
+
+.mio-devlog-profile strong {
+  color: #17324a;
+  font-size: 1rem;
+}
+
+.mio-devlog-profile span {
+  margin-top: 2px;
+  color: #0d86c1;
+  font-size: .76rem;
+  font-weight: 800;
+}
+
+.mio-devlog-profile small {
+  margin-top: 5px;
+  color: #7b8d9c;
+  font-size: .72rem;
+}
+
+.mio-devlog-embed {
+  overflow: hidden;
+  border: 1px solid rgba(28,67,96,.11);
+  border-radius: 30px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 28px 72px rgba(43,101,139,.16);
+  backdrop-filter: blur(16px);
+}
+
+.mio-devlog-appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(28,67,96,.09);
+  background: linear-gradient(135deg, rgba(247,252,255,.98), rgba(255,247,251,.98));
+}
+
+.mio-devlog-appbar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mio-devlog-appbar strong {
+  color: #17324a;
+  font-size: .92rem;
+  letter-spacing: .04em;
+}
+
+.mio-devlog-appbar span {
+  color: #7d90a0;
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.mio-devlog-latest {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #17324a;
+  color: #fff !important;
+}
+
+.mio-devlog-stream {
+  display: grid;
+}
+
+.mio-devlog-stream.is-scrollable {
+  height: var(--mio-devlog-stream-height, 560px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-snap-type: y proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23,50,74,.28) transparent;
+}
+
+.mio-devlog-stream.is-scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mio-devlog-stream.is-scrollable::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(23,50,74,.28);
+  background-clip: padding-box;
+}
+
+.mio-devlog-post {
+  display: grid;
+  grid-template-columns: 50px minmax(0,1fr);
+  gap: 13px;
+  padding: 22px;
+  border-bottom: 1px solid rgba(28,67,96,.09);
+  scroll-snap-align: start;
+  transition: background .2s ease;
+}
+
+.mio-devlog-post:hover {
+  background: rgba(245,251,255,.72);
+}
+
+.mio-devlog-avatar {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(180deg,#e7f7ff,#ffeef5);
+}
+
+.mio-devlog-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.mio-devlog-post-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.mio-devlog-post-head strong {
+  color: #17324a;
+  font-size: .9rem;
+}
+
+.mio-devlog-post-head > span:not(.mio-devlog-badge),
+.mio-devlog-post-head time {
+  color: #8596a4;
+  font-size: .72rem;
+}
+
+.mio-devlog-post-head time::before {
+  margin-right: 7px;
+  content: "·";
+}
+
+.mio-devlog-badge {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e9f7ff;
+  color: #0b83bf !important;
+  font-size: .62rem !important;
+  font-weight: 900;
+  letter-spacing: .05em;
+}
+
+.mio-devlog-text {
+  margin: 10px 0 0;
+  color: #334f64;
+  font-size: .92rem;
+  line-height: 1.85;
+  white-space: pre-wrap;
+}
+
+.mio-devlog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.mio-devlog-tags span {
+  color: #0b88c8;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.mio-devlog-media {
+  margin: 16px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(28,67,96,.09);
+  border-radius: 20px;
+  background: #eef8fd;
+}
+
+.mio-devlog-media img {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.mio-devlog-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 360px;
+  margin-top: 14px;
+  color: #8da0ad;
+  font-size: .66rem;
+}
+
+.mio-devlog-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mio-devlog-action::before {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  content: "";
+}
+
+@media (max-width: 900px) {
+  .mio-devlog-shell {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .mio-devlog-intro {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mio-devlog-section {
+    padding: 70px 0;
+  }
+
+  .mio-devlog-post {
+    grid-template-columns: 42px minmax(0,1fr);
+    gap: 10px;
+    padding: 18px 15px;
+  }
+
+  .mio-devlog-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+  }
+
+  .mio-devlog-badge {
+    width: 100%;
+    margin-left: 0;
+    justify-self: start;
+  }
+
+  .mio-devlog-profile {
+    grid-template-columns: 70px minmax(0,1fr);
+  }
+
+  .mio-devlog-profile img {
+    width: 70px;
+    height: 70px;
+  }
+}

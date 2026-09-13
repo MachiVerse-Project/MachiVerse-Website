@@ -53,6 +53,20 @@
   pointer-events:none;
 }
 
+a.instance-cta {
+  cursor:pointer;
+  opacity:1;
+  text-decoration:none;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+
+a.instance-cta:hover,
+a.instance-cta:focus-visible {
+  border-color:rgba(12,134,193,.48);
+  box-shadow:0 14px 30px rgba(34,95,132,.13);
+  transform:translateY(-2px);
+}
+
 @media (max-width:760px) {
   .instance-cta {
     width:100%;

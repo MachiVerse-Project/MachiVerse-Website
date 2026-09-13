@@ -59,6 +59,12 @@ jobs:
                   'zh-TW': ('index-zh-tw.html', '/index-zh-tw.html'),
                   'ko': ('index-ko.html', '/index-ko.html'),
               },
+              'instance': {
+                  'ja': ('instance.html', '/instance.html'),
+                  'en': ('instance-en.html', '/instance-en.html'),
+                  'zh-TW': ('instance-zh-tw.html', '/instance-zh-tw.html'),
+                  'ko': ('instance-ko.html', '/instance-ko.html'),
+              },
               'developer': {
                   'ja': ('developer.html', '/developer.html'),
                   'en': ('developer-en.html', '/developer-en.html'),

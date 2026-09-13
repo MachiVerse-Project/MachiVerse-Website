@@ -6,10 +6,27 @@ if (!document.querySelector('link[data-header-shell-fix]')) {
   document.head.appendChild(headerShellStyle);
 }
 
-Promise.all([
+const worldFeedAnchor = document.querySelector('[data-world-feed-anchor]');
+const isOfficialInstancePage = document.body?.classList.contains('instance-page') && Boolean(worldFeedAnchor);
+
+if (!isOfficialInstancePage) {
+  document.querySelector('#world-feed')?.remove();
+  document.querySelector('link[data-social-feed-style]')?.remove();
+}
+
+const enhancementModules = [
   import('./site-enhancements-runtime.js'),
-  import('./footer-layout.js')
-])
+  import('./footer-layout.js'),
+  import('./mio-devlog.js'),
+  import('./instance-link.js'),
+  import('./instance-page-nav.js')
+];
+
+if (isOfficialInstancePage) {
+  enhancementModules.push(import('./social-feed.js'));
+}
+
+Promise.all(enhancementModules)
   .then(() => import('./review-enhancements.js'))
   .then(() => import('./hero-mio-overlay.js'))
   .catch((error) => console.error('MachiVerse site enhancements failed to load.', error));
