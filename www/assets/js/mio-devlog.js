@@ -239,11 +239,90 @@
     }
   };
 
-  fetch('https://content.machiverse.app/feeds/mio-devlog.json', { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
+  const DAILY_FEED_BASE_URL = 'https://content.machiverse.app/feeds/mio-devlog';
+  const DAILY_FEED_CONFIG_URL = `${DAILY_FEED_BASE_URL}/config.json`;
+  const LEGACY_FEED_URL = 'https://content.machiverse.app/feeds/mio-devlog.json';
+  const DISPLAY_DAYS = 7;
+  const TOKYO_TIME_ZONE = 'Asia/Tokyo';
+  const DAY_MS = 24 * 60 * 60 * 1000;
+
+  const getTokyoDateKey = (date) => {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: TOKYO_TIME_ZONE,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(date);
+    const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
+  };
+
+  const getRecentTokyoDateKeys = () => Array.from(
+    { length: DISPLAY_DAYS },
+    (_, index) => getTokyoDateKey(new Date(Date.now() - (index * DAY_MS)))
+  );
+
+  const fetchDailyPosts = async (dateKey) => {
+    const response = await fetch(
+      `${DAILY_FEED_BASE_URL}/posts/${dateKey}.json`,
+      { cache: 'no-store' }
+    );
+
+    if (response.status === 404) return [];
+    if (!response.ok) throw new Error(`${dateKey}: HTTP ${response.status}`);
+
+    const data = await response.json();
+    return Array.isArray(data?.posts) ? data.posts : [];
+  };
+
+  const loadDailyFeed = async () => {
+    const response = await fetch(DAILY_FEED_CONFIG_URL, { cache: 'no-store' });
+    if (response.status === 404) return null;
+    if (!response.ok) throw new Error(`config: HTTP ${response.status}`);
+
+    const config = await response.json();
+    if (!config?.enabled) return { ...config, posts: [] };
+
+    const results = await Promise.allSettled(
+      getRecentTokyoDateKeys().map(fetchDailyPosts)
+    );
+
+    const posts = [];
+    results.forEach((result) => {
+      if (result.status === 'fulfilled') {
+        posts.push(...result.value);
+      } else {
+        console.warn('MIO DEVLOG daily feed failed to load.', result.reason);
+      }
+    });
+
+    posts.sort((a, b) => {
+      const aTime = Date.parse(a?.date) || 0;
+      const bTime = Date.parse(b?.date) || 0;
+      return bTime - aTime;
+    });
+
+    return { ...config, posts };
+  };
+
+  const loadLegacyFeed = async () => {
+    const response = await fetch(LEGACY_FEED_URL, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`legacy: HTTP ${response.status}`);
+    return response.json();
+  };
+
+  const loadDevlog = async () => {
+    try {
+      const dailyFeed = await loadDailyFeed();
+      if (dailyFeed) return dailyFeed;
+    } catch (error) {
+      console.warn('MIO DEVLOG daily feed unavailable; using legacy feed.', error);
+    }
+
+    return loadLegacyFeed();
+  };
+
+  loadDevlog()
     .then(render)
     .catch((error) => console.error('MIO DEVLOG failed to load.', error));
 })();
